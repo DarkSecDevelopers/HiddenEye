@@ -34,21 +34,6 @@ if connected() == False:
 '''.format(RED, END))
      exit(0)
 
-def checkNgrok():
-    if path.isfile('Server/ngrok') == False:
-        print ('[*] Downloading Ngrok...')
-        ostype = systemos().lower()
-        if architecture()[0] == '64bit':
-            filename = 'ngrok-stable-{0}-amd64.zip'.format(ostype)
-        else:
-            filename = 'ngrok-stable-{0}-386.zip'.format(ostype)
-        url = 'https://bin.equinox.io/c/4VmDzA7iaHb/' + filename
-        download(url)
-        system('unzip ' + filename)
-        system('mv ngrok Server/ngrok')
-        system('rm -Rf ' + filename)
-        system('clear')
-checkNgrok()
 
 def end():
     system('clear')
@@ -277,13 +262,7 @@ def runPEnv():
     else:
         exit(0)
 
-def runNgrok():
-    system('./Server/ngrok http 1111 > /dev/null &')
-    sleep(10)
-    system('curl -s -N http://127.0.0.1:4040/status | grep "https://[0-9a-z]*\.ngrok.io" -oh > ngrok.url')
-    url = open('ngrok.url', 'r')
-    print("\n {0}[{1}*{0}]{1} Ngrok URL: {2}".format(CYAN, END, GREEN) + url.read() + "{1}".format(CYAN, END, GREEN))
-    url.close()
+
 
 def runServer():
     system("cd Server/www/ && sudo php -S 127.0.0.1:1111")
@@ -292,15 +271,13 @@ def runServer():
 
 if __name__ == "__main__":
     try:
-        runPEnv()
-        runNgrok()
+        runPEnv()        
         multiprocessing.Process(target=runServer).start()
         waitCreds()
 
 
 
 
-    except KeyboardInterrupt:
-        system('pkill -f ngrok')
+    except KeyboardInterrupt:        
         end()
         exit(0)
