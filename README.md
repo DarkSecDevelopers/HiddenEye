@@ -15,19 +15,19 @@
 
 ### PREREQUISITES ( Please verify if you have installed )
 
-* Python 2.7 
+* Python 3
 * Wget from Python
 * PHP
 * sudo
 ## :octocat: DEVELOPERS 
-1. An0nUD4Y
-2. usama7628674
+1. usama7628674 
+2. An0nUD4Y [ Instagram.com/its_udy ]
 3. UNDEADSEC
-4. alexmozzhakov
-5. Micrafast
+4. Micrafast 
+5. alexmozzhakov
 6. _______________________ (Waiting For Your Contribution)
 
-### TESTED BY UNDEADSEC ON
+### TESTED ON FOLLOWING
 * **Kali Linux - Rolling Edition**
 
 * **Parrot OS - Rolling Edition**
@@ -50,7 +50,11 @@ cd SocialFish
 ```
 
 ```
-sudo pip install -r requirements.txt
+sudo apt install python3-pip
+```
+
+```
+sudo pip3 install -r requirements.txt
 ```
 
 ```
@@ -58,7 +62,7 @@ chmod 777 SocialFish.py
 ```
 
 ```
-python SocialFish.py
+python3 SocialFish.py
 
 ```
    OR
@@ -67,7 +71,7 @@ python SocialFish.py
 ./SocialFish.py    
 
 ```
-### RUNNING (IN TERMUX)
+### RUNNING (FOR ANDROID USERS IN TERMUX)
 
 ```
 First install { Termux } from Playstore.
@@ -80,11 +84,11 @@ After opening Follow below commands One by one
 ```
 
 ```
-pkg install git python2 php curl
+pkg install git python php curl openssh grep
 
 ```
 ```
-pip2 install wget
+pip3 install wget
 
 ```
 ```
@@ -96,15 +100,15 @@ cd SocialFish
 
 ```
 ```
-pkg install grep
+chmod 777 SocialFish.py
 
 ```
 ```
-chmod 777 SocialFishTermux.py
+python SocialFish.py
 
-```
-```
-python2 SocialFishTermux.py
+or
+
+./SocialFish.py
 
 ```
 
@@ -113,14 +117,13 @@ python2 SocialFishTermux.py
 
 **+ Facebook:**
 - Traditional Facebook login page.
-- Advanced login with Facebook.
-- Mobile Facebook login page.
+- Advanced Poll Method.
 - Fake Security login with Facebook Page. 
 - Facebook messenger login page.
 
 **+ Google:**
 - Traditional Google login page.
-- Advanced login with Facebook.
+- Advanced Poll Method.
 
 **+ LinkedIn:**
 - Traditional LinkedIn login page.
@@ -145,19 +148,21 @@ python2 SocialFishTermux.py
 **1) LIVE ATTACK**
 - Now you will have live information about the victims such as : IP ADDRESS, Geolocation, ISP, Country, & many more.
 
+**2) COMPATIBILITY**
+- All the sites are mobile compatible.
+
 ### NEW PAGES
 <p align="center">
   
 **1) FACEBOOK PHISHING:**
 - Traditional Facebook login page.
-- Advanced login with Facebook.
-- Mobile Facebook login page.
+- Advanced Poll Method.
 - Fake Security login with Facebook Page. 
 - Facebook messenger login page.
         
  **2) INSTAGRAM PHISHING:**
  - Traditional Login Page
- - FAke instagram Autoliker Page [ REDIRECTS TO ORIGINAL AUTOLIKER PAGE AFTER SUBMIT ] 
+ - Fake instagram Autoliker Page [ REDIRECTS TO ORIGINAL AUTOLIKER PAGE AFTER SUBMIT ] 
 
  **3) SNAPCHAT PHISHING:**
  - Traditional Snapchat Login Page
@@ -170,6 +175,16 @@ python2 SocialFishTermux.py
  
  **6) MICROSOFT PHISHING:**
  - Traditional Microsoft-Live Web Login Page
+ 
+ **7) STEAM PHISHING:**
+ - Traditional Steam Web Login Page
+ 
+ **8) VK PHISHING:**
+ - Traditional VK Web Login Page
+ - Advanced Poll Method
+ 
+ **9) ICLOUD PHISHING:**
+ - Traditional iCloud Web Login Page
 </p>
 
 
@@ -180,6 +195,8 @@ python2 SocialFishTermux.py
 ![Shot](https://github.com/An0nUD4Y/SocialFish/blob/master/sc1.png)
 
 ![Shot](https://github.com/An0nUD4Y/SocialFish/blob/master/sc2.png)
+
+
 ## DISCLAIMER
 <p align="center">
   TO BE USED FOR EDUCATIONAL PURPOSES ONLY
@@ -197,12 +214,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
 Taken from [LICENSE](LICENSE).
 
 
+
+
 ## Help us with Donation
 If you liked the work and want to support us all, you can donate :D
 
 <img src="https://github.com/An0nUD4Y/SocialFish/blob/master/donation.png"></img>
 
 Bitcoin Address: qpuwdfv3p3gpufzctjapp0dp9z4kkk9x6cgl2hhghe
+
 
 ### VIDEO DEMO
 <p align="center">
