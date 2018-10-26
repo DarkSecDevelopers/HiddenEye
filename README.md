@@ -39,6 +39,12 @@
 
 * **MacOS High Sierra**
 
+* **Arch Linux**
+
+* **Manjaro XFCE Edition 17.1.12**
+
+* **Black Arch**
+
 ### CLONE
 ```
 git clone https://github.com/An0nUD4Y/SocialFish.git
@@ -72,7 +78,39 @@ python3 SocialFish.py
 ./SocialFish.py    
 
 ```
-### RUNNING (FOR ANDROID USERS IN TERMUX)
+### RUNNING (If distro based on Arch Linux)
+
+```
+cd SocialFish
+```
+
+```
+sudo pacman -Syu
+```
+```
+sudo pacman -S python-pip
+```
+
+```
+sudo pip3 install -r requirements.txt
+```
+
+```
+chmod 777 SocialFish.py
+```
+
+```
+python3 SocialFish.py
+
+```
+   OR
+   
+```
+./SocialFish.py    
+
+```
+
+### RUNNING (For Android users in Termux)
 
 ```
 First install { Termux } from Playstore.
