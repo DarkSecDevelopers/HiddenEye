@@ -14,6 +14,9 @@
 
 
 ### DEVELOPERS:-
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cd8aa9a99b5b4afd84e19a98b7b30211)](https://app.codacy.com/app/DarkSecDevelopers/HiddenEye?utm_source=github.com&utm_medium=referral&utm_content=DarkSecDevelopers/HiddenEye&utm_campaign=Badge_Grade_Dashboard)
+
 1) UNDEADSEC (https://github.com/UndeadSec)
 2) USAMA ABDUL SATTAR (https://github.com/usama7628674)
 3) ANONUD4Y (https://github.com/An0nUD4Y)
