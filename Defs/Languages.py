@@ -44,4 +44,4 @@ def languageSelector():
                 elif arg in["uk", "ukraine", "ukrainian", "uk_UA"]:
                     langUkrainian()
         else:
-            exit
+            exit()

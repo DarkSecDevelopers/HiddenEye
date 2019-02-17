@@ -1,7 +1,7 @@
 #Checks functions
 
 from urllib.request import urlopen
-from os import *
+from os import getuid
 from subprocess import check_output
 from platform import system as systemos, architecture
 from wget import download
@@ -53,10 +53,10 @@ def checkNgrok(): #Ngrok check
 
 def checkPermissions():
         if systemos() == 'Linux':
-            if os.getuid() == 0:
+            if getuid() == 0:
                 print("{0}Permissions granted!".format(GREEN))
             else:
-                raise PermissionError("{0}Permissions denied! Please run as '{1}sudo{0}'".format(RED, GREEN)) 
+                raise PermissionError("{0}Permissions denied! Please run as '{1}sudo{0}'".format(RED, GREEN))
         elif systemos() == 'Windows':
             if ctypes.windll.shell32.IsUserAnAdmin() != 0:
                 print("{0}Permissions granted!".format(GREEN))
