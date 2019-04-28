@@ -504,7 +504,7 @@ def runServer():
 def endMessage(): #Message when HiddenEye exit
         choice = input("\n\n{0}[{1}?{0}] Press '1' To Run Script Again {1}|{0} Press 'ENTER' To Exit\n{0} >> {2}".format(RED, DEFAULT, CYAN))
         if choice == '1': 
-           system('sudo python3 HiddenEye.py')
+           system('python HiddenEye.py')
         elif choice == '':
             system('clear')
             print (_('''
