@@ -1,0 +1,37 @@
+/* BUTTON THEME */
+.btn-theme {
+  background-color: #e26a5d;
+  color: #fff;
+}
+.btn-theme:hover,
+.btn-theme:focus,
+.btn-theme:active {
+  background-color: #189ec8;
+  color: #fff;
+}
+/* FEATURES  */
+.features-list .feature .feature-icon {
+  color: #e26a5d;
+}
+/* CONTACTS */
+.list-icons li a:hover,
+.list-icons li a:focus {
+  color: #23b7e5;
+}
+/* PLANS  */
+.plan {
+  background-color: #e26a5d;
+}
+.plan .plan-header {
+  background-color: #23b7e5;
+}
+.plan .plan-features > li > em {
+  color: #23b7e5;
+}
+.plan .plan-feature-disable {
+  color: #f05050 !important;
+}
+/* SITE TEXT */
+.featured-list > li {
+  color: #23b7e5;
+}
