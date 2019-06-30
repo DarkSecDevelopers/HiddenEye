@@ -14,17 +14,15 @@ RED, GREEN, DEFAULT = '\033[91m', '\033[1;32m', '\033[0m'
 installGetText()
 languageSelector()
 
-def zoomOut(): #Prompt For User To manually ZoomIn/ZoomOut in Termux.
-        print(' Please ZoomIn/ZoomOut Until Below Word Shows in Single Line\n')
-	print('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-	input(" ")
-
 def checkConnection(host='https://google.com'): #Connection check
     system('clear')
     try:
         urlopen(host, timeout=5)
         print(_("{0}HURRAY!! Internet is available.. We can Continue{1}").format(GREEN, DEFAULT))
-        return True
+        print(' Please ZoomIn/ZoomOut Until Below Word Shows in Single Line\n')
+	print('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+        input(" ")
+	return True
     except:
         return False
 
