@@ -13,13 +13,13 @@ RED, GREEN, DEFAULT = '\033[91m', '\033[1;32m', '\033[0m'
 
 installGetText()
 languageSelector()
-
+	
 def checkConnection(host='https://google.com'): #Connection check
     system('clear')
     try:
         urlopen(host, timeout=5)
-        print(_("{0}HURRAY!! Internet is available.. We can Continue{1}\n Please ZoomIn/ZoomOut To fit on Device Screen.").format(GREEN, DEFAULT))
-	return True
+        print(_("{0}HURRAY!! Internet is available.. We can Continue{1}\n Please ZoomIn/ZoomOut To Fit on Your Device Screen.").format(GREEN, DEFAULT))
+        return True
     except:
         return False
 
@@ -58,7 +58,7 @@ def checkPermissions():
                 print("{0}Permissions granted!".format(GREEN))
             else:
                 print("{0}If possible! Please run as administrator!".format(RED))
-                print("{0}Still We can continue, But May occur errors !! ".format(GREEN)) 
+                print("{0}Still We can continue, But May occur errors !! ".format(GREEN))
         elif systemos() == 'Windows':
             if ctypes.windll.shell32.IsUserAnAdmin() != 0:
                 print("{0}Permissions granted!".format(GREEN))
