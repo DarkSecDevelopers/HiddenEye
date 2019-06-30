@@ -14,6 +14,10 @@ RED, GREEN, DEFAULT = '\033[91m', '\033[1;32m', '\033[0m'
 installGetText()
 languageSelector()
 
+def zoomOut(): #Prompt For User To manually ZoomIn/ZoomOut in Termux.
+        print(' Please ZoomIn/ZoomOut Until Below Word Shows in Single Line\n')
+	print('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+	input(" ")
 
 def checkConnection(host='https://google.com'): #Connection check
     system('clear')
