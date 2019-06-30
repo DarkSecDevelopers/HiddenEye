@@ -19,8 +19,8 @@ def checkConnection(host='https://google.com'): #Connection check
     try:
         urlopen(host, timeout=5)
         print(_("{0}HURRAY!! Internet is available.. We can Continue{1}").format(GREEN, DEFAULT))
-        print(' Please ZoomIn/ZoomOut Until Below Word Shows in Single Line\n')
-	print('''+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++''')
+        print(" \nPlease ZoomIn/ZoomOut Until Below Word Shows in Single Line\n")
+	print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         input(" ")
 	return True
     except:
