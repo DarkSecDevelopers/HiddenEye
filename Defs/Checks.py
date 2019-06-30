@@ -19,7 +19,6 @@ def checkConnection(host='https://google.com'): #Connection check
     try:
         urlopen(host, timeout=5)
         print(_("{0}HURRAY!! Internet is available.. We can Continue{1}\n Please ZoomIn/ZoomOut To fit on Device Screen.").format(GREEN, DEFAULT))
-	input(" ")
 	return True
     except:
         return False
