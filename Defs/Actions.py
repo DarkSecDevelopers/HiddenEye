@@ -524,9 +524,9 @@ def runServer():
 def endMessage(): #Message when HiddenEye exit
         choice = input("\n\n{0}[{1}?{0}] Press '1' To Run Script Again {1}|{0} Press 'ENTER' To Exit\n{0} >> {2}".format(MAIN0, MAIN4, MAIN2))
         if choice == '1':
-		if not system('sudo python3 HiddenEye.py') == "0":
-			print("Trying tsudo...")
-			system('tsudo python3 HiddenEye.py')
+            if not system('sudo python3 HiddenEye.py') == "0":
+                print("Trying tsudo...")
+		system('tsudo python3 HiddenEye.py')
         elif choice == '':
             system('clear')
             print (_('''
