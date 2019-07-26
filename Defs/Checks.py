@@ -63,5 +63,10 @@ def checkPermissions():
                 print("{0}Permissions granted!".format(GREEN))
             else:
                 raise PermissionError("{0}Permissions denied! Please run as Administrator".format(RED))
+        elif systemos() == 'Darwin':
+            if os.getuid() == 0:
+                print("{0}Permissions granted!".format(GREEN))
+            else:
+                raise PermissionError("{0}Permissions denied! Please run as '{1}sudo{0}'".format(RED, GREEN)) 
         else:
             raise PermissionError("{0}Permissions denied! Unexpected platform".format(RED))

