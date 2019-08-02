@@ -1,8 +1,8 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: ''
+title: 'Steam guard codes logger'
+labels: 'I want to test the Steam phishing but I can't because it only reads the credentials not the steam guard code which I have.'
 assignees: ''
 
 ---
