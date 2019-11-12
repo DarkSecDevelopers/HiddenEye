@@ -7,9 +7,6 @@
 <p align="center">
       Modern Phishing Tool With Advanced Functionality 
 </p>
-<p align="center">
-     PHISHING | KEYLOGGER | INFORMATION_COLLECTOR | ALL_IN_ONE_TOOL | SOCIALENGINEERING  
-</p>
 
 <p align="center">
   <a href="https://github.com/darksecdevelopers"><img title="Open Source Love" src="https://badges.frapsoft.com/os/v3/open-source.svg?v=102" ></a>
@@ -25,9 +22,9 @@
 4) UNDEADSEC (https://github.com/UndeadSec)
 5) Micrafast (https://github.com/Micrafast)
 6) Moltivie (https://github.com/Moltivie)
-7) ___________ (WAITING FOR YOU)
+7) endbehavi0r (https://github.com/endbehavi0r)
 
-# AVAILABLE TUNNELLING OPTIONS**
+# Tunneling Options
 1) LOCALXPOSE (https://localxpose.io)
 2) SERVEO (https://serveo.net/)
 3) NGROK (https://ngrok.com/)
@@ -40,7 +37,7 @@
 
 ## CREDIT:-
 * Anonud4y ( I don't remember if i have done Anything )
-* Usama ( A Most active Developer)
+* Usama ( Most active Developer)
 * sTiKyt ( Guy Who recustomized everything )
 * UNDEADSEC (For His wonderful repo socialfish which motivated us a lot)
 * TheLinuxChoice ( For His Tools Phishing Pages ) 
@@ -62,6 +59,8 @@
 * Wget from Python
 * PHP
 * sudo
+* NodeJS
+* npm
 
 # FOUND A BUG ? / HAVE ANY ISSUE ? :- (Read This)
 * Check closed & solved issues/bugs before opening new.
