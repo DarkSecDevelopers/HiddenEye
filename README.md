@@ -42,7 +42,7 @@
 * UNDEADSEC (For His wonderful repo socialfish which motivated us a lot)
 * TheLinuxChoice ( For His Tools Phishing Pages ) 
 
-### TESTED ON FOLLOWING:-
+### Tested on
 * **Kali Linux - Rolling Edition**
 * **Parrot OS - Rolling Edition**
 * **Linux Mint - 18.3 Sylvia**
@@ -54,7 +54,7 @@
 * **Userland app (For Android Users)**
 
 
-### PREREQUISITES ( Please verify if you have installed )
+### Prerequisites
 * Python 3
 * Wget from Python
 * PHP
@@ -62,14 +62,14 @@
 * NodeJS
 * npm
 
-# FOUND A BUG ? / HAVE ANY ISSUE ? :- (Read This)
+# Bug Filing
 * Check closed & solved issues/bugs before opening new.
 * Make sure your issue is related to the codes and resources of this repository.
 * Its your responsibility to response on your opened issues.
 * If we don't found user response on his/her issue in the particular time interval , Then we have to close that issue.
 * Do Not Spam or Advertise & Respect Everyone.
 
-### WHAT'S NEW FEATURES
+### What's new
 **1) LIVE ATTACK**
 - Now you will have live information about the victims such as : IP ADDRESS, Geolocation, ISP, Country, & many more.
 
