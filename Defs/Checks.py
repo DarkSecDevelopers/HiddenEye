@@ -1,5 +1,3 @@
-#Checks functions
-
 from urllib.request import urlopen
 from os import *
 from subprocess import check_output
@@ -14,11 +12,11 @@ RED, GREEN, DEFAULT = '\033[91m', '\033[1;32m', '\033[0m'
 installGetText()
 languageSelector()
 	
-def checkConnection(host='https://google.com'): #Connection check
+def checkConnection(host='https://google.com'):
     system('clear')
     try:
         urlopen(host, timeout=10)
-        print(_("{0}HURRAY!! Internet is available.. We can Continue{1}").format(GREEN, DEFAULT))
+        print(_("{0}[internet connection is alive]{1}").format(GREEN, DEFAULT))
         return True
     except:
         return False
@@ -66,11 +64,12 @@ def checkLocalxpose(): #Localxpose check
                 filename = 'loclx-linux-386.zip'.format(ostype)
         url = 'https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/'+filename
         download(url)
-        system('unzip loclx*.zip && rm loclx*.zip')
-        system('mv loclx* loclx')
-        system('mv loclx Server/')
-        system('clear')
-        
+        system('unzip loclx*.zip && rm loclx*.zip && mv loclx* loclx && mv loclx Server/ && clear')
+
+def checkLT():
+    if path.isfile('/usr/local/bin/lt') == False:
+        print(_('[downloading localtunnel]'))
+        system('apt -y install npm && npm cache clean -f && npm install -g n && n stable && npm install -g localtunnel && clear')
 def checkPermissions():
         if systemos() == 'Linux':
             if os.getuid() == 0:
