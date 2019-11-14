@@ -47,5 +47,5 @@ if __name__ == "__main__":
         getCredentials(port)
 
     except KeyboardInterrupt:
-        endMessage()
+        emailPrompt3()
         exit(0)
