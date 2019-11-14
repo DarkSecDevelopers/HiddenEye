@@ -70,7 +70,10 @@ def checkLocalxpose(): #Localxpose check
         system('mv loclx* loclx')
         system('mv loclx Server/')
         system('clear')
-        
+def checkLT(): #Localtunnel check
+    if not path.isfile('/usr/local/bin/lt'):
+        print(_('[downloading localtunnel]'))
+        system('apt -y install npm;npm cache clean -f; npm install -g n;n stable;npm install -g localtunnel;clear')
 def checkPermissions():
         if systemos() == 'Linux':
             if os.getuid() == 0:
