@@ -217,24 +217,14 @@ def runLocalxpose(port):
 
 def runLT(port):
     s=input(('{1}[leave blank for random]\n{0}hiddeneye(localtunnel/subdomain)> {2}').format(MAIN0,MAIN4,MAIN2))
-    if s=='':
-        try:
-            system('lt -p {0} > link.url &'.format(port))
-            sleep(3)
-            output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)
-            url = str(output).strip("b ' \ n r")
-            print("\n{2}[127.0.0.1:{3}]{0}{1} -> {2}[{4}]{0}".format(MAIN0, MAIN2, MAIN3, port, url))
-        except CalledProcessError:
-            pass
-    else:
-        try:
-            system('lt -p {0} -s {1} &'.format(port,(s if '.localtunnel.me' in s else (s+'.localtunnel.me'))))
-            sleep(3)
-            output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)
-            url = str(output).strip("b ' \ n r")
-            print("\n{2}[127.0.0.1:{3}]{0}{1} -> {2}[{4}]{0}".format(MAIN0, MAIN2, MAIN3, port, url))
-        except CalledProcessError:
-            print('\n{0}error[invalid/preoccupied]{0}'.format(MAIN0, MAIN4))
+    try:
+        system('lt -p '+port+((' -s '+s) if s!='' else s)+' > link.url &')
+        sleep(3)
+        print("\n{2}[127.0.0.1:{3}]{0}{1} -> {2}[{4}]{0}".format(MAIN0, MAIN2, MAIN3, port, str(check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)).strip("b ' \ n r")))
+    except CalledProcessError:
+        print('\n{0}error[invalid/preoccupied]{0}'.format(MAIN0))
+        runLT(port)
+
 def customLocalxpose(port):
 
     print(_('''
