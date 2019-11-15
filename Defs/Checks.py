@@ -72,10 +72,19 @@ def checkLocalxpose(): #Localxpose check
         system('mv loclx Server/')
         system('clear')
 def checkLT(): #Localtunnel check
-    if not path.isfile('Server/lt'):
         print(_('[downloading localtunnel]'))
-        system('wget https://wa4e.com/downloads/lt-{0}.zip; unzip lt*.zip && rm lt*.zip'.format(systemos().lower()))
-        system('mv lt* lt; chmod +x lt; mv lt Server/')
+        if not system('lt')!=256:
+            if 'Android' in str(check_output(('uname', '-a'))) or 'arm' in str(check_output(('uname', '-a'))):system('apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel-termux')
+            elif systemos()=='Windows': #windows
+                download('https://nodejs.org/dist/v12.13.0/node-v12.13.0-x{0}.msi'.format('64' if architecture()[0]=='64bit' else '86'))
+                print('Select NodeJS and Node Package Manager (npm) for installation.')
+                system('node-v12.13.0-x{0}.msi'.format('64' if architecture()[0]=='64bit' else '86'))
+                system('npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel')
+            else:
+                ch=input('1 npm installation\n2 Binary installation\nHiddenEye>>> ')
+                if ch=='1':system('apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel;echo 1 > .ltrc')#linux
+                elif ch=='2':system('wget https://wa4e.com/downloads/lt-linux.zip;unzip lt-linux.zip;chmod +x lt*;mv lt* Server/lt;echo 0 > .ltrc')
+                else: checkLT()
         system('clear')
 def checkPermissions():
         if systemos() == 'Linux':
