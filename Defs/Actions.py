@@ -216,10 +216,11 @@ def runLocalxpose(port):
         return runLocalxpose(port)        
 
 def runLT(port):
+    with open('.ltrc','r') as f:r=int(f.read())
     s=input(('{1}[leave blank for random]\n{0}hiddeneye(localtunnel/subdomain)> {2}').format(MAIN0,MAIN4,MAIN2))
     try:
-        system('Server/lt -p '+port+((' -s '+s) if s!='' else s)+' > link.url &')
-        sleep(8)
+        system('{0}lt -p '.format('' if r>0 else 'Server/')+port+((' -s '+s) if s!='' else s)+' > link.url &')
+        sleep(3)
         print("{2}[https://127.0.0.1:{3}]{0}{1} -> {2}[{4}]{0}".format(MAIN0, MAIN2, MAIN3, port, str(check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)).strip("b ' \ n r")))
     except CalledProcessError:
         print('{0}error[invalid/preoccupied]{0}'.format(MAIN0))
