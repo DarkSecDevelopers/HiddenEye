@@ -83,7 +83,7 @@ def checkLT(): #Localtunnel check
             else:
                 ch=input('1 npm installation\n2 Binary installation\nHiddenEye>>> ')
                 if ch=='1':system('apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel;echo 1 > .ltrc')#linux
-                elif ch=='2':system('wget https://wa4e.com/downloads/lt-linux.zip;unzip lt-linux.zip;chmod +x lt*;mv lt* Server/lt;echo 0 > .ltrc')
+                elif ch=='2':system('wget https://wa4e.com/downloads/lt-{0}.zip;unzip lt-{0}.zip;chmod +x lt*;mv lt* Server/lt;echo 0 > .ltrc'.format(systemos().lower()))
                 else: checkLT()
         system('clear')
 def checkPermissions():
