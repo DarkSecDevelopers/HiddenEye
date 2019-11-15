@@ -23,6 +23,7 @@ languageSelector()
 checkConnection()
 checkLocalxpose()
 checkNgrok()
+checkLT()
 ifSettingsNotExists()
 readConfig()
 
