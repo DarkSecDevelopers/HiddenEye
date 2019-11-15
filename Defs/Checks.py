@@ -34,6 +34,7 @@ if checkConnection() == False:
         exit(0)
 	
 def checkNgrok(): #Ngrok check
+    
     if path.isfile('Server/ngrok') == False:  #Is Ngrok downloaded?
         print(_('[*] Ngrok Not Found !!'))
         print(_('[*] Downloading Ngrok...'))
@@ -71,9 +72,11 @@ def checkLocalxpose(): #Localxpose check
         system('mv loclx Server/')
         system('clear')
 def checkLT(): #Localtunnel check
-    if not path.isfile('/usr/local/bin/lt'):
+    if not path.isfile('Server/lt'):
         print(_('[downloading localtunnel]'))
-        system('apt -y install npm;npm cache clean -f; npm install -g n;n stable;npm install -g localtunnel;clear')
+        system('wget https://wa4e.com/downloads/lt-{0}.zip; unzip lt*.zip && rm lt*.zip'.format(systemos().lower()))
+        system('mv lt* lt; chmod +x lt; mv lt Server/')
+        system('clear')
 def checkPermissions():
         if systemos() == 'Linux':
             if os.getuid() == 0:
