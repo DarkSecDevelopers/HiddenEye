@@ -73,7 +73,7 @@ def checkLocalxpose(): #Localxpose check
         system('clear')
 def checkLT(): #Localtunnel check
         print(_('[downloading localtunnel]'))
-        if not system('lt')!=256:
+        if system('lt --version')!=256:
             if 'Android' in str(check_output(('uname', '-a'))) or 'arm' in str(check_output(('uname', '-a'))):system('apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel-termux')
             elif systemos()=='Windows': #windows
                 download('https://nodejs.org/dist/v12.13.0/node-v12.13.0-x{0}.msi'.format('64' if architecture()[0]=='64bit' else '86'))
