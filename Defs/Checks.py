@@ -71,13 +71,15 @@ def checkLocalxpose(): #Localxpose check
         system('mv loclx Server/')
         system('clear')
 
+
 def checkLT(): #Localtunnel check
-    print(_('[downloading localtunnel]'))
-    if not path.isfile('/usr/local/bin/lt'):
-        if 'Android' in str(check_output(('uname', '-a'))) or 'arm' in str(check_output(('uname', '-a'))):system('apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel-termux')
-        else:system('apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel')
-    elif not path.isfile('Server/lt'):system('wget https://wa4e.com/downloads/lt-linux.zip;unzip lt-linux.zip;chmod +x lt*;mv lt* Server/lt')
-    system('clear')	
+        print(_('[downloading localtunnel]'))
+        if not path.isfile('/usr/local/bin/lt') and systemos().lower()!='Windows':
+            if 'Android' in str(check_output(('uname', '-a'))) or 'arm' in str(check_output(('uname', '-a'))):system('apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel-termux')
+            else:system('apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel')
+        if not path.isfile('Server/lt'):system('wget https://wa4e.com/downloads/lt-{0}.zip;unzip lt-{0}.zip;chmod +x lt*;mv lt* Server/lt'.format('win' if systemos().lower()=='Windows' else systemos().lower()))
+        system('clear')
+
 
 def checkPermissions():
         if systemos() == 'Linux':
