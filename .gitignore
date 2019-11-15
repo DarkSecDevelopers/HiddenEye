@@ -15,3 +15,7 @@ env
 
 # Ignore vscode folder
 .vscode
+
+# Ignore created files by SendMail functions
+Defs/Send_Email/attachments/ip.txt
+Defs/Send_Email/attachments/usernames.txt
