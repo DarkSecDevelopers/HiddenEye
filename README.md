@@ -13,7 +13,7 @@
 
 <p align="center">
   <a href="https://github.com/darksecdevelopers"><img title="Open Source Love" src="https://badges.frapsoft.com/os/v3/open-source.svg?v=102" ></a>
-  <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.4.1&x2=0" ></a>
+  <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.5.0&x2=0" ></a>
   <a href="https://www.codetriage.com/darksecdevelopers/hiddeneye"><img title="Open Source Helpers" src="https://www.codetriage.com/darksecdevelopers/hiddeneye/badges/users.svg" ></a>
 </p>
 
@@ -25,13 +25,15 @@
 4) UNDEADSEC (https://github.com/UndeadSec)
 5) Micrafast (https://github.com/Micrafast)
 6) Moltivie (https://github.com/Moltivie)
-7) ___________ (WAITING FOR YOU)
+7) endbehavi0r (https://github.com/endbehavi0r)
+8) ___________ (WAITING FOR YOU)
 
 # AVAILABLE TUNNELLING OPTIONS**
 1) LOCALXPOSE (https://localxpose.io)
 2) SERVEO (https://serveo.net/)
 3) NGROK (https://ngrok.com/)
-
+4) LOCALTUNNEL (Package Version) (https://localtunnel.me)
+5) LOCALTUNNEL (Binary Version) (https://www.wa4e.com/downloads/)
 
 # SCREENSHOT (Android-Userland)
 ![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Screenshot.png)
