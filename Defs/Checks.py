@@ -3,7 +3,6 @@ import ctypes
 from os import system, getuid, path
 from time import sleep
 import requests
-from urllib.request import urlopen, urlretrieve
 from platform import system as systemos, architecture
 from subprocess import check_output
 from Defs.Languages import *
@@ -17,12 +16,13 @@ languageSelector()
 def checkConnection(host='https://google.com'):  # Connection check
     system('clear')
     try:
-        urlopen(host, timeout=10)
-        print("{0}HURRAY!! Internet is available.. We can Continue{1}".format(
-            GREEN, DEFAULT))
-        print("\n\n{0}Wait! Checking for Neccesary Packages{1}...\n ".format(
-            GREEN, DEFAULT))
-        return True
+        req = requests.get(host, timeout=10)
+        if req.status_code == 200:
+            print("{0}HURRAY!! Internet is available.. We can Continue{1}".format(
+                GREEN, DEFAULT))
+            print("\n\n{0}Wait! Checking for Neccesary Packages{1}...\n ".format(
+                GREEN, DEFAULT))
+            return True
     except:
         return False
 
