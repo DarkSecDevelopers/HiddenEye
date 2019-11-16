@@ -1,8 +1,13 @@
 import subprocess
 import ctypes
+<<<<<<< HEAD
 from os import system, getuid, path
 from time import sleep
 import requests
+=======
+from os import *
+from time import sleep
+>>>>>>> cfac68c0a9a5cb0400482f3fbb991c6bfab75034
 from urllib.request import urlopen, urlretrieve
 from platform import system as systemos, architecture
 from subprocess import check_output
