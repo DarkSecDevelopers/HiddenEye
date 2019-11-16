@@ -1,32 +1,44 @@
-#Python3
-#Language code by sTiKyt
+# Python3
+# Language code by sTiKyt
 import sys
 import gettext
 from Defs.Configurations import readConfig
 
+
 def installGetText():
     gettext.install('hiddeneye', './locale')
 
+
 def langRussian():
-    ru = gettext.translation('hiddeneye',localedir='./locale', languages=['ru'])
+    ru = gettext.translation(
+        'hiddeneye', localedir='./locale', languages=['ru'])
     ru.install()
 
+
 def langUkrainian():
-    uk = gettext.translation('hiddeneye',localedir='./locale', languages=['uk'])
+    uk = gettext.translation(
+        'hiddeneye', localedir='./locale', languages=['uk'])
     uk.install()
+
 
 def langSpanish():
     """Install Spanish Language."""
-    es = gettext.translation('hiddeneye',localedir='./locale', languages=['es'])
+    es = gettext.translation(
+        'hiddeneye', localedir='./locale', languages=['es'])
     es.install()
 
+
 def langEnglish():
-    en = gettext.translation('hiddeneye',localedir='./locale', languages=['en'])
+    en = gettext.translation(
+        'hiddeneye', localedir='./locale', languages=['en'])
     en.install()
 
+
 def langItalian():
-    it = gettext.translation('hiddeneye',localedir='./locale', languages=['it'])
+    it = gettext.translation(
+        'hiddeneye', localedir='./locale', languages=['it'])
     it.install()
+
 
 def checkAndSetLanguage():
     language = readConfig().get("Settings", "Language")

@@ -91,7 +91,8 @@ def checkLT():  # Ask to install npm,node.js,localtunnel(packages).
     if 256 == system('which lt > /dev/null'):
         system('clear')
         print("{0}[{1}?{0}] Do You Want To Install LOCALTUNNEL(Tunneling Service) Packages.\n{0}[{1}*{0}]{1} May take time , Skip if not wants to use LocalTunnel(Package Version).".format(RED, GREEN, DEFAULT))
-        choice = input(" \n({1}Y{2}/{2}(N)>> {2}".format(RED, GREEN, DEFAULT)).upper()
+        choice = input(
+            " \n({1}Y{2}/{2}(N)>> {2}".format(RED, GREEN, DEFAULT)).upper()
         if choice == 'Y':
             system('clear')
             installLT()
@@ -121,7 +122,8 @@ def installLT():  # Localtunnel check
 def checkagainLT():  # Check if Localtunnel installed correctly or not.
     if 256 == system('which lt > /dev/null'):
         system('clear')
-        print('{1}[ERROR]: LocalTunnel packages haven\'t been installed correctly...{0}'.format(DEFAULT, RED))
+        print('{1}[ERROR]: LocalTunnel packages haven\'t been installed correctly...{0}'.format(
+            DEFAULT, RED))
         print('')
         input('[^] Press Enter To Go Back To installation..')
         checkLT()
@@ -136,7 +138,8 @@ def checkPermissions():
         if getuid() == 0:
             print("{0}Permissions granted!".format(GREEN))
         else:
-            print("{0}Permissions denied! Please run as '{1}sudo{0}'".format(RED, GREEN))
+            print(
+                "{0}Permissions denied! Please run as '{1}sudo{0}'".format(RED, GREEN))
             exit()
     else:
         print("{0}Windows system not yet compatible. Make sure you're using a *Unix OS.{1}".format(RED, DEFAULT))
