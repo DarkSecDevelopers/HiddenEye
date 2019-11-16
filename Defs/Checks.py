@@ -1,13 +1,8 @@
 import subprocess
 import ctypes
-<<<<<<< HEAD
 from os import system, getuid, path
 from time import sleep
 import requests
-=======
-from os import *
-from time import sleep
->>>>>>> cfac68c0a9a5cb0400482f3fbb991c6bfab75034
 from urllib.request import urlopen, urlretrieve
 from platform import system as systemos, architecture
 from subprocess import check_output
@@ -56,7 +51,9 @@ def checkNgrok():  # Ngrok check
             else:
                 filename = 'ngrok-stable-{0}-386.zip'.format(ostype)
         url = 'https://bin.equinox.io/c/4VmDzA7iaHb/' + filename
-        urlretrieve(url, filename)
+        req = requests.get(url)
+        with open(filename, "wb") as file_obj:
+            file_obj.write(req.content)
         system('unzip ' + filename)
         system('mv ngrok Server/ngrok')
         system('rm ' + filename)
@@ -76,7 +73,9 @@ def checkLocalxpose():  # Localxpose check
             else:
                 filename = 'loclx-linux-386.zip'.format(ostype)
         url = 'https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/'+filename
-        urlretrieve(url, "loclx-linux-download.zip")
+        req = requests.get(url)
+        with open("loclx-linux-download.zip", "wb") as file_obj:
+            file_obj.write(req.content)
         system('unzip loclx-linux-download.zip && rm loclx-linux-download.zip')
         system('mv loclx-linux-* loclx && mv loclx Server/')
         system('clear')
