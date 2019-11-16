@@ -85,7 +85,6 @@ def checkbinaryLT():  # LocalTunnel Binary File check.
     if path.isfile('Server/lt') == False:  # Is LocalTunnel downloaded?
         print('[*] LocalTunnel Binary File Not Found !!')
         print('[*] Downloading LocalTunnel...')
-        # req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         url = "https://www.wa4e.com/downloads/lt-linux.zip"
         req = requests.get(url)
         with open("lt-linux.zip", "wb") as file_obj:
