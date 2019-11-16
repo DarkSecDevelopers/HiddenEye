@@ -78,7 +78,7 @@ def checkbinaryLT(): #LocalTunnel Binary File check.
     if path.isfile('Server/lt') == False:  #Is LocalTunnel downloaded?
         print(_('[*] LocalTunnel Binary File Not Found !!'))
         print(_('[*] Downloading LocalTunnel...'))
-        system("wget https://www.wa4e.com/downloads/lt-linux.zip")
+        system("apt install wget && pkg install wget && wget https://www.wa4e.com/downloads/lt-linux.zip")
         system('unzip lt*.zip && rm lt*.zip && mv lt* lt && mv lt Server/lt ')
         system('clear')
 	    
