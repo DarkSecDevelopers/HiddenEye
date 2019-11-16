@@ -61,7 +61,6 @@
 
 ### PREREQUISITES ( Please verify if you have installed )
 * Python 3
-* Wget from Python
 * PHP
 * sudo
 

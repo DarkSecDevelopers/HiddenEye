@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 #
-#HiddenEye by Open Source Community
+# HiddenEye by https://github.com/DarkSecDevelopers
 #
+
 import multiprocessing
 import gettext
-from os import system,environ
 import sys
 import ssl
+from os import system,environ
+
 if(not environ.get('PYTHONHTTPSVERIFY',"") and getattr(ssl,'_create_unverified_context',None)):
     ssl._create_default_https_context=ssl._create_unverified_context
     
@@ -50,4 +52,4 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         emailPrompt3()
-        exit(0)
+        exit()

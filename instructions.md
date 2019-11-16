@@ -130,18 +130,15 @@ After opening Follow below commands One by one
 pkg install git python php curl openssh grep
 
 ```
-```
-pip3 install wget
 
-```
 ```
 git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
-
 ```
+
 ```
 chmod 777 HiddenEye
-
 ```
+
 ```
 cd HiddenEye
 ```
@@ -166,6 +163,6 @@ After opening Copy and run this Single Command.
 
 ```
 ```
-pkg install git python php curl openssh grep && pip3 install wget && git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git && chmod 777 HiddenEye && cd HiddenEye && python HiddenEye.py
+pkg install git python php curl openssh grep && git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git && chmod 777 HiddenEye && cd HiddenEye && python HiddenEye.py
 
 ```

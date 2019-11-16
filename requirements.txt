@@ -1,2 +1,1 @@
-python3-wget
 requests
