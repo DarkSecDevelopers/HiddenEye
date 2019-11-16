@@ -1,7 +1,8 @@
 import subprocess
 import ctypes
-from os import *
+from os import system, getuid, path
 from time import sleep
+import requests
 from urllib.request import urlopen, urlretrieve
 from platform import system as systemos, architecture
 from subprocess import check_output
@@ -80,8 +81,11 @@ def checkbinaryLT():  # LocalTunnel Binary File check.
     if path.isfile('Server/lt') == False:  # Is LocalTunnel downloaded?
         print('[*] LocalTunnel Binary File Not Found !!')
         print('[*] Downloading LocalTunnel...')
+        # req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         url = "https://www.wa4e.com/downloads/lt-linux.zip"
-        urlretrieve(url, "lt-linux.zip")
+        req = requests.get(url)
+        with open("lt-linux.zip", "wb") as file_obj:
+            file_obj.write(req.content)
         system("unzip lt-linux.zip && rm lt-linux.zip")
         system("mv lt* lt && mv lt Server/lt ")
         system('clear')
