@@ -2,11 +2,13 @@
 
 from urllib.request import urlopen
 from os import *
+from time import sleep
 from subprocess import check_output
 from platform import system as systemos, architecture
 from wget import download
 from Defs.Languages import *
 import os
+import subprocess
 import ctypes
 
 RED, GREEN, DEFAULT = '\033[91m', '\033[1;32m', '\033[0m'
@@ -19,6 +21,7 @@ def checkConnection(host='https://google.com'): #Connection check
     try:
         urlopen(host, timeout=10)
         print(_("{0}HURRAY!! Internet is available.. We can Continue{1}").format(GREEN, DEFAULT))
+        print(_("\n\n{0}Wait! Checking for Neccesary Packages{1}...\n ").format(GREEN, DEFAULT))
         return True
     except:
         return False
@@ -70,6 +73,53 @@ def checkLocalxpose(): #Localxpose check
         system('mv loclx* loclx')
         system('mv loclx Server/')
         system('clear')
+
+def checkbinaryLT(): #LocalTunnel Binary File check.
+    if path.isfile('Server/lt') == False:  #Is LocalTunnel downloaded?
+        print(_('[*] LocalTunnel Binary File Not Found !!'))
+        print(_('[*] Downloading LocalTunnel...'))
+        system("apt install wget && pkg install wget && wget https://www.wa4e.com/downloads/lt-linux.zip")
+        system('unzip lt*.zip && rm lt*.zip && mv lt* lt && mv lt Server/lt ')
+        system('clear')
+	    
+def checkLT(): #Ask to install npm,node.js,localtunnel(packages).
+    if 256 == system('which lt > /dev/null'):
+       system('clear')
+       print(_("{0}[{1}?{0}] Do You Want To Install LOCALTUNNEL(Tunneling Service) Packages.\n{0}[{1}*{0}]{1} May take time , Skip if not wants to use LocalTunnel(Package Version).").format(RED, GREEN, DEFAULT))
+       choice = input(" \n({1}Y{2}/{2}(N)>> {2}".format(RED, GREEN, DEFAULT))
+       if choice == 'y' or choice == 'Y':
+          system('clear')
+          installLT()
+       elif choice == 'n' or choice == 'N':
+          print(_("\n{0}[{1}!{0}]{0} You can not use LocalTunnel(Package Version).\n{0}[{1}!{0}]{0} But still You Can Use LocalTunnel(Binary Version).\n\n\n").format(RED, GREEN, DEFAULT))
+          input('Press Enter To Continue')
+          system('clear')
+       else:
+          return checkLT()
+    else:
+       print("[*] LocalTunnel Packages Found !!")
+       sleep(2)
+       system('clear')
+        	    
+def installLT(): #Localtunnel check
+        print(_('[*] Installing LocalTunnel...'))
+        if 'Android' in str(check_output(('uname', '-a'))) or 'arm' in str(check_output(('uname', '-a'))):
+            system("apt-get -y update;apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel-termux;clear")
+            checkagainLT()
+        else:
+            system("apt-get -y update;apt -y install nodejs npm;npm cache clean -f;npm i -g n;n stable;npm i -g localtunnel;clear")
+            checkagainLT()
+
+def checkagainLT(): #Check if Localtunnel installed correctly or not.
+    if 256 == system('which lt > /dev/null'):
+        system('clear')
+        print('[ERROR]: LocalTunnel Packages Does Not Installed Correctly...')
+        print('')
+        input('[^] Press Enter To Go Back To installation..')
+        checkLT()
+    else:
+        print('[SUCCESS] LocalTunnel Installed.')
+        sleep(2)
         
 def checkPermissions():
         if systemos() == 'Linux':

@@ -23,6 +23,8 @@ languageSelector()
 checkConnection()
 checkLocalxpose()
 checkNgrok()
+checkbinaryLT()
+checkLT()
 ifSettingsNotExists()
 readConfig()
 
