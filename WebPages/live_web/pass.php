@@ -1,7 +1,8 @@
-    ﻿<?php
+<?php
+    session_start();
 	 if(isset($_POST["Email"])){
 	 		$_SESSION["Email"]=$_POST["Email"];
-	 }
+     } 
 ?>
 
 
