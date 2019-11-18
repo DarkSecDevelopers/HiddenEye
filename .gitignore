@@ -19,3 +19,6 @@ env
 # Ignore created files by SendMail functions
 Defs/Send_Email/attachments/ip.txt
 Defs/Send_Email/attachments/usernames.txt
+
+# Ignore created files by Xbox WebPage
+WebPages/xbox/ip.txt
