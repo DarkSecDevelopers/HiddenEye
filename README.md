@@ -13,7 +13,7 @@
 
 <p align="center">
   <a href="https://github.com/darksecdevelopers"><img title="Open Source Love" src="https://badges.frapsoft.com/os/v3/open-source.svg?v=102" ></a>
-  <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.5.1&x2=0" ></a>
+  <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.5.2&x2=0" ></a>
   <a href="https://www.codetriage.com/darksecdevelopers/hiddeneye"><img title="Open Source Helpers" src="https://www.codetriage.com/darksecdevelopers/hiddeneye/badges/users.svg" ></a>
 </p>
 
@@ -29,11 +29,14 @@
 8) ___________ (WAITING FOR YOU)
 
 # AVAILABLE TUNNELLING OPTIONS**
+0) LOCALHOST 
 1) LOCALXPOSE (https://localxpose.io)
 2) SERVEO (https://serveo.net/)
 3) NGROK (https://ngrok.com/)
 4) LOCALTUNNEL (Package Version) (https://localtunnel.me)
 5) LOCALTUNNEL (Binary Version) (https://www.wa4e.com/downloads/)
+6) OPENPORT (https://openport.io/)
+7) PAGEKITE (https://pagekite.net/)
 
 # SCREENSHOT (Android-Userland)
 ![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Screenshot.png)
@@ -117,6 +120,11 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 - It Require User's Gmail Username And Password.
 - GMAIL 2FA SHOULD BE DISABLED IN ORDER TO USE GMAIL SMTP.
 - LESS SECURED APPS SHOULD BE TURNED ON (https://myaccount.google.com/lesssecureapps).
+
+**10) CUSTOM TEMPLATES ADDED**
+- Two Extra Custom Templates Added.
+- Now Create Your Templates.
+- Check Instructions At ( Webpages/CUSTOM/manual.txt )
 
 ## FOR FURTHER INSTALLATION PROCEDURE - [(CHECK INSTRUCTIONS)](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/instructions.md)
 
@@ -243,6 +251,16 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 
  **37) PlayStation PHISHING:**
    - Traditional PlayStation Login Page
+ 
+ **38) Xbox PHISHING:**
+   - Traditional Xbox Login Page
+ 
+ **39) CUSTOM(1) PHISHING:**
+   - Host Your Own Phishing Pages
+ 
+ **40) CUSTOM(2) PHISHING:**
+   - Host Your multiple Phishing Pages at once
+   
 </p>
 
 <h3>Ascii error fix</h3>
