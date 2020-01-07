@@ -37,6 +37,13 @@ if checkConnection() == False:
 '''.format(RED, DEFAULT))
     exit()
 
+def checkPHP(): # PHP installation Check
+	if 256 != system('which php > /dev/null'):  # Checking if user have PHP
+		print(" {2}* {0}PHP INSTALLATION FOUND".format(MAIN2, MAIN4, MAIN0))
+	else:
+		print("{0}**{2} PHP NOT FOUND\n {0}** {2} Installing PHP... ".format(MAIN2, MAIN4, MAIN0))
+		system('apt-get install php > /dev/null')
+
 
 def checkNgrok():  # Ngrok check
     if path.isfile('Server/ngrok') == False:  # Is Ngrok downloaded?
@@ -59,6 +66,50 @@ def checkNgrok():  # Ngrok check
         system('rm ' + filename)
         system('clear')
 
+def checkOpenport(): # Openport Check
+	if 256 == system('which openport > /dev/null'):
+		print('[*] Openport not Installed !!')
+		print("[*] Installing Openport...")
+		if 'Android' in str(check_output(('uname', '-a'))) or 'arm' in str(check_output(('uname', '-a'))):
+			filename = 'arm/latest.deb'
+		else:
+			ostype = systemos().lower()
+			if architecture()[0] == '64bit':
+				filename = 'debian64/latest.deb'.format(ostype)
+			else:
+				filename = 'debian32/latest.deb'.format(ostype)
+		url = 'https://openport.io/download/' + filename
+		req = requests.get(url)
+		filename2 = 'openport.deb'
+		with open(filename2, "wb") as file_obj:
+			file_obj.write(req.content)
+		system('chmod 777 openport* && dpkg -i openport* > /dev/null && rm openport.deb && clear')
+		checkOpenportinstall()
+def checkOpenportinstall(): # Check If installed properly
+	if 256 == system('which openport > /dev/null'):
+		print('[*] Openport not Installed correctly, Try installing it manually !!')
+		print('[*] Check Here ... https://openport.io/download')
+		input('/n Press Enter To Continue')
+	else:
+		print('[*] Openport Installation Success !!')
+		sleep(1)
+
+def checkPagekite(): # Check Pagekite
+	if path.isfile('Server/pagekite.py') == False:
+		print('[*] Pagekite Not Found !!')
+		print('[*] Downloading Pagekite...')
+		url = 'https://pagekite.net/pk/pagekite.py'
+		req = requests.get(url)
+		filename = 'pagekite.py'
+		with open(filename, "wb") as file_obj:
+			file_obj.write(req.content)
+		system('chmod 777 pagekite.py && mv pagekite.py Server/pagekite.py')
+		print('\n[*] Pagekite install Success !!')
+		print('\n[!] Remember: Pagekite Supports only Python2, Not Supports Python3')
+		print('[!] So Make Sure You Have installed Python2 as well, if Wants To use Pagekite Tunnel.')
+		system('cd Server && chmod 777 * -R')
+		input('\n Press Enter To Continue')
+		
 
 def checkLocalxpose():  # Localxpose check
     if path.isfile('Server/loclx') == False:  # Is Localxpose downloaded?

