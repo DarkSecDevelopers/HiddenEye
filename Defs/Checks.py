@@ -89,7 +89,7 @@ def checkOpenportinstall(): # Check If installed properly
 	if 256 == system('which openport > /dev/null'):
 		print('[*] Openport not Installed correctly, Try installing it manually !!')
 		print('[*] Check Here ... https://openport.io/download')
-		input('/n Press Enter To Continue')
+		input('\n Press Enter To Continue')
 	else:
 		print('[*] Openport Installation Success !!')
 		sleep(1)
