@@ -41,6 +41,7 @@
 
 # SCREENSHOT (Android-Userland)
 ![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Screenshot.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye?ref=badge_shield)
 
 
 ## CREDIT:-
@@ -152,3 +153,7 @@ The use of the HiddenEye is COMPLETE RESPONSIBILITY of the END-USER. Developers 
 
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye?ref=badge_large)
