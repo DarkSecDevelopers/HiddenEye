@@ -232,7 +232,7 @@
             </div>
         </div>
         <div id="pm_footer">
-            <p><span class="appCopyright-container">2019 ProtonMail.com - Made globally, hosted in Switzerland.</span>
+            <p><span class="appCopyright-container">2020 ProtonMail.com - Made globally, hosted in Switzerland.</span>
                 <a data-prefix="v" href="https://protonmail.com/blog/protonmail-v3-16-release-notes/"
                     title="Wed, 13 Nov 2019 10:13:06 GMT" target="_blank" class="appVersion-container">3.16.7</a></p>
         </div>
