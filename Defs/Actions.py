@@ -1000,8 +1000,6 @@ def addkeylogger():
         sleep(2)
 
 
-
-
 def emailPrompt3(port):  # Ask user to start sending credentials to recipient Email Address.
     choice = input(
         "\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
@@ -1025,13 +1023,9 @@ def emailPrompt3(port):  # Ask user to start sending credentials to recipient Em
 
 def endMessage(port):  # Message when HiddenEye exit
     choice = input(
-        "\n\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(M) : SelectServer(S)\n\n >> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
-    if choice == 'R' or choice == 'r':
-        system('sudo python3 HiddenEye.py')
-    elif choice == 'M' or choice == 'm':
+        "\n\n{0}[{1}?{0}]  Exit(x) : Send Email(M) \n\n >> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
+    if choice == 'M' or choice == 'm':
         emailPrompt3(port)
-    elif choice == 'S' or choice == 's':
-    	returnServer(port)
     elif choice == 'X' or choice == 'x':
         system('clear')
         print('''
@@ -1047,15 +1041,13 @@ def endMessage(port):  # Message when HiddenEye exit
      [{3}!{0}] WE WILL NOT BE RESPONSIBLE FOR ANY MISUSE OF THIS TOOL
 
   {3}  [[*]] THANKS FOR USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n '''.format(MAIN2, MAIN2, MAIN4, MAIN0))
+        exit()
     else:
         system('clear')
         return endMessage(port)
 
 def returnServer(port):
 	selectServer(port)
-
-
-
 
 def getCredentials(port):
     system("fuser -k Server/www/usernames.txt > /dev/null 2>&1")
