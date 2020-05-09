@@ -2,12 +2,12 @@
 #
 # HiddenEye by https://github.com/DarkSecDevelopers
 #
-
 import gettext
 import multiprocessing
 import ssl
 import sys
-from os import environ, system
+from os import environ
+from os import system
 
 from Defs.Actions import *
 from Defs.Checks import *

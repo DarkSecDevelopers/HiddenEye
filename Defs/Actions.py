@@ -1,17 +1,21 @@
 # Any actions must be here
-
 import base64
 import getpass
 import json
 import re
 from distutils.dir_util import copy_tree
-from os import path, system
-from subprocess import CalledProcessError, check_output
-from sys import argv, exit, stdout
+from os import path
+from os import system
+from subprocess import CalledProcessError
+from subprocess import check_output
+from sys import argv
+from sys import exit
+from sys import stdout
 from time import sleep
 from urllib.request import urlopen
 
-from Defs.Configurations import ifSettingsNotExists, readConfig
+from Defs.Configurations import ifSettingsNotExists
+from Defs.Configurations import readConfig
 from Defs.Languages import *
 from Defs.ThemesManager import colorSelector
 
