@@ -3,15 +3,16 @@
 # HiddenEye by https://github.com/DarkSecDevelopers
 #
 
-from Defs.Languages import *
-from Defs.Actions import *
-from Defs.Configurations import *
-from Defs.Checks import *
-import multiprocessing
 import gettext
-import sys
+import multiprocessing
 import ssl
-from os import system, environ
+import sys
+from os import environ, system
+
+from Defs.Actions import *
+from Defs.Checks import *
+from Defs.Configurations import *
+from Defs.Languages import *
 
 if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
     ssl, "_create_unverified_context", None

@@ -1,19 +1,19 @@
 # Any actions must be here
 
-import getpass
 import base64
-from os import system, path
-from distutils.dir_util import copy_tree
-from time import sleep
-import re
+import getpass
 import json
+import re
+from distutils.dir_util import copy_tree
+from os import path, system
+from subprocess import CalledProcessError, check_output
+from sys import argv, exit, stdout
+from time import sleep
 from urllib.request import urlopen
-from subprocess import check_output, CalledProcessError
-from sys import stdout, argv, exit
-from Defs.ThemesManager import colorSelector
-from Defs.Configurations import readConfig, ifSettingsNotExists
-from Defs.Languages import *
 
+from Defs.Configurations import ifSettingsNotExists, readConfig
+from Defs.Languages import *
+from Defs.ThemesManager import colorSelector
 
 installGetText()
 languageSelector()
