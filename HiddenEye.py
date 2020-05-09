@@ -15,10 +15,8 @@ from Defs.Configurations import *
 from Defs.Languages import *
 
 if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
-    ssl, "_create_unverified_context", None
-):
+        ssl, "_create_unverified_context", None):
     ssl._create_default_https_context = ssl._create_unverified_context
-
 
 RED, WHITE, CYAN, GREEN, DEFAULT = (
     "\033[91m",
