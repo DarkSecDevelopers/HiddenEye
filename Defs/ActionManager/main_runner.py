@@ -4,8 +4,6 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
-
-
 import os
 import time
 
@@ -13,11 +11,16 @@ import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_main_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
 import Defs.ThemeManager.theme as theme
-from Defs.ImportManager.unsorted_will_be_replaced import (chmod, copyfile,
-                                                          mkdir, path,
-                                                          pathlib_Path, remove,
-                                                          rmtree, run_command,
-                                                          wait, webpage_set)
+from Defs.ImportManager.unsorted_will_be_replaced import chmod
+from Defs.ImportManager.unsorted_will_be_replaced import copyfile
+from Defs.ImportManager.unsorted_will_be_replaced import mkdir
+from Defs.ImportManager.unsorted_will_be_replaced import path
+from Defs.ImportManager.unsorted_will_be_replaced import pathlib_Path
+from Defs.ImportManager.unsorted_will_be_replaced import remove
+from Defs.ImportManager.unsorted_will_be_replaced import rmtree
+from Defs.ImportManager.unsorted_will_be_replaced import run_command
+from Defs.ImportManager.unsorted_will_be_replaced import wait
+from Defs.ImportManager.unsorted_will_be_replaced import webpage_set
 
 default_palette = theme.default_palette
 module_loading_message = simple_informant.module_loading_message
