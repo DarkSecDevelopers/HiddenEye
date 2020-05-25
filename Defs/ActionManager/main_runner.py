@@ -6,24 +6,18 @@
 #
 
 
-from Defs.ImportManager.unsorted_will_be_replaced import (
-    run_command,
-    webpage_set,
-    wait,
-    path,
-    rmtree,
-    pathlib_Path,
-    copyfile,
-    chmod,
-    mkdir,
-    remove,
-)
-import Defs.ThemeManager.theme as theme
+import os
+import time
+
 import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_main_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
-import os
-import time
+import Defs.ThemeManager.theme as theme
+from Defs.ImportManager.unsorted_will_be_replaced import (chmod, copyfile,
+                                                          mkdir, path,
+                                                          pathlib_Path, remove,
+                                                          rmtree, run_command,
+                                                          wait, webpage_set)
 
 default_palette = theme.default_palette
 module_loading_message = simple_informant.module_loading_message
