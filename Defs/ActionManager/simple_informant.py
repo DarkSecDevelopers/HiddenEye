@@ -5,24 +5,19 @@
 #    under certain conditions; you can read LICENSE for details.
 #
 
-from Defs.ImportManager.unsorted_will_be_replaced import (
-    requests,
-    getuid,
-    platform_os,
-    run_command,
-    try_to_run_command,
-    wait,
-    chmod,
-    stat,
-    pathlib_Path,
-    copyfile,
-    socket,
-)
-import Defs.ThemeManager.theme as theme
-import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.ActionManager.Server.server_runner as server_runner
+import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.LocalizationManager.lang_action_manager.lang_simple_informant as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
+import Defs.ThemeManager.theme as theme
+from Defs.ImportManager.unsorted_will_be_replaced import (chmod, copyfile,
+                                                          getuid, pathlib_Path,
+                                                          platform_os,
+                                                          requests,
+                                                          run_command, socket,
+                                                          stat,
+                                                          try_to_run_command,
+                                                          wait)
 
 default_palette = theme.default_palette
 

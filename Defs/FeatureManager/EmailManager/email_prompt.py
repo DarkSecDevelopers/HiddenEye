@@ -6,16 +6,11 @@
 #
 
 
-from Defs.ImportManager.unsorted_will_be_replaced import (
-    run_command,
-    wait,
-    path,
-    system,
-    getpass,
-    base64,
-    copyfile,
-)
 import Defs.ThemeManager.theme as theme
+from Defs.ImportManager.unsorted_will_be_replaced import (base64, copyfile,
+                                                          getpass, path,
+                                                          run_command, system,
+                                                          wait)
 
 default_palette = theme.default_palette
 
