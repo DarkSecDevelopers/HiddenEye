@@ -12,70 +12,127 @@ from Defs.LocalizationManager.localization import _
 default_palette = theme.default_palette
 
 
-text_to_confirm_license = _('Yes, i do')
+text_to_confirm_license = _("Yes, i do")
 
-write_eula = _("""
+write_eula = _(
+    """
             # To Accept EULA set eula to True
             # Don't accept EULA if you didn't read LICENSE
             
-            """)
+            """
+)
 
 lang_check_php = {
-    "found": _('\n {0}[{1}*{0}] PHP has been found. Proceeding.').format(default_palette[0], default_palette[2]),
-    "not-found": _('\n {0}[{1}*{0}] Unable to find PHP, please install PHP and try again.').format(default_palette[0], default_palette[2])
+    "found": _("\n {0}[{1}*{0}] PHP has been found. Proceeding.").format(
+        default_palette[0], default_palette[2]
+    ),
+    "not-found": _(
+        "\n {0}[{1}*{0}] Unable to find PHP, please install PHP and try again."
+    ).format(default_palette[0], default_palette[2]),
 }
 
 lang_check_permissions = {
-    "permissions_granted": _('{0}Permissions granted!').format(default_palette[0]),
-    "permissions_denied": _('{0}Permissions denied! Please run as {1}sudo{0}').format(default_palette[0], default_palette[2]),
-    "windows_warning": _("\n{0}[{1}!{0}] {1}Windows systems {0}aren't compatible yet. Make sure you're using a  {1}Linux/GNU{0} system.").format(default_palette[0], default_palette[2])
+    "permissions_granted": _("{0}Permissions granted!").format(default_palette[0]),
+    "permissions_denied": _("{0}Permissions denied! Please run as {1}sudo{0}").format(
+        default_palette[0], default_palette[2]
+    ),
+    "windows_warning": _(
+        "\n{0}[{1}!{0}] {1}Windows systems {0}aren't compatible yet. Make sure you're using a  {1}Linux/GNU{0} system."
+    ).format(default_palette[0], default_palette[2]),
 }
 
 lang_verify_connection = {
-    "connected": _('\n {0}[{1}*{0}] INTERNET - {1}[CONNECTED]').format(default_palette[0], default_palette[2]),
-    "disconnected": _('\n {0}[{1}*{0}] INTERNET - {1}[DISCONNECTED]').format(default_palette[0], default_palette[2]),
-    "verify_your_connection": _('\n{0}[{1}!{0}] Network error. Please verify your internet connection.').format(default_palette[2], default_palette[0])
+    "connected": _("\n {0}[{1}*{0}] INTERNET - {1}[CONNECTED]").format(
+        default_palette[0], default_palette[2]
+    ),
+    "disconnected": _("\n {0}[{1}*{0}] INTERNET - {1}[DISCONNECTED]").format(
+        default_palette[0], default_palette[2]
+    ),
+    "verify_your_connection": _(
+        "\n{0}[{1}!{0}] Network error. Please verify your internet connection."
+    ).format(default_palette[2], default_palette[0]),
 }
 
 lang_module_loading_message = {
-    "is_loaded": _('{0} IS LOADED...{0}\n--------------------------------').format(default_palette[0], default_palette[2]),
-    "select_any_mode": _('\n {0}[{1}*{0}] SELECT ANY MODE...{0}\n--------------------------------').format(default_palette[0], default_palette[2])
+    "is_loaded": _("{0} IS LOADED...{0}\n--------------------------------").format(
+        default_palette[0], default_palette[2]
+    ),
+    "select_any_mode": _(
+        "\n {0}[{1}*{0}] SELECT ANY MODE...{0}\n--------------------------------"
+    ).format(default_palette[0], default_palette[2]),
 }
 
-lang_get_ip_addr = {
-    "unable_to_get_ip": 'Unable to get Hostname and IP'
-}
+lang_get_ip_addr = {"unable_to_get_ip": "Unable to get Hostname and IP"}
 
 lang_port_selector = {
-    "website_port_selection": _('\n{0}[ WEBSERVER PORT SELECTION ]{1}! {0}\n-------------------------------').format(default_palette[0], default_palette[2]),
-    "select_any_available_port": _("\n {0}[{1}*{0}]Select Port [1-65535]:{1}").format(default_palette[0], default_palette[4]),
-    "port_suggestion": _('\n {0}[{1}*{0} We suggest using ports between [{1}1024{0}-{1}65535{0}] but you still able to choose any ports you want.').format(default_palette[0], default_palette[4])
+    "website_port_selection": _(
+        "\n{0}[ WEBSERVER PORT SELECTION ]{1}! {0}\n-------------------------------"
+    ).format(default_palette[0], default_palette[2]),
+    "select_any_available_port": _("\n {0}[{1}*{0}]Select Port [1-65535]:{1}").format(
+        default_palette[0], default_palette[4]
+    ),
+    "port_suggestion": _(
+        "\n {0}[{1}*{0} We suggest using ports between [{1}1024{0}-{1}65535{0}] but you still able to choose any ports you want."
+    ).format(default_palette[0], default_palette[4]),
 }
 
 lang_exit_message = {
-    "choice": _('\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(m) : SelectServer(s)\n\n >> {2}').format(default_palette[0], default_palette[4], default_palette[2]),
-    "help_to_improve_this_tool": _('{1}  [[*]] {0}You always can help to improve this tool and support us. {0}').format(default_palette[2], default_palette[0]),
-    "tell_if_page_got_broken": _('{0}[{1}!{0}] If any phishing page got broken, please let us know.').format(default_palette[2], default_palette[0]),
-    "make_your_pull_request_or_issue":  _('{0}[{1}!{0}] You can create issue or pull request on our GitHub page.').format(default_palette[2], default_palette[0]),
-    "small_disclaimer_suggestion": _("{0}[{1}!{0}] We are not responsible for anything you do with this tool, please review license agreement when you have some time. \n{0}[{1}!{0}] We know everyone skips it and just agrees, but please, don't act so irresponsible with any software you use.").format(default_palette[2], default_palette[0]),
-    "forum_suggestion": _('{0}[{1}!{0}] Our website has forum, please visit it, we want to build great community for all of you, we are always happy to have your help.').format(default_palette[2], default_palette[0]),
-    "financial_support": _("{0}[{1}!{0}] If you want to support us with finances - visit our patreon page: (here_will_be_link_soon)").format(default_palette[2], default_palette[0]),
-    "thank_you": _('{0}[{1}!{0}] You help us even when you just use this tool. Everyone at {1}DarkSec{0} happy to have you, thank you very much! Have a nice day!').format(default_palette[2], default_palette[0])
+    "choice": _(
+        "\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(m) : SelectServer(s)\n\n >> {2}"
+    ).format(default_palette[0], default_palette[4], default_palette[2]),
+    "help_to_improve_this_tool": _(
+        "{1}  [[*]] {0}You always can help to improve this tool and support us. {0}"
+    ).format(default_palette[2], default_palette[0]),
+    "tell_if_page_got_broken": _(
+        "{0}[{1}!{0}] If any phishing page got broken, please let us know."
+    ).format(default_palette[2], default_palette[0]),
+    "make_your_pull_request_or_issue": _(
+        "{0}[{1}!{0}] You can create issue or pull request on our GitHub page."
+    ).format(default_palette[2], default_palette[0]),
+    "small_disclaimer_suggestion": _(
+        "{0}[{1}!{0}] We are not responsible for anything you do with this tool, please review license agreement when you have some time. \n{0}[{1}!{0}] We know everyone skips it and just agrees, but please, don't act so irresponsible with any software you use."
+    ).format(default_palette[2], default_palette[0]),
+    "forum_suggestion": _(
+        "{0}[{1}!{0}] Our website has forum, please visit it, we want to build great community for all of you, we are always happy to have your help."
+    ).format(default_palette[2], default_palette[0]),
+    "financial_support": _(
+        "{0}[{1}!{0}] If you want to support us with finances - visit our patreon page: (here_will_be_link_soon)"
+    ).format(default_palette[2], default_palette[0]),
+    "thank_you": _(
+        "{0}[{1}!{0}] You help us even when you just use this tool. Everyone at {1}DarkSec{0} happy to have you, thank you very much! Have a nice day!"
+    ).format(default_palette[2], default_palette[0]),
 }
 
 lang_credentials_collector = {
-    "waiting_for_interaction": _("{0}[{1}*{0}]{1} Waiting For Target Interaction. Keep Eyes On Requests Coming From Target ... \n{2}________________________________________________________________________________\n").format(default_palette[0], default_palette[2], default_palette[4]),
-    "credentials_found": _('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n').format(default_palette[2], default_palette[3]),
-    "device_details_found": _('\n {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n').format(default_palette[2], default_palette[3]),
-    "getting_pressed_keys": _('\n {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n').format(default_palette[2], default_palette[3])
+    "waiting_for_interaction": _(
+        "{0}[{1}*{0}]{1} Waiting For Target Interaction. Keep Eyes On Requests Coming From Target ... \n{2}________________________________________________________________________________\n"
+    ).format(default_palette[0], default_palette[2], default_palette[4]),
+    "credentials_found": _("\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n").format(
+        default_palette[2], default_palette[3]
+    ),
+    "device_details_found": _("\n {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n").format(
+        default_palette[2], default_palette[3]
+    ),
+    "getting_pressed_keys": _("\n {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n").format(
+        default_palette[2], default_palette[3]
+    ),
 }
 
 lang_terms_of_service_message = {
-    "great_power_great_responsibility": _("              {0}WITH GREAT POWER {1}- {0}COMES GREAT RESPONSIBILITY      ").format(default_palette[0], default_palette[2]),
-    "do_you_accept_license": _("{0}Do you accept {1}license{0}?").format(default_palette[2], default_palette[0]),
-    "enter_this_to_confirm": _("{0}Enter: {1}{text_to_confirm}{0} to confirm.").format(default_palette[2], default_palette[0], text_to_confirm=text_to_confirm_license),
-    "you_are_not_allowed": _("{0}You are {1}not allowed {0}to use this app without accepting license.").format(default_palette[2], default_palette[0]),
-    "GPL_3.0": _("""
+    "great_power_great_responsibility": _(
+        "              {0}WITH GREAT POWER {1}- {0}COMES GREAT RESPONSIBILITY      "
+    ).format(default_palette[0], default_palette[2]),
+    "do_you_accept_license": _("{0}Do you accept {1}license{0}?").format(
+        default_palette[2], default_palette[0]
+    ),
+    "enter_this_to_confirm": _("{0}Enter: {1}{text_to_confirm}{0} to confirm.").format(
+        default_palette[2], default_palette[0], text_to_confirm=text_to_confirm_license
+    ),
+    "you_are_not_allowed": _(
+        "{0}You are {1}not allowed {0}to use this app without accepting license."
+    ).format(default_palette[2], default_palette[0]),
+    "GPL_3.0": _(
+        """
                       GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -750,5 +807,6 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
-""")
+"""
+    ),
 }
