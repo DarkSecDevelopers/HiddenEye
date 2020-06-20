@@ -10,7 +10,6 @@
 import Defs.ThemeManager.theme as theme
 from Defs.LocalizationManager.localization import _
 
-
 default_palette = theme.default_palette
 
 

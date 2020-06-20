@@ -6,24 +6,18 @@
 #
 
 
-from Defs.ImportManager.unsorted_will_be_replaced import (
-    run_command,
-    webpage_set,
-    wait,
-    path,
-    rmtree,
-    pathlib_Path,
-    copyfile,
-    chmod,
-    mkdir,
-    remove,
-)
+import os
+import time
+
 import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_main_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
+from Defs.ImportManager.unsorted_will_be_replaced import (chmod, copyfile,
+                                                          mkdir, path,
+                                                          pathlib_Path, remove,
+                                                          rmtree, run_command,
+                                                          wait, webpage_set)
 from Defs.LocalizationManager.helper import print_sorted_as_menu
-import os
-import time
 
 module_loading_message = simple_informant.module_loading_message
 

@@ -6,33 +6,17 @@
 #
 
 
-from Defs.ImportManager.unsorted_will_be_replaced import (
-    BytesIO,
-    ZipFile,
-    run_command,
-    url_request,
-    run_background_command,
-    wait,
-    ngrok,
-    ngrok_conf,
-    requests,
-    regular_expression,
-    check_output,
-    CalledProcessError,
-    chdir,
-    chmod,
-    DEVNULL,
-    PIPE,
-    path,
-    pathlib_Path,
-)
+import os
 
-import Defs.ThemeManager.theme as theme
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
-from Defs.LocalizationManager.helper import print_sorted_as_menu
+import Defs.ThemeManager.theme as theme
 from Defs.ActionManager import simple_informant
-import os
+from Defs.ImportManager.unsorted_will_be_replaced import (
+    DEVNULL, PIPE, BytesIO, CalledProcessError, ZipFile, chdir, check_output,
+    chmod, ngrok, ngrok_conf, path, pathlib_Path, regular_expression, requests,
+    run_background_command, run_command, url_request, wait)
+from Defs.LocalizationManager.helper import print_sorted_as_menu
 
 try:
     os.mkdir("Server/www")
