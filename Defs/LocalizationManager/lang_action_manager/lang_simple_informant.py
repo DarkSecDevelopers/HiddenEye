@@ -16,7 +16,7 @@ write_eula = _(
     """
             # To Accept EULA set eula to True
             # Don't accept EULA if you didn't read LICENSE
-            
+
             """
 )
 

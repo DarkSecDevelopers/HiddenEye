@@ -296,7 +296,7 @@ def check_php():
 
 
 def check_platform(required_data):
-    """Checks system for specific platform related data and returns requested value. 
+    """Checks system for specific platform related data and returns requested value.
 
     Args:
         required_data (string): accepts "system" or "architecture"

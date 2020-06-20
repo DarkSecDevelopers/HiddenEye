@@ -1258,4 +1258,3 @@ msgid ""
 "Public License instead of this License.  But first, please read\n"
 "<https://www.gnu.org/licenses/why-not-lgpl.html>.\n"
 msgstr ""
-
