@@ -21,22 +21,24 @@ def check_version():  # WILL BE MOVED FROM HERE
 version = check_version()
 
 lang_start_main_menu = {
-    "version_by_darksec": _(
-        "                                              {2}[{0}v {3}{2}]{0} BY:DARKSEC{1}"
-    ).format(default_palette[4], default_palette[2], default_palette[0], version),
-    "short_description": _(
-        "{1}[{0} Modern Phishing Tool With Advanced Functionality {1}]"
-    ).format(default_palette[2], default_palette[0]),
-    "features_summary": _(
-        "{1}[{0} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {1}]"
-    ).format(default_palette[2], default_palette[0]),
-    "down_line": "{0}________________________________________________________________________________".format(
-        default_palette[0]
-    ),
-    "attack_vector_message": _(
-        "------------------------\nSELECT ANY ATTACK VECTOR:\n------------------------"
-    ),
-    "phishing_modules_header": _("\n{0}PHISHING-MODULES:").format(default_palette[0]),
+    "version_by_darksec":
+    _("                                              {2}[{0}v {3}{2}]{0} BY:DARKSEC{1}"
+      ).format(default_palette[4], default_palette[2], default_palette[0],
+               version),
+    "short_description":
+    _("{1}[{0} Modern Phishing Tool With Advanced Functionality {1}]").format(
+        default_palette[2], default_palette[0]),
+    "features_summary":
+    _("{1}[{0} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {1}]"
+      ).format(default_palette[2], default_palette[0]),
+    "down_line":
+    "{0}________________________________________________________________________________"
+    .format(default_palette[0]),
+    "attack_vector_message":
+    _("------------------------\nSELECT ANY ATTACK VECTOR:\n------------------------"
+      ),
+    "phishing_modules_header":
+    _("\n{0}PHISHING-MODULES:").format(default_palette[0]),
     "phishing_modules_list": [
         [
             "{0}[{1}01{0}]{1} Facebook",
@@ -87,7 +89,10 @@ lang_start_main_menu = {
             "{0}[{1}21{0}]{1} Spotify",
             "{0}[{1}33{0}]{1} Verizon",
         ],
-        ["{0}[{1}10{0}]{1} Yahoo", "{0}[{1}22{0}]{1} Quora", "{0}[{1}34{0}]{1} Yandex"],
+        [
+            "{0}[{1}10{0}]{1} Yahoo", "{0}[{1}22{0}]{1} Quora",
+            "{0}[{1}34{0}]{1} Yandex"
+        ],
         [
             "{0}[{1}11{0}]{1} Twitch",
             "{0}[{1}23{0}]{1} PornHub",
@@ -99,21 +104,22 @@ lang_start_main_menu = {
             "{0}[{1}36{0}]{1} Subito.it",
         ],
     ],
-    "additional_modules": _("\n{0}ADDITIONAL-TOOLS:").format(default_palette[0]),
+    "additional_modules":
+    _("\n{0}ADDITIONAL-TOOLS:").format(default_palette[0]),
     "additional_modules_list": [[_("{0}[{1}0A{0}]{1} Get Target Location")]],
-    "operation_mode": _("\nOperation mode:\n"),
+    "operation_mode":
+    _("\nOperation mode:\n"),
     "facebook_operation_modes": [
         [
             _("{0}[{1}1{0}]{1} Standard Page Phishing"),
-            _("{0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode)"),
+            _("{0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode)"
+              ),
         ],
         [
-            _(
-                "{0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)"
-            ),
-            _(
-                "{0}[{1}4{0}]{1} Facebook Phishing-Messenger Credentials(messenger_mode)"
-            ),
+            _("{0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)"
+              ),
+            _("{0}[{1}4{0}]{1} Facebook Phishing-Messenger Credentials(messenger_mode)"
+              ),
         ],
     ],
     "google_operation_modes": [
@@ -126,69 +132,64 @@ lang_start_main_menu = {
     "instagram_operation_modes": [
         [
             _("{0}[{1}1{0}]{1} Standard Instagram Web Page Phishing"),
-            _(
-                "{0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge)"
-            ),
+            _("{0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge)"
+              ),
         ],
         [
-            _("{0}[{1}2{0}]{1} Instagram Autoliker Phishing (To Lure The Users)"),
+            _("{0}[{1}2{0}]{1} Instagram Autoliker Phishing (To Lure The Users)"
+              ),
             _("{0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers)"),
         ],
         [
-            _(
-                "{0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)"
-            )
+            _("{0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)"
+              )
         ],
     ],
-    "VK_operation_modes": [
-        [
-            _("{0}[{1}1{0}]{1} Standard VK Web Page Phishing"),
-            _("{0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)"),
-        ]
-    ],
-    "reddit_operation_modes": [
-        [_("{0}[{1}1{0}]{1} New reddit page"), _("{0}[{1}2{0}]{1} Old reddit page")]
-    ],
-    "additional_module_location_operation_modes": [
-        [
-            _("{0}[{1}1{0}]{1} NEAR YOU (Webpage Looks Like Legitimate)"),
-            _(
-                "{0}[{1}2{0}]{1} GDRIVE (Asks For Location Permission To redirect GDRIVE)"
-            ),
-        ]
-    ],
+    "VK_operation_modes": [[
+        _("{0}[{1}1{0}]{1} Standard VK Web Page Phishing"),
+        _("{0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)"),
+    ]],
+    "reddit_operation_modes": [[
+        _("{0}[{1}1{0}]{1} New reddit page"),
+        _("{0}[{1}2{0}]{1} Old reddit page")
+    ]],
+    "additional_module_location_operation_modes": [[
+        _("{0}[{1}1{0}]{1} NEAR YOU (Webpage Looks Like Legitimate)"),
+        _("{0}[{1}2{0}]{1} GDRIVE (Asks For Location Permission To redirect GDRIVE)"
+          ),
+    ]],
 }
 lang_start_phishing_page = {
-    "custom_folder_directory": _(
-        "\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/{page}"
-    ).format(default_palette[0], default_palette[4], page="page"),
-    "manual_reading_suggestion": _(
-        "\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/{page}]"
-    ).format(default_palette[0], default_palette[4], page="page"),
-    "press_enter_to_contunue_if_setup_correctly": _(
-        "\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue."
-    ).format(default_palette[0], default_palette[4]),
-    "copying_your_files": _(
-        "\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder..."
-    ).format(default_palette[0], default_palette[4]),
-    "https_suggestion": _(
-        "\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n"
-    ).format(default_palette[0], default_palette[4]),
-    "gdrive_suggestion": _(
-        "{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked."
-    ).format(default_palette[0], default_palette[4]),
+    "custom_folder_directory":
+    _("\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/{page}").
+    format(default_palette[0], default_palette[4], page="page"),
+    "manual_reading_suggestion":
+    _("\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/{page}]"
+      ).format(default_palette[0], default_palette[4], page="page"),
+    "press_enter_to_contunue_if_setup_correctly":
+    _("\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue."
+      ).format(default_palette[0], default_palette[4]),
+    "copying_your_files":
+    _("\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...").format(
+        default_palette[0], default_palette[4]),
+    "https_suggestion":
+    _("\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n"
+      ).format(default_palette[0], default_palette[4]),
+    "gdrive_suggestion":
+    _("{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked."
+      ).format(default_palette[0], default_palette[4]),
 }
 
 lang_enter_custom_redirecting_url = {
-    "enter_redirecting_url_header": _(
-        "{0}\n-------------------------------\n{1}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------"
-    ).format(default_palette[0], default_palette[2]),
-    "enter_redirecting_url_prompt": _(
-        "\n{0}[{1}*{0}]Insert a custom redirect url:"
-    ).format(default_palette[0], default_palette[4]),
-    "redirect_here": _("\n{0}REDIRECT HERE>>> {1}").format(
-        default_palette[0], default_palette[2]
-    ),
+    "enter_redirecting_url_header":
+    _("{0}\n-------------------------------\n{1}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------"
+      ).format(default_palette[0], default_palette[2]),
+    "enter_redirecting_url_prompt":
+    _("\n{0}[{1}*{0}]Insert a custom redirect url:").format(
+        default_palette[0], default_palette[4]),
+    "redirect_here":
+    _("\n{0}REDIRECT HERE>>> {1}").format(default_palette[0],
+                                          default_palette[2]),
 }
 
 #

