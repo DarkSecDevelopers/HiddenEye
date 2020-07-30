@@ -5,7 +5,6 @@
 #    under certain conditions; you can read LICENSE for details.
 #
 
-
 gmail_account = "GMAILACCOUNT"
 gmail_password = "GMAILPASSWORD"
 recipient_email = "RECIPIENTEMAIL"
