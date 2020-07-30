@@ -1,21 +1,19 @@
-version: '3.7'
+version: "3.7"
 
 networks:
-    internet:
-        driver: bridge
+  internet:
+    driver: bridge
 
-services: 
-
-    hidden:
-        container_name: hidden
-        build: .
-        image: hidden:v0.1
-        command: python3 HiddenEye.py
-        stdin_open: true
-        tty: true
-        volumes: 
-            - $PWD/WebPages:/home/WebPages
-        networks:
-            - internet
-        restart: always
-
+services:
+  hidden:
+    container_name: hidden
+    build: .
+    image: hidden:v0.1
+    command: python3 HiddenEye.py
+    stdin_open: true
+    tty: true
+    volumes:
+      - $PWD/WebPages:/home/WebPages
+    networks:
+      - internet
+    restart: always
