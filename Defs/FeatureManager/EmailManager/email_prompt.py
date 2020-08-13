@@ -5,10 +5,13 @@
 #    under certain conditions; you can read LICENSE for details.
 #
 import Defs.ThemeManager.theme as theme
-from Defs.ImportManager.unsorted_will_be_replaced import (base64, copyfile,
-                                                          getpass, path,
-                                                          run_command, system,
-                                                          wait)
+from Defs.ImportManager.unsorted_will_be_replaced import base64
+from Defs.ImportManager.unsorted_will_be_replaced import copyfile
+from Defs.ImportManager.unsorted_will_be_replaced import getpass
+from Defs.ImportManager.unsorted_will_be_replaced import path
+from Defs.ImportManager.unsorted_will_be_replaced import run_command
+from Defs.ImportManager.unsorted_will_be_replaced import system
+from Defs.ImportManager.unsorted_will_be_replaced import wait
 
 default_palette = theme.default_palette
 
