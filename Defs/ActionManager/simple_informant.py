@@ -9,15 +9,11 @@ import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.LocalizationManager.lang_action_manager.lang_simple_informant as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
 import Defs.ThemeManager.theme as theme
-from Defs.ImportManager.unsorted_will_be_replaced import chmod
-from Defs.ImportManager.unsorted_will_be_replaced import copyfile
-from Defs.ImportManager.unsorted_will_be_replaced import getuid
-from Defs.ImportManager.unsorted_will_be_replaced import pathlib_Path
-from Defs.ImportManager.unsorted_will_be_replaced import platform
-from Defs.ImportManager.unsorted_will_be_replaced import requests
-from Defs.ImportManager.unsorted_will_be_replaced import run_command
-from Defs.ImportManager.unsorted_will_be_replaced import stat
-from Defs.ImportManager.unsorted_will_be_replaced import try_to_run_command
+from Defs.ImportManager.unsorted_will_be_replaced import (chmod, copyfile,
+                                                          getuid, pathlib_Path,
+                                                          platform, requests,
+                                                          run_command, stat,
+                                                          try_to_run_command)
 
 default_palette = theme.default_palette
 

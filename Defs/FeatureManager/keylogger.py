@@ -5,9 +5,8 @@
 #    under certain conditions; you can read LICENSE for details.
 #
 import Defs.ThemeManager.theme as theme
-from Defs.ImportManager.unsorted_will_be_replaced import path
-from Defs.ImportManager.unsorted_will_be_replaced import run_command
-from Defs.ImportManager.unsorted_will_be_replaced import wait
+from Defs.ImportManager.unsorted_will_be_replaced import (path, run_command,
+                                                          wait)
 
 default_palette = theme.default_palette
 
