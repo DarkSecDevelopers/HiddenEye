@@ -12,8 +12,9 @@ import Defs.ActionManager.main_runner as main_runner
 import Defs.ActionManager.Server.server_runner as server_runner
 import Defs.ActionManager.simple_informant as simple_informant
 import Defs.FeatureManager.feature_prompt as prompt
-from controllers.EULA_controller import EULAController
 from controllers.connection_controller import ConnectionController
+from controllers.EULA_controller import EULAController
+
 if EULAController().check_eula_existence() is False:
     EULAController().generate_new_eula()
 if EULAController().check_eula_confirmation() is False:

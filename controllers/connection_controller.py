@@ -1,6 +1,6 @@
+import requests
 from models.connection_model import ConnectionModel
 from views.connection_view import ConnectionView
-import requests
 
 
 class ConnectionController:

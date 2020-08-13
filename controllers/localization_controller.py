@@ -1,5 +1,6 @@
-from models.localization_model import LocalizationModel
 import gettext
+
+from models.localization_model import LocalizationModel
 
 
 class LocalizationController:
