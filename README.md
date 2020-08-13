@@ -2,19 +2,19 @@
   <a><img title="Built With Love" src="https://forthebadge.com/images/badges/built-with-love.svg" ></a>
  </p>
 <p align="center">
-  <img src="logo.png">  
+  <img src="logo.png">
 </p>
 
 <p align="center">
-      Modern Phishing Tool With Advanced Functionality 
+      Modern Phishing Tool With Advanced Functionality
 </p>
 <p align="center">
-     PHISHING | KEYLOGGER | INFORMATION_COLLECTOR | ALL_IN_ONE_TOOL | SOCIALENGINEERING  
+     PHISHING | KEYLOGGER | INFORMATION_COLLECTOR | ALL_IN_ONE_TOOL | SOCIALENGINEERING
 </p>
 
 <p align="center">
   <a href="https://github.com/darksecdevelopers"><img title="Open Source Love" src="https://badges.frapsoft.com/os/v2/open-source.png?v=103" ></a>
-  <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=1.0.0&x2=0" ></a>  
+  <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=1.0.0&x2=0" ></a>
   <a href="https://www.codefactor.io/repository/github/darksecdevelopers/hiddeneye"><img src="https://www.codefactor.io/repository/github/darksecdevelopers/hiddeneye/badge" alt="CodeFactor" /></a>
   <a href="https://www.codacy.com/manual/DarkSecDevelopers/HiddenEye?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DarkSecDevelopers/HiddenEye&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/af9fadca3cfc4de19232d0840988e121"/></a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye?ref=badge_shield><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye.svg?type=shield"/></a>
@@ -45,7 +45,7 @@ The use of the HiddenEye & its resources/phishing-pages is **COMPLETE RESPONSIBI
 8) ___________ (WAITING FOR YOU)
 
 # AVAILABLE TUNNELLING OPTIONS**
-0) LOCALHOST 
+0) LOCALHOST
 1) LOCALXPOSE (https://localxpose.io)
 2) SERVEO (https://serveo.net/)
 3) NGROK (https://ngrok.com/)
@@ -62,7 +62,7 @@ The use of the HiddenEye & its resources/phishing-pages is **COMPLETE RESPONSIBI
 * Usama ( A Most active Developer)
 * sTiKyt ( Guy Who recustomized everything )
 * UNDEADSEC (For their wonderful repo socialfish which motivated us a lot)
-* TheLinuxChoice ( For His Tools Phishing Pages ) 
+* TheLinuxChoice ( For His Tools Phishing Pages )
 * Thewhiteh4t (For Nearyou & Gdrive Location Templates)
 
 ### TESTED ON FOLLOWING:-
@@ -108,7 +108,7 @@ The use of the HiddenEye & its resources/phishing-pages is **COMPLETE RESPONSIBI
 
 **(A) UserLand App**
 - You Have to Download UserLand App. [Click Here](https://play.google.com/store/apps/details?id=tech.ula) To Download it.
-- To read more how to set up userland app Read <a href="https://null-byte.wonderhowto.com/how-to/android-for-hackers-turn-android-phone-into-hacking-device-without-root-0189649/">HERE</a></p> 
+- To read more how to set up userland app Read <a href="https://null-byte.wonderhowto.com/how-to/android-for-hackers-turn-android-phone-into-hacking-device-without-root-0189649/">HERE</a></p>
 
 **(B) Termux App**
   - You Have to Download Termux App. [Click Here](https://play.google.com/store/apps/details?id=com.termux) To Download it.
@@ -149,7 +149,7 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
   - NEAR YOU (By @thewhiteh4t )
   - GDRIVE (By @thewhiteh4t)
 ## [Check This](https://youtu.be/InSdtLhZzk4) Demonstration video to know How (Location) Social-Engineering-Tool Works.
- 
+
 ## FOR FURTHER INSTALLATION PROCEDURE - [(CHECK INSTRUCTIONS)](https://github.com/DarkSecDevelopers/HiddenEye/wiki/Installation-Instructions)
 
 ## BACKUP REPOSITORY AVAILABLE AT GITLAB - [(CHECK HERE)](https://gitlab.com/an0nud4y/HiddenEye)
