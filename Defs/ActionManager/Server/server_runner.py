@@ -6,7 +6,7 @@
 #
 
 
-from Defs.ImportManager.unsorted_will_be_replaced import run_command, run_background_command, wait, ngrok, requests, \
+from Defs.ImportManager.unsorted_will_be_replaced import run_command, run_background_command, wait, ngrok, check_process, kill, signal, requests, \
     regular_expression, check_output, CalledProcessError, chdir, chmod, DEVNULL, PIPE, path
 import Defs.ThemeManager.theme as theme
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
@@ -140,7 +140,10 @@ def start_ngrok(port):
     ngrok.DEFAULT_CONFIG_PATH = ".config/ngrok.yml"
     # ngrok.set_auth_token("<NGROK_AUTH_TOKEN>") # Will be easier to input
     # later
-    run_command(['killall', '-2', 'ngrok'], stdout=DEVNULL, stderr=DEVNULL)
+    pid = check_process("ngrok")
+    for p in pid:
+    	kill(p, signal.SIGKILL)
+	# continue
     run_command('clear')
     # print('''
     #    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}

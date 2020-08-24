@@ -1,4 +1,5 @@
 
 requests==2.23.0
 pyngrok==3.1.1
-
+pgrep==2020.7.1
+kill==2020.7.1
