@@ -6,29 +6,16 @@
 #
 
 
-from Defs.ImportManager.unsorted_will_be_replaced import (
-    run_command,
-    run_background_command,
-    wait,
-    ngrok,
-    check_process,
-    kill,
-    signal,
-    requests,
-    regular_expression,
-    check_output,
-    CalledProcessError,
-    chdir,
-    chmod,
-    DEVNULL,
-    PIPE,
-    path,
-)
-import Defs.ThemeManager.theme as theme
+import os
+
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
+import Defs.ThemeManager.theme as theme
+from Defs.ImportManager.unsorted_will_be_replaced import (
+    DEVNULL, PIPE, CalledProcessError, chdir, check_output, check_process,
+    chmod, kill, ngrok, path, regular_expression, requests,
+    run_background_command, run_command, signal, wait)
 from Defs.LocalizationManager.helper import print_sorted_as_menu
-import os
 
 try:
     os.mkdir("Server/www")
