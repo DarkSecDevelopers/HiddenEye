@@ -207,7 +207,7 @@ def global_message():
     print(global_localization.line_of_dots)
 
 
-def verify_connection(host='https://dark-sec-official.com'):  # Connection check
+def verify_connection(host='https://google.com'):  # Connection check
     run_command('clear')
     try:
         req = requests.get(host, timeout=25)
