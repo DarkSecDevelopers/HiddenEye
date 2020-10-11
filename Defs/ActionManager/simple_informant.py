@@ -257,51 +257,6 @@ def global_message():
     print(global_localization.line_of_dots)
 
 
-# def verify_connection(
-#         host="https://dark-sec-official.com"):  # Connection check
-#     run_command("clear")
-#     try:
-#         req = requests.get(host, timeout=25)
-#         if req.status_code == 200:
-#             print(localization.lang_verify_connection["connected"])
-#             pass
-#     except ConnectionError:
-#         print(global_localization.hidden_eye_logo)
-#         print(localization.lang_verify_connection["disconnected"])
-#         print(localization.lang_verify_connection["verify_your_connection"])
-#         print(localization.lang_verify_connection["continue_warning"])
-#         print(localization.lang_verify_connection["continue_confirmation"])
-#         internet_choice = input(global_localization.input_line).lower()
-#         if internet_choice == "y":
-#             pass
-#         elif internet_choice == "n":
-#             run_command("clear")
-#             print(global_localization.hidden_eye_logo)
-#             print("                             " +
-#                   global_localization.by_darksec)
-#             print("                       " +
-#                   global_localization.official_website_link)
-#             print(localization.lang_exit_message["help_to_improve_this_tool"])
-#             print(localization.lang_exit_message["tell_if_page_got_broken"])
-#             print(localization.
-#                   lang_exit_message["make_your_pull_request_or_issue"])
-#             print(
-#                 localization.lang_exit_message["small_disclaimer_suggestion"])
-#             print(localization.lang_exit_message["forum_suggestion"])
-#             print(localization.lang_exit_message["financial_support"])
-#             print(localization.lang_exit_message["thank_you"])
-#             exit()
-#         else:
-#             verify_connection()
-
-
-# def check_permissions():
-#     if check_platform("system") == "Linux":
-#         if getuid() == 0:
-#             print(localization.lang_check_permissions["permissions_granted"])
-#         else:
-#             print(localization.lang_check_permissions["permissions_denied"])
-#             exit()
 
 
 def check_php():
