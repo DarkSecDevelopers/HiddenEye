@@ -1,7 +1,7 @@
-from pyngrok import ngrok
+from pyngrok import conf as pyngrok_config
 from pyngrok import exception as pyngrok_exceptions
 from pyngrok import installer as pyngrok_installer
-from pyngrok import conf as pyngrok_config
+from pyngrok import ngrok
 
 
 class NgrokController:
@@ -19,18 +19,20 @@ class NgrokController:
         try:
             self._model.disconnect(self._ngrok_url)
         except self._exceptions.PyngrokError:
-            print("Can't find any latest connections.")  # FIXME replace with View entry
+            # FIXME replace with View entry
+            print("Can't find any latest connections.")
             pass
 
     def maintain_default_config(self):
         self._installer.install_default_config(self._config_path)
 
-
     def activate_config_path(self):
-        self._ngrok_config = self._config.PyngrokConfig(config_path=self._config_path)
+        self._ngrok_config = self._config.PyngrokConfig(
+            config_path=self._config_path)
 
     def establish_connection(self, port='80'):
-        self._model.connect(port=port, name='HiddenEye Connection', pyngrok_config=self._ngrok_config)
+        self._model.connect(port=port, name='HiddenEye Connection',
+                            pyngrok_config=self._ngrok_config)
 
     def obtain_tunnels(self):
         self._tunnels = self._model.get_tunnels()
@@ -41,4 +43,3 @@ class NgrokController:
 
     def obtain_ngrok_url(self):
         self._ngrok_url = self._tunnels[0]
-
