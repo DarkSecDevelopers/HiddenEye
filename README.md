@@ -96,6 +96,9 @@ software to test person or company without **WRITTEN PERMISSION** from them.
 - sudo
 - pyngrok
 
+# INSTALLING REQUIREMENTS
+-sudo -H pip3 install -r requirements.txt
+
 # FOUND A BUG ? / HAVE ANY ISSUE ? :- (Read This)
 
 - Check closed & solved issues/bugs before opening new.
