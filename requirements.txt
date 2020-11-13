@@ -5,6 +5,6 @@ idna==2.10
 pyngrok==4.1.12
 PyYAML==5.3.1
 requests==2.23.0
-urllib3==1.25.10
+urllib3==1.26.2
 pgrep==2020.7.1
 kill==2020.7.1
